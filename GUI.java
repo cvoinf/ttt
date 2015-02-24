@@ -142,6 +142,7 @@ public class GUI extends EBAnwendung
     public void WuerfelnGeklickt()
     {
         echo.send("wuerfeln");
+        Würfeln.deaktiviere();
     }
 
 
@@ -152,7 +153,7 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: deaktiviere()");
+      if ( DEBUG == true) System.out.println("GUI: deaktiviere()");
     }
 
     /**
@@ -267,7 +268,7 @@ public class GUI extends EBAnwendung
 
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
-        
+        Würfeln.aktiviere();
         if ( DEBUG == true) System.out.println("GUI: es wurde gewürfelt!");
     }
 
