@@ -1,0 +1,73 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Programme\Java\jdk1.7.0_45\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-source
+1.7
+-noindex
+-notree
+-nohelp
+-nonavbar
+-d
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc
+-classpath
+C:\Programme\BlueJ\lib\bluejcore.jar;C:\Programme\BlueJ\lib\junit-4.8.2.jar;C:\Programme\BlueJ\lib\userlib\xstream-1.1.2.jar;C:\Programme\BlueJ\lib\userlib\SuMKern.jar;C:\Programme\BlueJ\lib\userlib\SuMKomponenten.jar;C:\Programme\BlueJ\lib\userlib\bluejext.jar;C:\Programme\BlueJ\lib\userlib\xpp3_min-1.1.3.4.I.jar;C:\Programme\BlueJ\lib\userlib\SuMWerkzeuge.jar;C:\Programme\BlueJ\lib\userlib\SuMEreignis.jar;C:\Programme\BlueJ\lib\userlib\mysql-connector-java-5.1.15-bin.jar;C:\Programme\BlueJ\lib\userlib\SuMMultimedia.jar;C:\Programme\BlueJ\lib\userlib\SuMNetz.jar;C:\Programme\BlueJ\lib\userlib\QTJava.zip;C:\Programme\BlueJ\lib\userlib\SuMSQL.jar;C:\Programme\BlueJ\lib\userlib\SuMStrukturen.jar;D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe
+-encoding
+UTF-8
+-charset
+UTF-8
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Echoserver.java
+<---- end of javadoc command ---->
+Loading source file D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Echoserver.java...
+Constructing Javadoc information...
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\List.java:15: error: unmappable character for encoding UTF-8
+ * Au?erdem kann das dem aktuellen Objekt folgende Listenobjekt 
+     ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\List.java:18: error: unmappable character for encoding UTF-8
+ * Objekt ein Listenobjekt eingef?gt werden.</p>
+                                 ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\List.java:94: error: unmappable character for encoding UTF-8
+     * es nach Ausf?hrung des Auftrags kein aktuelles Objekt, 
+                   ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:10: error: unmappable character for encoding UTF-8
+ * <p>Objekte der Klasse Connection erm?glichen eine Netzwerkverbindung mit
+                                       ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:11: error: unmappable character for encoding UTF-8
+ * dem TCP/IP-Protokoll. Es k?nnen nach Verbindungsaufbau zu einem Server
+                             ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:14: error: unmappable character for encoding UTF-8
+ * Zeilentrenner erg?nzt und beim Empfangen wird er entfernt.</p>
+                    ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:30: error: unmappable character for encoding UTF-8
+     *  Server aufgebaut, so dass Daten gesendet und empfangen werden k?nnen.
+                                                                       ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:67: error: unmappable character for encoding UTF-8
+     * Nachricht zur?ckgegeben, wobei der vom Server angeh?ngte Zeilentrenner
+                    ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:67: error: unmappable character for encoding UTF-8
+     * Nachricht zur?ckgegeben, wobei der vom Server angeh?ngte Zeilentrenner
+                                                          ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:68: error: unmappable character for encoding UTF-8
+     * entfernt wird. W?hrend des Wartens ist der ausf?hrende Prozess blockiert.
+                       ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Connection.java:68: error: unmappable character for encoding UTF-8
+     * entfernt wird. W?hrend des Wartens ist der ausf?hrende Prozess blockiert.
+                                                      ^
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Echoserver.java:6: warning - @author tag has no arguments.
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Echoserver.java:6: warning - @version tag has no arguments.
+Standard Doclet version 1.7.0_45
+Building tree for all the packages and classes...
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\Echoserver.html...
+D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\Echoserver.java:121: warning - @ is an unknown tag.
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\package-frame.html...
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\package-summary.html...
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\allclasses-frame.html...
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\allclasses-noframe.html...
+Generating D:\Info\Netzwerk\Tic Tac Toe\NetzwerkTicTacToe\doc\index.html...
+14 warnings
