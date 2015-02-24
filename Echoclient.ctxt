@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=pIP\ pPort\ pGUI
-comment0.target=Echoclient(java.lang.String,\ int,\ GUI)
-comment1.params=text
-comment1.target=void\ processMessage(java.lang.String)
-comment2.params=bigBox\ row\ column
-comment2.target=void\ knopfGedrueckt(int,\ int,\ int)
-numComments=3

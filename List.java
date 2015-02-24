@@ -12,10 +12,10 @@
  * das aktuelle Objekt am Ende der Liste geloescht wurde, gibt es 
  * kein aktuelles Objekt. Das erste oder das letzte Objekt einer 
  * Liste koennen durch einen Auftrag zum aktuellen Objekt gemacht werden. 
- * Außerdem kann das dem aktuellen Objekt folgende Listenobjekt 
+ * AuÃŸerdem kann das dem aktuellen Objekt folgende Listenobjekt 
  * zum neuen aktuellen Objekt werden. Das aktuelle Objekt kann gelesen, 
  * veraendert oder geloescht werden. Ausserdem kann vor dem aktuellen 
- * Objekt ein Listenobjekt eingefügt werden.</p>
+ * Objekt ein Listenobjekt eingefï¿½gt werden.</p>
  * 
  * <p>NW-Arbeitsgruppe: Materialentwicklung zum Zentralabitur 
  * im Fach Informatik</p>
@@ -91,7 +91,7 @@ public class List
      * Objekt gibt und dieses nicht das letzte Objekt der 
      * Liste ist, wird das dem aktuellen Objekt in der Liste 
      * folgende Objekt zum aktuellen Objekt, andernfalls gibt 
-     * es nach Ausführung des Auftrags kein aktuelles Objekt, 
+     * es nach Ausfï¿½hrung des Auftrags kein aktuelles Objekt, 
      * d.h. hasAccess() liefert den Wert false.
      */
     public void next() { 
