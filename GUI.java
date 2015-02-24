@@ -107,7 +107,7 @@ public class GUI extends EBAnwendung
                 }  
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: es wurden alle Knöpfe erzeugt.");
+        if ( DEBUG == true) System.out.println("GUI: Es wurden alle Knöpfe erzeugt.");
         /**
          * Es werden Knöpfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Würfeln und das Textfeld für die Ausgabe des Würfelergebnisses.
          */
@@ -133,7 +133,7 @@ public class GUI extends EBAnwendung
     {
         echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
 
-        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " + "IP" +textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
+        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
     }
 
     /**
@@ -266,6 +266,8 @@ public class GUI extends EBAnwendung
             break;
 
         }
+        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        
         if ( DEBUG == true) System.out.println("GUI: es wurde gewürfelt!");
     }
 
