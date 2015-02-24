@@ -266,6 +266,8 @@ public class GUI extends EBAnwendung
             break;
 
         }
+        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        
         if ( DEBUG == true) System.out.println("GUI: es wurde gewürfelt!");
     }
 
