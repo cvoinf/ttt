@@ -28,5 +28,6 @@ TODO:
 * Wer nicht dran ist, sollte nicht würfeln können
 * Spielfeld muss deferenziert verschickt werden
 * Row und Column sind vertauscht
-* Spieler 1 und 2 wird nicht unterschieden
-* gedrückte Felder sollte man nicht nochmal klicken können
+* Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
+
+

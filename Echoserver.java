@@ -239,7 +239,7 @@ public class Echoserver extends Server
             {
                 System.out.println("Server: Spielfeld an beide übergeben: "+ spielfeldAusgeben());
             }
-            if (spieler1Dran && !spielVorbei)
+            if (spieler1Dran)
             {
                 send(spieler2, spieler2Port, "zugBeginnt: ");
                 send(spieler1, spieler1Port, "nichtAmZug: ");
@@ -250,7 +250,7 @@ public class Echoserver extends Server
                         System.out.println("Spieler 2 dran");
                     }
             }
-            else if (spieler2Dran && !spielVorbei)
+            else if (spieler2Dran)
             {
                 send(spieler1, spieler1Port, "zugBeginnt: ");
                 send(spieler2, spieler2Port, "nichtAmZug: ");
