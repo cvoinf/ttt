@@ -72,16 +72,15 @@ public class GUI extends EBAnwendung
     final double bHoehe = 30;
     final String bAufschrift = "Würfeln";
     
-<<<<<<< HEAD
+
     private Etikett werSpielt;
     final double fLinks = 130;
     final double fOben = 150;
     final double fBreite = 200;
     final double fHoehe = 30;
     final String fText = "am Zug:";
-=======
+
     private boolean verbunden = false;
->>>>>>> a10f2266f825bd2d227f2ab0f403e37faaa33664
 
     final boolean DEBUG = true;
 
