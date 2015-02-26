@@ -64,8 +64,8 @@ public class Connection extends Thread {
 
     /** 
      * Es wird auf eine eingehende Nachricht vom Server gewartet und diese
-     * Nachricht zur�ckgegeben, wobei der vom Server angeh�ngte Zeilentrenner
-     * entfernt wird. W�hrend des Wartens ist der ausf�hrende Prozess blockiert.
+     * Nachricht zurückgegeben, wobei der vom Server angehängte Zeilentrenner
+     * entfernt wird. Während des Wartens ist der ausführende Prozess blockiert.
      */
     public String receive() {
         try {
