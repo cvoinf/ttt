@@ -175,6 +175,10 @@ public class Echoserver extends Server
                     send(spieler1, spieler1Port, "nichtAmZug: ");
                     spieler2Dran = true;
                     spieler1Dran = false;
+                    if(debug)
+                    {
+                        System.out.println("Spieler 2 dran");
+                    }
                 }
                 else if (pClientIP == spieler2)
                 {
@@ -182,6 +186,10 @@ public class Echoserver extends Server
                     send(spieler2, spieler2Port, "nichtAmZug: ");
                     spieler1Dran = true;
                     spieler2Dran = false;
+                    if(debug)
+                    {
+                        System.out.println("Spieler 1 dran");
+                    }
                 }
                 if(debug)
                 {
@@ -212,7 +220,7 @@ public class Echoserver extends Server
                     System.out.println("Server: Spielfeld von Spieler 1 bekommen");
                 }
             }
-            else            //=Kreis
+            else if (spieler2Dran)           //=Kreis
             {
                 String c[] = b[1].split(",");
                 int z0 = Integer.parseInt(c[0]);
@@ -237,6 +245,10 @@ public class Echoserver extends Server
                 send(spieler1, spieler1Port, "nichtAmZug: ");
                 spieler1Dran = false;
                 spieler2Dran = true;
+                if(debug)
+                    {
+                        System.out.println("Spieler 2 dran");
+                    }
             }
             else if (spieler2Dran && !spielVorbei)
             {
@@ -244,6 +256,10 @@ public class Echoserver extends Server
                 send(spieler2, spieler2Port, "nichtAmZug: ");
                 spieler2Dran = false;
                 spieler1Dran = true;
+                if(debug)
+                    {
+                        System.out.println("Spieler 1 dran");
+                    }
             }
             else
             {
