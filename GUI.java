@@ -152,6 +152,7 @@ public class GUI extends EBAnwendung
         }
         else{ verbunden= true;
             if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+            Verbinden.deaktiviere();
         }
 
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
@@ -174,7 +175,7 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: deaktiviere()");
+        if ( DEBUG == true) System.out.println("GUI: Alles wurde deaktiviert");
     }
 
     /**
@@ -200,16 +201,13 @@ public class GUI extends EBAnwendung
 
         for (int bigBox = 1; bigBox <=9; bigBox++)
         {  for (int column = 1; column<4; column++)
-            { 
-                for (int row = 1; row < 4; row++)
-                  {   
-                { if(Integer.parseInt(ticBox[bigBox][column][row].inhaltAlsText())==0)
+            {  for (int row = 1; row < 4; row++)
+                     
+                { if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
                     {
                         ticBox[bigBox][row][column].aktiviere();
-
                     }
                 }
-            }
             }
         }
         if ( DEBUG == true) System.out.println("GUI: Es wurde alles aktiviert. Achtung, dies ist lediglich eine Dummy-Funktion!");
@@ -259,7 +257,7 @@ public class GUI extends EBAnwendung
                 }
             }            
         }      
-        if ( DEBUG == true) System.out.println("GUI: aktualisiere wurde aufgerufen");
+        if ( DEBUG == true) System.out.println("GUI: Aktualisiere wurde aufgerufen");
     }
 
     /**
