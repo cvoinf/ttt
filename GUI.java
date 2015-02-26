@@ -71,7 +71,7 @@ public class GUI extends EBAnwendung
     final double bBreite = 100;
     final double bHoehe = 30;
     final String bAufschrift = "Würfeln";
-    
+
     private boolean verbunden = false;
 
     final boolean DEBUG = true;
@@ -138,10 +138,10 @@ public class GUI extends EBAnwendung
         {
             verbunden = false;
         }
-            else{ verbunden= true;
+        else{ verbunden= true;
             if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
-         }
-        
+        }
+
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
     }
 
@@ -155,7 +155,6 @@ public class GUI extends EBAnwendung
         Würfeln.deaktiviere();
     }
 
-
     public void deaktiviere()
     { for (int bigBox = 1; bigBox <=9; bigBox++)
         { for (int column = 1; column<4; column++)
@@ -163,7 +162,7 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
-      if ( DEBUG == true) System.out.println("GUI: deaktiviere()");
+        if ( DEBUG == true) System.out.println("GUI: deaktiviere()");
     }
 
     /**
@@ -186,16 +185,19 @@ public class GUI extends EBAnwendung
      */
     public void aktiviere()
     {
+
         for (int bigBox = 1; bigBox <=9; bigBox++)
-        { for (int column = 1; column<4; column++)
+        {  for (int column = 1; column<4; column++)
             { 
                 for (int row = 1; row < 4; row++)
-                { if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
+                  {   
+                { if(Integer.parseInt(ticBox[bigBox][column][row].inhaltAlsText())==0)
                     {
                         ticBox[bigBox][row][column].aktiviere();
 
                     }
                 }
+            }
             }
         }
         if ( DEBUG == true) System.out.println("GUI: Es wurde alles aktiviert. Achtung, dies ist lediglich eine Dummy-Funktion!");
@@ -279,7 +281,7 @@ public class GUI extends EBAnwendung
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         Würfeln.aktiviere();
-        if ( DEBUG == true) System.out.println("GUI: es wurde gewürfelt!");
+        if ( DEBUG == true) System.out.println("GUI: Es wurde gewürfelt!");
     }
 
     /**
