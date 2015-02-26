@@ -17,9 +17,9 @@ BENUTZERHINWEISE:
 
 TODO:
 
-* Verbinden-Knopf ausgrauen, wenn verbunden
-* Anzeigen: Verbunden
-* Anzeigen: Du bist dran / nicht dran
+* Verbinden-Knopf ausgrauen, wenn verbunden ->GUI
+* Anzeigen: Verbunden                       ->GUI
+* Anzeigen: Du bist dran / nicht dran       
 * Ausgrauen der Felder funktioniert noch nicht korrekt
 * Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können
 * Kontrolle: kriegt der Server bei Klick eines Knopfes die richtigen Infos?
