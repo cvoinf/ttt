@@ -71,6 +71,17 @@ public class GUI extends EBAnwendung
     final double bBreite = 100;
     final double bHoehe = 30;
     final String bAufschrift = "Würfeln";
+    
+<<<<<<< HEAD
+    private Etikett werSpielt;
+    final double fLinks = 130;
+    final double fOben = 150;
+    final double fBreite = 200;
+    final double fHoehe = 30;
+    final String fText = "am Zug:";
+=======
+    private boolean verbunden = false;
+>>>>>>> a10f2266f825bd2d227f2ab0f403e37faaa33664
 
     final boolean DEBUG = true;
 
@@ -123,6 +134,8 @@ public class GUI extends EBAnwendung
         Würfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
 
         wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
+        
+        werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
     }
 
     /**
@@ -132,7 +145,14 @@ public class GUI extends EBAnwendung
     public void VerbindenGeklickt()
     {
         echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
-
+        if (echo == null)
+        {
+            verbunden = false;
+        }
+            else{ verbunden= true;
+            if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+         }
+        
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
     }
 
@@ -142,6 +162,7 @@ public class GUI extends EBAnwendung
     public void WuerfelnGeklickt()
     {
         echo.send("wuerfeln");
+        if (DEBUG == true) System.out.println("GUI: Es wurde gewürfelt");
         Würfeln.deaktiviere();
     }
 
@@ -217,7 +238,7 @@ public class GUI extends EBAnwendung
 
         echo.knopfGedrueckt(geklicktBigbox, geklicktRow, geklicktColumn);
         deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: knopfGeklickt "+" Reihe "+geklicktRow+" Spalte "+geklicktColumn);
+        if ( DEBUG == true) System.out.println("GUI: knopfGeklickt "+" Spalte "+geklicktRow+" Reihe "+geklicktColumn);
     }
 
     /**
@@ -286,6 +307,18 @@ public class GUI extends EBAnwendung
     public void verloren()
     {
 
+    }
+    
+    public void werSpielt (boolean pAktiv)
+    {
+        if (pAktiv = true)
+        {
+            werSpielt.setzeInhalt("am Zug:" + "Du");
+        }
+        else
+        {
+             werSpielt.setzeInhalt("am Zug:" + "Gegner");
+        }
     }
 }
 
