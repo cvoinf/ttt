@@ -62,6 +62,7 @@ public class Echoclient extends Client
         {
             System.out.println("Client: nicht am Zug");
             zugAktiv = false;
+            zGUI.werSpielt(false);
             zGUI.deaktiviere();
         }
         else if (b[0].compareTo("wuerfel")==0)
