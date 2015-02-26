@@ -71,6 +71,8 @@ public class GUI extends EBAnwendung
     final double bBreite = 100;
     final double bHoehe = 30;
     final String bAufschrift = "Würfeln";
+    
+    private boolean verbunden = false;
 
     final boolean DEBUG = true;
 
@@ -132,7 +134,14 @@ public class GUI extends EBAnwendung
     public void VerbindenGeklickt()
     {
         echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
-
+        if (echo == null)
+        {
+            verbunden = false;
+        }
+            else{ verbunden= true;
+            if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+         }
+        
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
     }
 
@@ -142,6 +151,7 @@ public class GUI extends EBAnwendung
     public void WuerfelnGeklickt()
     {
         echo.send("wuerfeln");
+        if (DEBUG == true) System.out.println("GUI: Es wurde gewürfelt");
         Würfeln.deaktiviere();
     }
 
@@ -217,7 +227,7 @@ public class GUI extends EBAnwendung
 
         echo.knopfGedrueckt(geklicktBigbox, geklicktRow, geklicktColumn);
         deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: knopfGeklickt "+" Reihe "+geklicktRow+" Spalte "+geklicktColumn);
+        if ( DEBUG == true) System.out.println("GUI: knopfGeklickt "+" Spalte "+geklicktRow+" Reihe "+geklicktColumn);
     }
 
     /**
