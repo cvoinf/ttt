@@ -29,3 +29,4 @@ TODO:
 * Spielfeld muss deferenziert verschickt werden
 * Row und Column sind vertauscht
 * Spieler 1 und 2 wird nicht unterschieden
+* gedrückte Felder sollte man nicht nochmal klicken können

@@ -72,6 +72,16 @@ public class GUI extends EBAnwendung
     final double bHoehe = 30;
     final String bAufschrift = "Würfeln";
 
+    
+
+    private Etikett werSpielt;
+    final double fLinks = 130;
+    final double fOben = 150;
+    final double fBreite = 200;
+    final double fHoehe = 30;
+    final String fText = "am Zug:";
+
+
     private boolean verbunden = false;
 
     final boolean DEBUG = true;
@@ -125,6 +135,8 @@ public class GUI extends EBAnwendung
         Würfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
 
         wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
+        
+        werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
     }
 
     /**
@@ -298,6 +310,18 @@ public class GUI extends EBAnwendung
     public void verloren()
     {
 
+    }
+    
+    public void werSpielt (boolean pAktiv)
+    {
+        if (pAktiv = true)
+        {
+            werSpielt.setzeInhalt("am Zug:" + "Du");
+        }
+        else
+        {
+             werSpielt.setzeInhalt("am Zug:" + "Gegner");
+        }
     }
 }
 
