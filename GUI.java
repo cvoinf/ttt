@@ -146,14 +146,12 @@ public class GUI extends EBAnwendung
     public void VerbindenGeklickt()
     {
         echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
-        if (echo == null)
+        if (echo != null)
         {
-            verbunden = false;
-        }
-        else{ verbunden= true;
-            if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+           if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
             Verbinden.deaktiviere();
         }
+        
 
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
     }
