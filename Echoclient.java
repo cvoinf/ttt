@@ -16,8 +16,10 @@ public class Echoclient extends Client
 
     private int symbol;
     private String spielerNummer;
-    
+
     private boolean zugAktiv;
+    
+    private boolean debug = true;
 
     // Attribute
     // Konstruktor
@@ -89,6 +91,29 @@ public class Echoclient extends Client
                     }
                 }            
             }
+
+            if (debug)
+            {
+                System.out.print("EchoClient.processMessage() : ");
+                System.out.println("");
+                String ausgabe = "";
+                for (int bigBox=1 ; bigBox<=9; bigBox++) 
+                {
+                    for (int column=1; column <=3; column++)
+                    {
+                        for (int row=1; row <=3; row ++)
+                        {
+                            ausgabe +=ArrayTicBox[bigBox][row][column];
+                        }
+                        ausgabe +=" |";
+                    }
+                    
+                    ausgabe +="\n";
+                }
+                
+                System.out.println(ausgabe);
+            }
+
             zGUI.aktualisiere(ArrayTicBox);
             System.out.println("Client: compareToAktualisiereEnde");
         }
@@ -103,8 +128,8 @@ public class Echoclient extends Client
                 zGUI.verloren();
             }
         }
+
     }
-    
     public void knopfGedrueckt(int bigBox, int row, int column)
     {
         send("feld:"+bigBox+","+row+","+column); //kommentar
