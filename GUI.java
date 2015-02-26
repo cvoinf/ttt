@@ -81,9 +81,6 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-
-    private boolean verbunden = false;
-
     final boolean DEBUG = true;
 
     // Es wird der Echoclient vorausgesetzt.
