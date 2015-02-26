@@ -17,12 +17,15 @@ BENUTZERHINWEISE:
 
 TODO:
 
-* Verbinden-Knopf ausgrauen, wenn verbunden
-* Anzeigen: Verbunden
-* Anzeigen: Du bist dran / nicht dran
+* Verbinden-Knopf ausgrauen, wenn verbunden ->GUI
+* Anzeigen: Verbunden                       ->GUI
+* Anzeigen: Du bist dran / nicht dran       
 * Ausgrauen der Felder funktioniert noch nicht korrekt
 * Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können
 * Kontrolle: kriegt der Server bei Klick eines Knopfes die richtigen Infos?
 * Kontrolle: Zeigt die Gui das Feld, welches Server sendet, korrekt an?
 * Reset-Knopf funktioniert noch nicht
 * Wer nicht dran ist, sollte nicht würfeln können
+* Spielfeld muss deferenziert verschickt werden
+* Row und Column sind vertauscht
+* Spieler 1 und 2 wird nicht unterschieden

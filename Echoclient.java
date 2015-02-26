@@ -27,6 +27,7 @@ public class Echoclient extends Client
         super(pIP, pPort);  
         zIP = pIP;
         zPort = pPort;
+        
 
         ArrayTicBox = new int[12][4][4];
         zGUI = pGUI;
