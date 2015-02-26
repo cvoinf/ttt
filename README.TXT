@@ -26,3 +26,6 @@ TODO:
 * Kontrolle: Zeigt die Gui das Feld, welches Server sendet, korrekt an?
 * Reset-Knopf funktioniert noch nicht
 * Wer nicht dran ist, sollte nicht würfeln können
+* Spielfeld muss deferenziert verschickt werden
+* Row und Column sind vertauscht
+* Spieler 1 und 2 wird nicht unterschieden

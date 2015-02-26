@@ -229,7 +229,7 @@ public class Echoserver extends Server
             feldUeberpruefen();
             if(debug)
             {
-                System.out.println("Server: Spielfeld an beide übergeben");
+                System.out.println("Server: Spielfeld an beide übergeben: "+ spielfeldAusgeben());
             }
             if (spieler1Dran && !spielVorbei)
             {
