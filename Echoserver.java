@@ -410,7 +410,7 @@ public class Echoserver extends Server
     public int boxUeberpruefen(int pBox)
     {
         int sieger = 0;
-        if (spielfeld[pBox][0][0] == spielfeld[pBox][1][0]&& spielfeld[pBox][0][0] == spielfeld[pBox][2][0])
+        if (spielfeld[pBox][0][0] == spielfeld[pBox][1][0]&& spielfeld[pBox][0][0] == spielfeld[pBox][2][0] &&spielfeld[pBox][0][0]!=0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -421,7 +421,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][0][0];
         }
-        else if (spielfeld[pBox][0][1] == spielfeld[pBox][1][1]&& spielfeld[pBox][0][1]  == spielfeld[pBox][2][1])
+        else if (spielfeld[pBox][0][1] == spielfeld[pBox][1][1]&& spielfeld[pBox][0][1]  == spielfeld[pBox][2][1] && spielfeld[pBox][2][1] !=0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -432,7 +432,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][0][1];
         }
-        else if (spielfeld[pBox][0][2] == spielfeld[pBox][1][2] && spielfeld[pBox][0][2]  == spielfeld[pBox][2][2])
+        else if (spielfeld[pBox][0][2] == spielfeld[pBox][1][2] && spielfeld[pBox][0][2]  == spielfeld[pBox][2][2] && spielfeld[pBox][2][2] != 0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -443,7 +443,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][0][2];
         }
-        else if (spielfeld[pBox][0][0] == spielfeld[pBox][0][1] && spielfeld[pBox][0][0] == spielfeld[pBox][1][2])
+        else if (spielfeld[pBox][0][0] == spielfeld[pBox][0][1] && spielfeld[pBox][0][0] == spielfeld[pBox][1][2] && spielfeld[pBox][1][2] !=0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -454,7 +454,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][0][0];
         }
-        else if (spielfeld[pBox][1][0] == spielfeld[pBox][1][1] && spielfeld[pBox][1][0] == spielfeld[pBox][1][2])
+        else if (spielfeld[pBox][1][0] == spielfeld[pBox][1][1] && spielfeld[pBox][1][0] == spielfeld[pBox][1][2] && spielfeld[pBox][1][2]!= 0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -465,7 +465,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][1][0];
         }
-        else if (spielfeld[pBox][2][0] == spielfeld[pBox][2][1] && spielfeld[pBox][2][0] == spielfeld[pBox][2][2])
+        else if (spielfeld[pBox][2][0] == spielfeld[pBox][2][1] && spielfeld[pBox][2][0] == spielfeld[pBox][2][2] && spielfeld[pBox][2][2] != 0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -476,7 +476,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][2][0];
         }
-        else if (spielfeld[pBox][0][0] == spielfeld[pBox][1][1] &&spielfeld[pBox][0][0] == spielfeld[pBox][2][2])
+        else if (spielfeld[pBox][0][0] == spielfeld[pBox][1][1] &&spielfeld[pBox][0][0] == spielfeld[pBox][2][2] && spielfeld[pBox][2][2] !=0)
         {
             for (int i =0; i<=2;i++)
             {
@@ -487,7 +487,7 @@ public class Echoserver extends Server
             }
             sieger = spielfeld[pBox][0][0];
         }
-        else if (spielfeld[pBox][0][2] == spielfeld[pBox][1][1] && spielfeld[pBox][0][2] == spielfeld[pBox][2][0])
+        else if (spielfeld[pBox][0][2] == spielfeld[pBox][1][1] && spielfeld[pBox][0][2] == spielfeld[pBox][2][0] && spielfeld[pBox][2][0] !=0)
         {
             for (int i =0; i<=2;i++)
             {
