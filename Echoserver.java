@@ -396,10 +396,19 @@ public class Echoserver extends Server
     {
         if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3))
         {
+            if(debug)
+            {
+                System.out.println("feldGleich= true");
+            }
             return true;
+            
         }
         else
         {
+            if(debug)
+            {
+                System.out.println("feldGleich= false");
+            }
             return false;
         }
     }
