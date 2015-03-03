@@ -394,7 +394,7 @@ public class Echoserver extends Server
      */
     public boolean feldGleich(int pFeld1, int pFeld2, int pFeld3)
     {
-        if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3))
+        if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3) &&boxUeberpruefen(pFeld1) != 0)
         {
             if(debug)
             {
