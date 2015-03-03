@@ -263,7 +263,7 @@ public class Echoserver extends Server
                 
                 System.out.println(ausgabe);
             }
-            if (spieler1Dran)
+            if (spieler1Dran && spielVorbei == false)
             {
                 send(spieler2, spieler2Port, "zugBeginnt: ");
                 send(spieler1, spieler1Port, "nichtAmZug: ");
@@ -274,7 +274,7 @@ public class Echoserver extends Server
                         System.out.println("Spieler 2 dran");
                     }
             }
-            else if (spieler2Dran)
+            else if (spieler2Dran && spielVorbei == false)
             {
                 send(spieler1, spieler1Port, "zugBeginnt: ");
                 send(spieler2, spieler2Port, "nichtAmZug: ");
@@ -394,7 +394,7 @@ public class Echoserver extends Server
      */
     public boolean feldGleich(int pFeld1, int pFeld2, int pFeld3)
     {
-        if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3))
+        if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3) &&boxUeberpruefen(pFeld1) != 0)
         {
             if(debug)
             {
