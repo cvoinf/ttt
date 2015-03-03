@@ -233,9 +233,9 @@ public class Echoserver extends Server
                     System.out.println("Server: Spielfeld von Spieler 2 bekommen");
                 }
             }
-            send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
-            send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());
             feldUeberpruefen();
+            send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
+            send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());            
             if(debug)
             {
                 System.out.println("Server: Spielfeld an beide übergeben: "+ spielfeldAusgeben());
