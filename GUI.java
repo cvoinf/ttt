@@ -72,8 +72,6 @@ public class GUI extends EBAnwendung
     final double bHoehe = 30;
     final String bAufschrift = "Wuerfeln";
 
-    
-
     private Etikett werSpielt;
     final double fLinks = 130;
     final double fOben = 150;
@@ -132,7 +130,7 @@ public class GUI extends EBAnwendung
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
 
         wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
-        
+
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
         Wuerfeln.deaktiviere();
     }
@@ -143,18 +141,31 @@ public class GUI extends EBAnwendung
      */
     public void VerbindenGeklickt()
     {
-        echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
-        if (echo != null)
+        try
         {
-           if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
-            Verbinden.deaktiviere();
-            textfeldAddresse.deaktiviere();
-            textfeldPort.deaktiviere();
-        }
-        
+            echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
+            if (echo != null)
+            {
+                if (0==echo.toString().compareTo("Verbindung mit Socket: null\n"))
+                {
+                    if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+                    Verbinden.deaktiviere();
+                    textfeldAddresse.deaktiviere();
+                    textfeldPort.deaktiviere();
+                }
+                else
+                {
+                    System.out.println("GUI: Fehler beim Erzeugen der Verbindung: ");
+                }
 
-        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
-   
+            }
+        }
+        catch (Exception pFehler)
+        {
+            System.err.println("GUI: Fehler beim Erzeugen der Verbindung: " + pFehler);
+        }       
+
+        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText() + " ");
     }
 
     /**
@@ -190,7 +201,7 @@ public class GUI extends EBAnwendung
             }
             if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
         }
-        
+
     }
 
     /**
@@ -202,7 +213,7 @@ public class GUI extends EBAnwendung
         for (int bigBox = 1; bigBox <=9; bigBox++)
         {  for (int column = 1; column<4; column++)
             {  for (int row = 1; row < 4; row++)
-                     
+
                 { if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
                     {
                         ticBox[bigBox][row][column].aktiviere();
@@ -310,7 +321,7 @@ public class GUI extends EBAnwendung
     {
 
     }
-    
+
     public void duSpielst (boolean pAktiv)
     {
         if (pAktiv == true)
