@@ -375,7 +375,7 @@ public class Echoserver extends Server
             spielVorbei = false;
             if(debug)
             {
-                System.out.println("Spielvorbei = true");
+                System.out.println("Spielvorbei = false");
             }
         } 
          if(debug)
