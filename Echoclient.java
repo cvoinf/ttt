@@ -152,6 +152,6 @@ public class Echoclient extends Client
     
     public void knopfGedrueckt(int bigBox, int row, int column)
     {
-        send("feld:"+bigBox+","+row+","+column); //kommentar
+        send("feld:"+bigBox+","+row+","+column);
     }
 }

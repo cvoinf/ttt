@@ -23,6 +23,15 @@ package.numTargets=7
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
+<<<<<<< HEAD
+readme.editor.height=700
+readme.editor.width=900
+readme.editor.x=320
+readme.editor.y=16
+target1.editor.height=1004
+target1.editor.width=1288
+target1.editor.x=-4
+=======
 readme.editor.height=1000
 readme.editor.width=1296
 readme.editor.x=-8
@@ -30,6 +39,7 @@ readme.editor.y=-8
 target1.editor.height=984
 target1.editor.width=640
 target1.editor.x=640
+>>>>>>> 8d1ee8e15b646512976b7cd3fe0974070a4189da
 target1.editor.y=0
 target1.height=50
 target1.name=GUI
@@ -52,7 +62,11 @@ target2.width=90
 target2.x=80
 target2.y=330
 target3.editor.height=1000
+<<<<<<< HEAD
+target3.editor.width=1292
+=======
 target3.editor.width=1296
+>>>>>>> 8d1ee8e15b646512976b7cd3fe0974070a4189da
 target3.editor.x=-8
 target3.editor.y=-8
 target3.height=50
