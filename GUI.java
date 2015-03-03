@@ -16,6 +16,9 @@ public class GUI extends EBAnwendung
     //private Etikett hatEtikett1;
 
     // Hier werden die ticBoxen, also die einzelnen Knöpfe in einem Array definiert und die Höhe, Breite etc. festgelegt.
+    
+    private boolean dran;
+    
     private Knopf ticBox[][][];
     final int startx = 80;
     final int starty = 3;
@@ -72,7 +75,6 @@ public class GUI extends EBAnwendung
     final double bHoehe = 30;
     final String bAufschrift = "Wuerfeln";
 
-    
 
     private Etikett werSpielt;
     final double fLinks = 130;
@@ -152,7 +154,7 @@ public class GUI extends EBAnwendung
         echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
         if (echo != null)
         {
-           if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+           if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt... Das kann ja nur gut gehen..");
             Verbinden.deaktiviere();
             textfeldAddresse.deaktiviere();
             textfeldPort.deaktiviere();
@@ -169,7 +171,7 @@ public class GUI extends EBAnwendung
     public void WuerfelnGeklickt()
     {
         echo.send("wuerfeln");
-        if (DEBUG == true) System.out.println("GUI: Es wurden die Würfel angefordert");
+        if (DEBUG == true) System.out.println("GUI: Es wurden die Würfel angefordert! :)");
         Wuerfeln.deaktiviere();
     }
 
@@ -180,7 +182,7 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: Alles wurde deaktiviert");
+        if ( DEBUG == true) System.out.println("GUI: Alles wurde deaktiviert.");
     }
 
     /**
@@ -188,6 +190,9 @@ public class GUI extends EBAnwendung
      */
     public void aktiviere(int row,int column)
     {
+        if (dran == true)
+        {
+            
         for (int bigBox = 1; bigBox <= 9; bigBox++)
         {
             if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
@@ -196,7 +201,7 @@ public class GUI extends EBAnwendung
             }
             if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
         }
-        
+     }
     }
 
     /**
@@ -216,7 +221,7 @@ public class GUI extends EBAnwendung
                 }
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: Es wurde alles aktiviert. Achtung, dies ist lediglich eine Dummy-Funktion!");
+        if ( DEBUG == true) System.out.println("GUI: Es wurde alles aktiviert. Achtung, dies ist lediglich eine Dummy-Funktion! Wenn das hier steht, ist was verkehrt..");
     }
 
     /**
@@ -264,7 +269,7 @@ public class GUI extends EBAnwendung
                 }
             }            
         }      
-        if ( DEBUG == true) System.out.println("GUI: Aktualisiere wurde aufgerufen");
+        if ( DEBUG == true) System.out.println("GUI: Aktualisiere wurde aufgerufen. Gogogo.");
     }
 
     /**
@@ -298,7 +303,7 @@ public class GUI extends EBAnwendung
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         Wuerfeln.deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: Es wurde gewürfelt!");
+        if ( DEBUG == true) System.out.println("GUI: Es wurde gewürfelt! Let it roll!");
     }
 
     /**
@@ -325,12 +330,15 @@ public class GUI extends EBAnwendung
             werSpielt.aktiviere();
             Wuerfeln.aktiviere();
             if ( DEBUG == true) System.out.println("GUI: Würfelknopf aktiviert");
+            dran = true;
         }
         else
         {
             werSpielt.setzeInhalt("am Zug: Gegner");
             Wuerfeln.deaktiviere();
+            dran = false;
         }
+        
     }
 }
 
