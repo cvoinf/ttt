@@ -121,6 +121,7 @@ public class GUI extends EBAnwendung
          * Es werden Knöpfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld für die Ausgabe des Würfelergebnisses.
          */
         reset = new Knopf(pLinks, pOben, pBreite, pHoehe, pAufschrift);
+        reset.setzeBearbeiterGeklickt("resetGeklickt");
         //Aufgeben = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
         Verbinden = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
         Verbinden.setzeBearbeiterGeklickt("VerbindenGeklickt");     
@@ -141,6 +142,11 @@ public class GUI extends EBAnwendung
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient übergeben wird, mit welcher
      * Ip-Adresse und welchem Port man sich verbinden will.
      */
+    
+    public void resetGeklickt()
+    {
+        
+    }
     public void VerbindenGeklickt()
     {
         echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);

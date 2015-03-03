@@ -27,7 +27,7 @@ TODO:
 * Reset-Knopf funktioniert noch nicht
 * Wer nicht dran ist, sollte nicht würfeln können
 * Spielfeld muss deferenziert verschickt werden
-* Row und Column sind vertauscht
+* Row und Column sind vertauscht //trivialer Fehler, der nicht wirklich relevant ist.
 * Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
 
 
