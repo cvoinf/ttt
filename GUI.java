@@ -188,8 +188,9 @@ public class GUI extends EBAnwendung
             {
                 ticBox[bigBox][row][column].aktiviere();
             }
+            if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
         }
-        if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
+        
     }
 
     /**
@@ -229,7 +230,7 @@ public class GUI extends EBAnwendung
                     if (ticBox[bigBox] [row] [column].besitztFokus())
                     {
                         geklicktBigbox = bigBox;
-                        geklicktRow= row;
+                        geklicktRow = row;
                         geklicktColumn=column;
                     }
                 }  
@@ -315,6 +316,7 @@ public class GUI extends EBAnwendung
         if (pAktiv == true)
         {
             werSpielt.setzeInhalt("am Zug: Du");
+            werSpielt.aktiviere();
             Wuerfeln.aktiviere();
             if ( DEBUG == true) System.out.println("GUI: Würfelknopf aktiviert");
         }

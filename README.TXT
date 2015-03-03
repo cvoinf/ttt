@@ -17,6 +17,7 @@ BENUTZERHINWEISE:
 
 TODO:
 
+
 * Anzeigen: Verbunden 
 * Anzeigen: Du bist dran / nicht dran       
 * Ausgrauen der Felder funktioniert noch nicht korrekt
@@ -28,5 +29,6 @@ TODO:
 * Spielfeld muss deferenziert verschickt werden
 * Row und Column sind vertauscht
 * Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
+
 
 
