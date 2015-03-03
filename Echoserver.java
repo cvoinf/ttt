@@ -96,7 +96,9 @@ public class Echoserver extends Server
                     xb = xb + spielfeld[bigBox][row][column] +":";
 
                 }
+                
             }            
+            
         }
         return xb;
     }
@@ -233,12 +235,33 @@ public class Echoserver extends Server
                     System.out.println("Server: Spielfeld von Spieler 2 bekommen");
                 }
             }
-            send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
-            send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());
             feldUeberpruefen();
+
+            send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
+            send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());            
             if(debug)
+
+            if (debug)
+
             {
-                System.out.println("Server: Spielfeld an beide übergeben: "+ spielfeldAusgeben());
+                System.out.print("Server Spielfeld weitergegeben: ");
+                System.out.println("");
+                String ausgabe = "";
+                for (int bigBox=1 ; bigBox<=9; bigBox++) 
+                {
+                    for (int column=1; column <=3; column++)
+                    {
+                        for (int row=1; row <=3; row ++)
+                        {
+                            ausgabe +=spielfeld[bigBox][row][column];
+                        }
+                        ausgabe +=" |";
+                    }
+                    
+                    ausgabe +="\n";
+                }
+                
+                System.out.println(ausgabe);
             }
             if (spieler1Dran)
             {
@@ -286,38 +309,74 @@ public class Echoserver extends Server
         if (feldGleich(0,1,2))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(3,4,5))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(6,7,8))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(0,3,6))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(1,4,7))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(2,5,8))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(0,4,8))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else if (feldGleich(2,4,6))
         {
             spielVorbei = true;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         }
         else
         {
             spielVorbei = false;
+            if(debug)
+            {
+                System.out.println("Spielvorbei = true");
+            }
         } 
          if(debug)
         {
