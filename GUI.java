@@ -185,8 +185,9 @@ public class GUI extends EBAnwendung
             {
                 ticBox[bigBox][row][column].aktiviere();
             }
+            if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
         }
-        if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
+        
     }
 
     /**
@@ -226,7 +227,7 @@ public class GUI extends EBAnwendung
                     if (ticBox[bigBox] [row] [column].besitztFokus())
                     {
                         geklicktBigbox = bigBox;
-                        geklicktRow= row;
+                        geklicktRow = row;
                         geklicktColumn=column;
                     }
                 }  
@@ -312,17 +313,8 @@ public class GUI extends EBAnwendung
         if (pAktiv == true)
         {
             werSpielt.setzeInhalt("am Zug: Du");
-        for (int bigBox = 1; bigBox <=9; bigBox++)
-        {  for (int column = 1; column<4; column++)
-            {  for (int row = 1; row < 4; row++)
-                     
-                { if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
-                    {
-                        ticBox[bigBox][row][column].aktiviere();
-                    }
-                }
-            }
-        }
+            werSpielt.aktiviere();
+            Wuerfeln.aktiviere();
             if ( DEBUG == true) System.out.println("GUI: Würfelknopf aktiviert");
         }
         else
