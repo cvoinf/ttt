@@ -18,7 +18,7 @@ public class GUI extends EBAnwendung
     // Hier werden die ticBoxen, also die einzelnen Knöpfe in einem Array definiert und die Höhe, Breite etc. festgelegt.
     private Knopf ticBox[][][];
     final int startx = 80;
-    final int starty = 30;
+    final int starty = 3;
     final int abstandBoxen = 3;
     final int ticBoxWidth=50;
     final int ticBoxHeight=50;
@@ -148,10 +148,13 @@ public class GUI extends EBAnwendung
         {
            if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
             Verbinden.deaktiviere();
+            textfeldAddresse.deaktiviere();
+            textfeldPort.deaktiviere();
         }
         
 
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText());
+   
     }
 
     /**
