@@ -139,7 +139,7 @@ public class Echoclient extends Client
     {
         if( zugAktiv)
         {
-            zGUI.aktiviere();
+            zGUI.deaktiviere();
             zGUI.duSpielst(true);
         }
         else
