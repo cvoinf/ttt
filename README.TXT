@@ -17,6 +17,7 @@ BENUTZERHINWEISE:
 
 TODO:
 
+<<<<<<< HEAD
 * Verbinden-Knopf ausgrauen, wenn verbunden ->GUI
 * Anzeigen: Verbunden                       ->GUI
 * Anzeigen: Du bist dran / nicht dran       -> GUI
@@ -29,5 +30,18 @@ TODO:
 * Spielfeld muss differenziert verschickt werden -> Server & GUI
 * Row und Column sind vertauscht -> GUI
 * Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden) ->GUI
+=======
+* Anzeigen: Verbunden 
+* Anzeigen: Du bist dran / nicht dran       
+* Ausgrauen der Felder funktioniert noch nicht korrekt
+* Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können
+* Kontrolle: kriegt der Server bei Klick eines Knopfes die richtigen Infos?
+* Kontrolle: Zeigt die Gui das Feld, welches Server sendet, korrekt an?
+* Reset-Knopf funktioniert noch nicht
+* Wer nicht dran ist, sollte nicht würfeln können
+* Spielfeld muss deferenziert verschickt werden
+* Row und Column sind vertauscht
+* Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
+>>>>>>> cc79f7a41265294ee5bc323fd77989becbbf2541
 
 

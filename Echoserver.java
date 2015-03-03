@@ -76,7 +76,6 @@ public class Echoserver extends Server
             send(spieler2, spieler2Port, symbolSpieler2  );
             if (DEBUG == true)
                 System.out.println("Server: Client2 verbunden fertig");
-
             start();            
         }
     }
@@ -114,10 +113,11 @@ public class Echoserver extends Server
         }
         if (wuerfeln(1,2)== 1)
         {
-            send(spieler1, spieler1Port, "zugBeginnt: ");
+            
             send(spieler1, spieler1Port, "aktualisiere:"+spielfeldAusgeben());
-            send(spieler2, spieler2Port, "nichtAmZug: ");
             send(spieler2, spieler2Port, "aktualisiere:"+spielfeldAusgeben());
+            send(spieler2, spieler2Port, "nichtAmZug: ");
+            send(spieler1, spieler1Port, "zugBeginnt: ");
             spieler1Dran = true;
             if(debug)
             {
@@ -126,10 +126,11 @@ public class Echoserver extends Server
         }
         else 
         {
-            send(spieler2, spieler2Port, "zugBeginnt: ");
+            
             send(spieler2, spieler2Port, "aktualisiere:"+spielfeldAusgeben());
-            send(spieler1, spieler1Port, "nichtAmZug: ");
             send(spieler1, spieler1Port, "aktualisiere:"+spielfeldAusgeben());
+            send(spieler1, spieler1Port, "nichtAmZug: ");
+            send(spieler2, spieler2Port, "zugBeginnt: ");
             spieler2Dran = true;
             if(debug)
             {

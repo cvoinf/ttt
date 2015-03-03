@@ -17,7 +17,7 @@ public class Echoclient extends Client
     private int symbol;
     private String spielerNummer;
 
-    private boolean zugAktiv;
+    private boolean zugAktiv = false;
     
     private boolean debug = true;
 
@@ -34,7 +34,7 @@ public class Echoclient extends Client
         ArrayTicBox = new int[12][4][4];
         zGUI = pGUI;
         zugAktiv = false;
-        zGUI.deaktiviere(); 
+        aktualisiere();
     }
 
     // Dienste
@@ -44,29 +44,32 @@ public class Echoclient extends Client
         String b[] = text.split(":");
         if (b[0].compareTo("symbol")==0) //Spieler1 hat Kreuz, 2 hat Kreis
         {
-            if(b[1]== "Kreuz")
+            if(b[1].compareTo("Kreuz")==0)
             {
                 symbol = 1;
                 spielerNummer = "spieler1";
             }
-            else if(b[1]== "Kreis")
+            else if(b[1].compareTo("Kreis")==0)
             {
                 symbol = 2;
                 spielerNummer = "spieler2";
             }
+            else
+            {
+                System.out.println("Error EchoClient processMessage symbol");
+            }
         }
         else if (b[0].compareTo("zugBeginnt")==0)
         {
-            System.out.println("Client: zugBeginnt");
+            System.out.println("Client "+spielerNummer+": zugBeginnt");
             zugAktiv = true;
-            zGUI.aktiviere();
+            aktualisiere();
         }
         else if (b[0].compareTo("nichtAmZug")==0)
         {
-            System.out.println("Client: nicht am Zug");
+            System.out.println("Client "+spielerNummer+": nicht am Zug");
             zugAktiv = false;
-            zGUI.werSpielt(false);
-            zGUI.deaktiviere();
+            aktualisiere();
         }
         else if (b[0].compareTo("wuerfel")==0)
         {
@@ -91,7 +94,7 @@ public class Echoclient extends Client
                     }
                 }            
             }
-
+            
             if (debug)
             {
                 System.out.print("EchoClient.processMessage() : ");
@@ -115,11 +118,12 @@ public class Echoclient extends Client
             }
 
             zGUI.aktualisiere(ArrayTicBox);
+            aktualisiere();
             System.out.println("Client: compareToAktualisiereEnde");
         }
         else if (b[0].compareTo("gewonnen")==0)
         {
-            if(b[1]== spielerNummer)
+            if(b[1].compareTo(spielerNummer)==0)
             {
                 zGUI.gewonnen();
             }
@@ -130,6 +134,22 @@ public class Echoclient extends Client
         }
 
     }
+    
+    private void aktualisiere()
+    {
+        if( zugAktiv)
+        {
+            zGUI.aktiviere();
+            zGUI.duSpielst(true);
+        }
+        else
+        {
+            zGUI.deaktiviere();
+            zGUI.duSpielst(false);
+        }
+    }
+    
+    
     public void knopfGedrueckt(int bigBox, int row, int column)
     {
         send("feld:"+bigBox+","+row+","+column); //kommentar
