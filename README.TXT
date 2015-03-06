@@ -17,15 +17,18 @@ BENUTZERHINWEISE:
 
 TODO:
 
+GUI:
+*Reset-Knopf, zusammen mit Server zum Übergeben und reset des Feldes. Momentan ist der Reset nur optisch beim Reset-Client!
+*Kontrolle: Zeigt die GUI das Feld, welches Server sendet, korrekt an? //Sollte inzwischen funktionieren!
 
-* Nach dem Würfeln muss der zweite Client wieder aktiviert werden.
-* Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können
-* Kontrolle: Kriegt der Server bei Klick eines Knopfes die richtigen Infos?
-* Kontrolle: Zeigt die Gui das Feld, welches Server sendet, korrekt an?
-* Reset-Knopf funktioniert noch nicht
-* Spielfeld muss differenziert verschickt werden
-* Row und Column sind vertauscht //trivialer Fehler, der nicht wirklich relevant ist.
-* Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
+Server:
+* Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können.
+* Kontrolle: Kriegt der Server bei Klick eines Knopfes die richtigen Infos? //Client 1?
 
+Client:
+* Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden
+
+Unklar:
+* Spielfeld muss differenziert verschickt werden (?)
 
 
