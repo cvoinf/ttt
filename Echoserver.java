@@ -162,7 +162,7 @@ public class Echoserver extends Server
         int ergebnis = 0;        
         while (ergebnis ==0)
         {
-            ergebnis = ra.nextInt(pMax +1);
+            ergebnis = ra.nextInt(pMax +2);
         }
         return ergebnis;        
     }
@@ -178,8 +178,8 @@ public class Echoserver extends Server
         String b[] = a.split(":");
         if (b[0].compareTo("wuerfeln")==0)
         {
-            int xa = wuerfeln(6);
-            int xb = wuerfeln(6);
+            int xa = wuerfeln(4);
+            int xb = wuerfeln(4);
             if (xa+xb ==2 || xa+xb == 12)
             {
                 if(pClientIP == spieler1)
@@ -427,13 +427,13 @@ public class Echoserver extends Server
     public int boxUeberpruefen(int pBox)
     {
         int sieger = 0;
-        if (spielfeld[pBox][0][0] == spielfeld[pBox][1][0]&& spielfeld[pBox][0][0] == spielfeld[pBox][2][0] &&spielfeld[pBox][0][0]!=0)
+        if (spielfeld[pBox][0+1][0+1] == spielfeld[pBox][1+1][0+1]&& spielfeld[pBox][0+1][0+1] == spielfeld[pBox][2+1][0+1] &&spielfeld[pBox][0+1][0+1]!=0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][0][0];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][0+1][0+1];
                 }
             }
             sieger = spielfeld[pBox][0][0];
@@ -442,13 +442,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][0][1] == spielfeld[pBox][1][1]&& spielfeld[pBox][0][1]  == spielfeld[pBox][2][1] && spielfeld[pBox][2][1] !=0)
+        else if (spielfeld[pBox][0+1][1+1] == spielfeld[pBox][1+1][1+1]&& spielfeld[pBox][0+1][1+1]  == spielfeld[pBox][2+1][1+1] && spielfeld[pBox][2+1][1+1] !=0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][0][1];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][0+1][1+1];
                 }
             }
             sieger = spielfeld[pBox][0][1];
@@ -457,13 +457,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][0][2] == spielfeld[pBox][1][2] && spielfeld[pBox][0][2]  == spielfeld[pBox][2][2] && spielfeld[pBox][2][2] != 0)
+        else if (spielfeld[pBox][0+1][2+1] == spielfeld[pBox][1+1][2+1] && spielfeld[pBox][0+1][2+1]  == spielfeld[pBox][2+1][2+1] && spielfeld[pBox][2+1][2+1] != 0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][0][2];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][0+1][2+1];
                 }
             }
             sieger = spielfeld[pBox][0][2];
@@ -472,13 +472,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][0][0] == spielfeld[pBox][0][1] && spielfeld[pBox][0][0] == spielfeld[pBox][1][2] && spielfeld[pBox][1][2] !=0)
+        else if (spielfeld[pBox][0+1][0+1] == spielfeld[pBox][0+1][1+1] && spielfeld[pBox][0+1][0+1] == spielfeld[pBox][1+1][2+1] && spielfeld[pBox][1+1][2+1] !=0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][0][0];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][0+1][0+1];
                 }
             }
             sieger = spielfeld[pBox][0][0];
@@ -487,13 +487,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][1][0] == spielfeld[pBox][1][1] && spielfeld[pBox][1][0] == spielfeld[pBox][1][2] && spielfeld[pBox][1][2]!= 0)
+        else if (spielfeld[pBox][1+1][0+1] == spielfeld[pBox][1+1][1+1] && spielfeld[pBox][1+1][0+1] == spielfeld[pBox][1+1][2+1] && spielfeld[pBox][1+1][2+1]!=0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][1][0];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][1+1][0+1];
                 }
             }
             sieger = spielfeld[pBox][1][0];
@@ -502,13 +502,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][2][0] == spielfeld[pBox][2][1] && spielfeld[pBox][2][0] == spielfeld[pBox][2][2] && spielfeld[pBox][2][2] != 0)
+        else if (spielfeld[pBox][2+1][0+1] == spielfeld[pBox][2+1][1+1] && spielfeld[pBox][2+1][0+1] == spielfeld[pBox][2+1][2+1] && spielfeld[pBox][2+1][2+1] != 0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][2][0];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][2+1][0+1];
                 }
             }
             sieger = spielfeld[pBox][2][0];
@@ -517,13 +517,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][0][0] == spielfeld[pBox][1][1] &&spielfeld[pBox][0][0] == spielfeld[pBox][2][2] && spielfeld[pBox][2][2] !=0)
+        else if (spielfeld[pBox][0+1][0+1] == spielfeld[pBox][1+1][1+1] &&spielfeld[pBox][0+1][0+1] == spielfeld[pBox][2+1][2+1] && spielfeld[pBox][2+1][2+1] !=0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][0][0];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][0+1][0+1];
                 }
             }
             sieger = spielfeld[pBox][0][0];
@@ -532,13 +532,13 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][0][2] == spielfeld[pBox][1][1] && spielfeld[pBox][0][2] == spielfeld[pBox][2][0] && spielfeld[pBox][2][0] !=0)
+        else if (spielfeld[pBox][0+1][2+1] == spielfeld[pBox][1+1][1+1] && spielfeld[pBox][0+1][2+1] == spielfeld[pBox][2+1][0+1] && spielfeld[pBox][2+1][0+1] !=0)
         {
-            for (int i =0; i<=2;i++)
+            for (int i =0+1; i<=2+1;i++)
             {
-                for (int j=0;  j<=2;j++)
+                for (int j=0+1;  j<=2+1;j++)
                 {
-                    spielfeld[pBox][i][j] = spielfeld[pBox][0][2];
+                    spielfeld[pBox][i][j] = spielfeld[pBox][0+1][2+1];
                 }
             }
             sieger = spielfeld[pBox][0][2];

@@ -49,7 +49,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "192.168.178.149";
+    final String tText = "192.168.178.144";
 
     // Hier wird das Textfeld für die Port-Eingabe definiert.
     private Textfeld textfeldPort;
