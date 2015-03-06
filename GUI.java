@@ -136,7 +136,7 @@ public class GUI extends EBAnwendung
         wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
-        //Wuerfeln.deaktiviere();
+        Wuerfeln.deaktiviere();
         deaktiviere(); //deaktiviert das Spielfeld zu Beginn.
     }
 
@@ -197,7 +197,7 @@ public class GUI extends EBAnwendung
     {
         echo.send("wuerfeln");
         if (DEBUG == true) System.out.println("GUI: Es wurden die Würfel angefordert! :)");
-        //Wuerfeln.deaktiviere();
+        Wuerfeln.deaktiviere();
     }
 
     public void deaktiviere()
@@ -329,7 +329,7 @@ public class GUI extends EBAnwendung
 
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
-        //Wuerfeln.deaktiviere();
+        Wuerfeln.deaktiviere();
         if ( DEBUG == true) System.out.println("GUI: Es wurde gewürfelt! Let it roll!");
     }
 
@@ -362,7 +362,7 @@ public class GUI extends EBAnwendung
         else
         {
             werSpielt.setzeInhalt("am Zug: Gegner");
-            //Wuerfeln.deaktiviere();
+            Wuerfeln.deaktiviere();
             dran = false;
         }
 
