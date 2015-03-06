@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=text
+comment0.target=void\ processMessage(java.lang.String)
+comment1.params=
+comment1.target=void\ aktualisiere()
+comment2.params=bigBox\ row\ column
+comment2.target=void\ knopfGedrueckt(int,\ int,\ int)
+numComments=3
