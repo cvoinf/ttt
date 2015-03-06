@@ -238,9 +238,7 @@ public class Echoserver extends Server
             feldUeberpruefen();
 
             send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
-            send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());            
-            if(debug)
-
+            send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());           
             if (debug)
 
             {
