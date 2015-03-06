@@ -168,17 +168,17 @@ public class GUI extends EBAnwendung
             echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
             if (echo != null)
             {
-                if (0==echo.toString().compareTo("Verbindung mit Socket: null\n"))
-                {
-                    if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
-                    Verbinden.deaktiviere();
-                    textfeldAddresse.deaktiviere();
-                    textfeldPort.deaktiviere();
-                }
-                else
-                {
-                    System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
-                }
+                //                 if (echo.isConnected()==true)
+                //                 {
+                //                     if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+                //                     Verbinden.deaktiviere();
+                //                     textfeldAddresse.deaktiviere();
+                //                     textfeldPort.deaktiviere();
+                //                 }
+                //                 else
+                //                 {
+                //                     System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
+                //                 }
 
             }
         }
@@ -190,6 +190,15 @@ public class GUI extends EBAnwendung
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText() + " ");
     }
 
+    public void verbunden ()
+    {
+        if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+        Verbinden.deaktiviere();
+        textfeldAddresse.deaktiviere();
+        textfeldPort.deaktiviere();
+        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText() + " ");
+
+    }
     /**
      * Hier können alle ticBoxen deaktiviert werden. Dies sollte nach jedem Spielzug geschehen.
      */
@@ -215,7 +224,7 @@ public class GUI extends EBAnwendung
      */
     public void aktiviere(int row,int column)
     {
-        
+
         if (dran == true)
         {
 

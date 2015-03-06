@@ -16,7 +16,7 @@ public abstract class Client
 {
 
     //Objektbeziehungen
-    private Connection hatVerbindung;
+    public Connection hatVerbindung;
     private Clientempfaenger hatEmpfaenger;
      
     /**
@@ -46,7 +46,7 @@ public abstract class Client
         }
         
         /**
-        Solange der Server Nachrichten sendete, wurden diese empfangen und an die ClientVerbinedung weitergereicht.
+        *Solange der Server Nachrichten sendete, wurden diese empfangen und an die ClientVerbinedung weitergereicht.
         */
         public void run()
         {
@@ -65,7 +65,7 @@ public abstract class Client
         }
         
         /**
-        Der ClientEmpfaenger arbeitet nicht mehr
+        *Der ClientEmpfaenger arbeitet nicht mehr
         */
         public void gibFrei()
         {
@@ -75,9 +75,9 @@ public abstract class Client
     }
     
     /**
-    Der Client ist mit Ein- und Ausgabestreams initialisiert.<br>
-    @param pIPAdresse IP-Adresse bzw. Domain des Servers
-    @param pPortNr Portnummer des Sockets
+    *Der Client ist mit Ein- und Ausgabestreams initialisiert.<br>
+    *@param pIPAdresse IP-Adresse bzw. Domain des Servers
+    *@param pPortNr Portnummer des Sockets
     */
     public Client(String pIPAdresse, int pPortNr)
     {
@@ -91,7 +91,7 @@ public abstract class Client
 
         catch (Exception pFehler)
         {
-            System.err.println("Fehler beim \u00D6ffnen des Clients: " + pFehler);
+            System.err.println("Fehler beim Öffnen des Clients: " + pFehler);
         }       
          
     }
@@ -113,14 +113,14 @@ public abstract class Client
     }
     
     /**
-     Eine Nachricht vom Server wurde bearbeitet.<br>
-     Diese abstrakte Methode muss in Unterklassen &uuml;berschrieben werden.
-     @param pMessage die empfangene Nachricht, die bearbeitet werden soll
+    * Eine Nachricht vom Server wurde bearbeitet.<br>
+    * Diese abstrakte Methode muss in Unterklassen &uuml;berschrieben werden.
+    * @param pMessage die empfangene Nachricht, die bearbeitet werden soll
     */
     public abstract void processMessage(String pMessage);
 
     /**
-    Die Verbindung wurde mit Ein- und Ausgabestreams geschlossen.
+    * Die Verbindung wurde mit Ein- und Ausgabestreams geschlossen.
     */
     public void close()
     {

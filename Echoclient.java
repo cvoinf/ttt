@@ -135,9 +135,20 @@ public class Echoclient extends Client
 
     }
     
+    public void verbunden ()
+   {
+       if (hatVerbindung.isConnected())
+       { 
+           zGUI.verbunden();
+        }
+       else
+        {
+            System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
+        }
+    }
     private void aktualisiere()
     {
-        if( zugAktiv)
+        if(zugAktiv)
         {
             zGUI.deaktiviere();
             zGUI.duSpielst(true);
