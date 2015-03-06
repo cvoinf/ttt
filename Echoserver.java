@@ -1,4 +1,5 @@
 import sum.werkzeuge.*;
+import java.util.Random;
 /**
  * @author Finn Klessascheck, Jannick Mohr & Angelina Horn
  * @version 1601/2015
@@ -14,7 +15,7 @@ public class Echoserver extends Server
     private String symbolSpieler1; //Symbol von Spieler1 als String
     private String symbolSpieler2; //Symbol von Spieler2 als String
 
-    private Rechner re;
+    //private Rechner re;
 
     private boolean spieler1Dran; 
     private boolean spieler2Dran; 
@@ -26,6 +27,8 @@ public class Echoserver extends Server
 
     private boolean debug;
     private final boolean DEBUG = true;
+    
+    private Random ra;
 
     public Echoserver()
     {
@@ -38,8 +41,10 @@ public class Echoserver extends Server
         symbolSpieler1 = "symbol:Kreuz"; //Spieler1 Symbol "Kreuz" zugeteilt
         symbolSpieler2 = "symbol:Kreis"; //Spieler2 Symbol "Kreis" zugeteilt
 
-        re = new Rechner(); //der Rechenr wird erstellt
-
+        //re = new Rechner(); //der Rechenr wird erstellt
+        
+        ra = new Random();
+        
         spielfeld = new int[12][4][4]; //Die Anzahl der "Felder" im Array werden festgelegt
         for (int bigBox=1 ; bigBox<=9; bigBox++) //Die Felder des Arrays werden auf den Wert "0" gestellt und das Feld ist spielbereit
         {
@@ -113,7 +118,7 @@ public class Echoserver extends Server
         {
             System.out.println("Server: Start aufgerufen");
         }
-        if (wuerfeln(1,2)== 1)
+        if (wuerfeln(2)== 1)
         {
             
             send(spieler1, spieler1Port, "aktualisiere:"+spielfeldAusgeben());
@@ -148,13 +153,18 @@ public class Echoserver extends Server
      * @
      * @return Zufallszahl
      */
-    public int wuerfeln(int pMin, int pMax)
+    public int wuerfeln(int pMax)
     {
         if(debug)
         {
             System.out.println("Server: gewürfelt");
         }
-        return re.ganzeZufallsZahl(pMin, pMax);        
+        int ergebnis = 0;        
+        while (ergebnis ==0)
+        {
+            ergebnis = ra.nextInt(pMax +1);
+        }
+        return ergebnis;        
     }
 
     /**
@@ -168,8 +178,8 @@ public class Echoserver extends Server
         String b[] = a.split(":");
         if (b[0].compareTo("wuerfeln")==0)
         {
-            int xa = wuerfeln(1,6);
-            int xb = wuerfeln(1,6);
+            int xa = wuerfeln(6);
+            int xb = wuerfeln(6);
             if (xa+xb ==2 || xa+xb == 12)
             {
                 if(pClientIP == spieler1)
