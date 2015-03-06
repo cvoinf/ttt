@@ -15,11 +15,19 @@ dependency5.from=GUI
 dependency5.to=Echoclient
 dependency5.type=UsesDependency
 objectbench.height=76
+<<<<<<< HEAD
 objectbench.width=1242
 package.editor.height=836
 package.editor.width=1134
 package.editor.x=0
 package.editor.y=0
+=======
+objectbench.width=1900
+package.editor.height=864
+package.editor.width=1792
+package.editor.x=-9
+package.editor.y=-9
+>>>>>>> origin/ich-hab-da-mal-was-vorbereitet
 package.numDependencies=5
 package.numTargets=7
 package.showExtends=true
@@ -29,10 +37,17 @@ readme.editor.height=700
 readme.editor.width=900
 readme.editor.x=320
 readme.editor.y=16
+<<<<<<< HEAD
 target1.editor.height=1000
 target1.editor.width=1296
 target1.editor.x=-8
 target1.editor.y=-8
+=======
+target1.editor.height=1032
+target1.editor.width=960
+target1.editor.x=960
+target1.editor.y=0
+>>>>>>> origin/ich-hab-da-mal-was-vorbereitet
 target1.height=50
 target1.name=GUI
 target1.naviview.expanded=false
@@ -42,8 +57,13 @@ target1.typeParameters=
 target1.width=80
 target1.x=540
 target1.y=390
+<<<<<<< HEAD
 target2.editor.height=999
 target2.editor.width=1280
+=======
+target2.editor.height=1032
+target2.editor.width=960
+>>>>>>> origin/ich-hab-da-mal-was-vorbereitet
 target2.editor.x=0
 target2.editor.y=0
 target2.height=50
