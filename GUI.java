@@ -305,8 +305,6 @@ public class GUI extends EBAnwendung
         }      
         if (DEBUG)
         {
-            aktiviere();
-            uhr.warte(10);
             System.out.println("GUI: Aktualisiere wurde aufgerufen.");
         }
     }
@@ -319,7 +317,7 @@ public class GUI extends EBAnwendung
         if (DEBUG) 
         {
             aktiviere();
-            uhr.warte(10);
+            uhr.warte(2);
         } //aktualisieren -> Debug
         deaktiviere(); 
         int e = pa+pb;
