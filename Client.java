@@ -16,7 +16,7 @@ public abstract class Client
 {
 
     //Objektbeziehungen
-    public Connection hatVerbindung;
+    protected Connection hatVerbindung;
     private Clientempfaenger hatEmpfaenger;
      
     /**

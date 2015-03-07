@@ -21,7 +21,7 @@ GUI:
 *Reset-Knopf, zusammen mit Server zum Übergeben und Reset des Feldes. Momentan ist der Reset nur optisch beim Reset-Client!
 
 Server:
-* Gesamt Spiel Sieg wird nicht erkannt.
+* Gesamt Spiel Sieg wird nicht erkannt(?)
 * Reihenfolgenwechsel!
 * Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
 
