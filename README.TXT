@@ -21,9 +21,8 @@ GUI:
 *Reset-Knopf, zusammen mit Server zum Übergeben und Reset des Feldes. Momentan ist der Reset nur optisch beim Reset-Client!
 
 Server:
-* Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können. //Noch relevant?
 * Gesamt Spiel Sieg wird nicht erkannt.
 * Reihenfolgenwechsel!
 
-Unklar:
-* Spielfeld muss differenziert verschickt werden (?)
+Herr Schieder:
+* Spielfeld aktualisierung buggy?
