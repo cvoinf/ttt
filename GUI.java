@@ -18,6 +18,8 @@ public class GUI extends EBAnwendung
     // Hier werden die ticBoxen, also die einzelnen Knöpfe in einem Array definiert und die Höhe, Breite etc. festgelegt.
 
     private boolean dran;
+    
+    public boolean Verbunden;
 
     private Knopf ticBox[][][];
     final int startx = 80;
@@ -168,17 +170,18 @@ public class GUI extends EBAnwendung
             echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
             if (echo != null)
             {
-                //                 if (echo.isConnected()==true)
-                //                 {
-                //                     if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
-                //                     Verbinden.deaktiviere();
-                //                     textfeldAddresse.deaktiviere();
-                //                     textfeldPort.deaktiviere();
-                //                 }
-                //                 else
-                //                 {
-                //                     System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
-                //                 }
+                echo.isConnected(); //Der Client wird gefragt, ob er eine Verbindung hat.
+                if (Verbunden==true)
+                {
+                    if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+                    Verbinden.deaktiviere();
+                    textfeldAddresse.deaktiviere();
+                    textfeldPort.deaktiviere();
+                }
+                else
+                {
+                    System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
+                }
 
             }
         }
@@ -190,15 +193,6 @@ public class GUI extends EBAnwendung
         if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText() + " ");
     }
 
-    public void verbunden ()
-    {
-        if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
-        Verbinden.deaktiviere();
-        textfeldAddresse.deaktiviere();
-        textfeldPort.deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText() + " ");
-
-    }
     /**
      * Hier können alle ticBoxen deaktiviert werden. Dies sollte nach jedem Spielzug geschehen.
      */

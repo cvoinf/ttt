@@ -18,7 +18,7 @@ public class Echoclient extends Client
     private String spielerNummer;
 
     private boolean zugAktiv = false;
-    
+
     private boolean debug = true;
 
     // Attribute
@@ -29,7 +29,6 @@ public class Echoclient extends Client
         super(pIP, pPort);  
         zIP = pIP;
         zPort = pPort;
-        
 
         ArrayTicBox = new int[12][4][4];
         zGUI = pGUI;
@@ -94,7 +93,7 @@ public class Echoclient extends Client
                     }
                 }            
             }
-            
+
             if (debug)
             {
                 System.out.print("EchoClient.processMessage() : ");
@@ -110,10 +109,10 @@ public class Echoclient extends Client
                         }
                         ausgabe +=" |";
                     }
-                    
+
                     ausgabe +="\n";
                 }
-                
+
                 System.out.println(ausgabe);
             }
 
@@ -134,12 +133,12 @@ public class Echoclient extends Client
         }
 
     }
-    
-    public void verbunden ()
-   {
+
+    public void isConnected ()
+    {
        if (hatVerbindung.isConnected())
        { 
-           zGUI.verbunden();
+           zGUI.Verbunden=true;
         }
        else
         {
@@ -159,8 +158,7 @@ public class Echoclient extends Client
             zGUI.duSpielst(false);
         }
     }
-    
-    
+
     public void knopfGedrueckt(int bigBox, int row, int column)
     {
         send("feld:"+bigBox+","+row+","+column);
