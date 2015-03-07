@@ -177,8 +177,8 @@ public class Echoserver extends Server
         String zClientIP = pClientIP;
         if (b[0].compareTo("wuerfeln")==0)
         {
-            int xa = wuerfeln(4);
-            int xb = wuerfeln(4);
+            int xa = wuerfeln(5);
+            int xb = wuerfeln(5);
             if (xa+xb ==2 || xa+xb == 12)
             {
                 if(zClientIP == spieler1.substring(1))
