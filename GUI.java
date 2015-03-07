@@ -344,7 +344,7 @@ public class GUI extends EBAnwendung
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         Wuerfeln.deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: Es wurde eine "+pa+"und eine "+pb+" gewürfelt!");
+        if ( DEBUG == true) System.out.println("GUI: Es wurde eine "+pa+" und eine "+pb+" gewürfelt!");
     }
 
     /**
