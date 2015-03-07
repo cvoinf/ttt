@@ -99,11 +99,8 @@ public class Echoserver extends Server
                 for (int row=1; row <=3; row ++)
                 {
                     xb = xb + spielfeld[bigBox][row][column] +":";
-
                 }
-                
-            }            
-            
+            }      
         }
         return xb;
     }
@@ -162,8 +159,9 @@ public class Echoserver extends Server
         int ergebnis = 0;        
         while (ergebnis ==0)
         {
-            ergebnis = ra.nextInt(pMax +2);
+            ergebnis = ra.nextInt(pMax +1);
         }
+        if (debug) System.out.println("Server würfelt: "+ergebnis);
         return ergebnis;        
     }
 
@@ -182,7 +180,7 @@ public class Echoserver extends Server
             int xb = wuerfeln(4);
             if (xa+xb ==2 || xa+xb == 12)
             {
-                if(pClientIP == spieler1)
+                if(pClientIP == spieler1.toString())
                 {
                     send(spieler2, spieler2Port, "zugBeginnt: ");
                     send(spieler1, spieler1Port, "nichtAmZug: ");
@@ -190,10 +188,10 @@ public class Echoserver extends Server
                     spieler1Dran = false;
                     if(debug)
                     {
-                        System.out.println("Spieler 2 dran");
+                        System.out.println("Spieler 2 dran durch Reihenfolgenwechsel");
                     }
                 }
-                else if (pClientIP == spieler2)
+                else if (pClientIP == spieler2.toString())
                 {
                     send(spieler1, spieler1Port, "zugBeginnt: ");
                     send(spieler2, spieler2Port, "nichtAmZug: ");
@@ -201,7 +199,7 @@ public class Echoserver extends Server
                     spieler2Dran = false;
                     if(debug)
                     {
-                        System.out.println("Spieler 1 dran");
+                        System.out.println("Spieler 1 dran durch Reihenfolgenwechsel");
                     }
                 }
                 if(debug)
