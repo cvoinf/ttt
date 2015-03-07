@@ -23,6 +23,7 @@ GUI:
 Server:
 * Gesamt Spiel Sieg wird nicht erkannt.
 * Reihenfolgenwechsel!
+* Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
 
 Herr Schieder:
 * Spielfeld aktualisierung buggy?
