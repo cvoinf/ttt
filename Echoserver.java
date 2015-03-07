@@ -181,7 +181,7 @@ public class Echoserver extends Server
             int xb = wuerfeln(4);
             if (xa+xb ==2 || xa+xb == 12)
             {
-                if(zClientIP == spieler1)
+                if(zClientIP == spieler1.toString())
                 {
                     send(spieler2, spieler2Port, "zugBeginnt: ");
                     send(spieler1, spieler1Port, "nichtAmZug: ");
@@ -192,7 +192,7 @@ public class Echoserver extends Server
                         System.out.println("Spieler 2 dran durch Reihenfolgenwechsel");
                     }
                 }
-                else if (zClientIP == spieler2)
+                else if (zClientIP == spieler2.toString())
                 {
                     send(spieler1, spieler1Port, "zugBeginnt: ");
                     send(spieler2, spieler2Port, "nichtAmZug: ");
