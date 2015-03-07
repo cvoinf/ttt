@@ -6,8 +6,8 @@ import sum.ereignis.*;
 /**
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
  * 
- * @author Die üblichen Verdächtigen
- * @version 15.01.2014
+ * @author Jesko
+ * @version 7.03.2014
  */
 
 public class GUI extends EBAnwendung
@@ -18,7 +18,7 @@ public class GUI extends EBAnwendung
     // Hier werden die ticBoxen, also die einzelnen Knöpfe in einem Array definiert und die Höhe, Breite etc. festgelegt.
 
     private boolean dran;
-    
+
     public boolean Verbunden;
 
     private Knopf ticBox[][][];
@@ -88,6 +88,8 @@ public class GUI extends EBAnwendung
 
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
+    
+    private Uhr uhr;
 
     // Attribute
     /**
@@ -140,6 +142,8 @@ public class GUI extends EBAnwendung
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
         Wuerfeln.deaktiviere();
         deaktiviere(); //deaktiviert das Spielfeld zu Beginn.
+        
+        uhr = new Uhr();
     }
 
     /**
@@ -299,7 +303,12 @@ public class GUI extends EBAnwendung
                 }
             }            
         }      
-        if ( DEBUG == true) System.out.println("GUI: Aktualisiere wurde aufgerufen. Gogogo.");
+        if (DEBUG)
+        {
+            aktiviere();
+            uhr.warte(10);
+            System.out.println("GUI: Aktualisiere wurde aufgerufen.");
+        }
     }
 
     /**
@@ -307,8 +316,12 @@ public class GUI extends EBAnwendung
      */
     public void gewuerfelt(int pa, int pb)
     {
+        if (DEBUG) 
+        {
+            aktiviere();
+            uhr.warte(10);
+        } //aktualisieren -> Debug
         deaktiviere(); 
-
         int e = pa+pb;
         switch (e) {
             case 3:  aktiviere(1,1);
@@ -333,7 +346,7 @@ public class GUI extends EBAnwendung
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         Wuerfeln.deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: Es wurde gewürfelt! Let it roll!");
+        if ( DEBUG == true) System.out.println("GUI: Es wurde eine "+pa+"und eine "+pb+" gewürfelt!");
     }
 
     /**

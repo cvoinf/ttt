@@ -78,13 +78,13 @@ public class Echoclient extends Client
         }        
         else if (b[0].compareTo("aktualisiere")==0)
         {
-            System.out.println("Client: compareToAktualisiereAnfang");
+            if (debug) System.out.println("Client: compareToAktualisiereAnfang");
             int zaehler=1;
             for (int bigBox=1 ; bigBox<=9; bigBox++) 
             {
                 for (int column=1; column <=3; column++)
                 {
-                    for (int row=1; row <=3; row ++)
+                    for (int row=1; row <=3; row++)
                     {
 
                         ArrayTicBox[bigBox][row][column] = Integer.parseInt( b[zaehler]);
@@ -109,13 +109,10 @@ public class Echoclient extends Client
                         }
                         ausgabe +=" |";
                     }
-
                     ausgabe +="\n";
                 }
-
                 System.out.println(ausgabe);
             }
-
             zGUI.aktualisiere(ArrayTicBox);
             aktualisiere();
             System.out.println("Client: compareToAktualisiereEnde");
@@ -136,15 +133,16 @@ public class Echoclient extends Client
 
     public void isConnected ()
     {
-       if (hatVerbindung.isConnected())
-       { 
-           zGUI.Verbunden=true;
+        if (hatVerbindung.isConnected())
+        { 
+            zGUI.Verbunden=true;
         }
-       else
+        else
         {
             System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
         }
     }
+
     private void aktualisiere()
     {
         if(zugAktiv)
