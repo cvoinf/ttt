@@ -174,13 +174,14 @@ public class Echoserver extends Server
     public void processMessage(String pClientIP, int pClientPort, String pMessage) {
         String a = pMessage;
         String b[] = a.split(":");
+        String zClientIP = pClientIP;
         if (b[0].compareTo("wuerfeln")==0)
         {
             int xa = wuerfeln(4);
             int xb = wuerfeln(4);
             if (xa+xb ==2 || xa+xb == 12)
             {
-                if(pClientIP == spieler1.toString())
+                if(zClientIP == spieler1.toString())
                 {
                     send(spieler2, spieler2Port, "zugBeginnt: ");
                     send(spieler1, spieler1Port, "nichtAmZug: ");
@@ -191,7 +192,7 @@ public class Echoserver extends Server
                         System.out.println("Spieler 2 dran durch Reihenfolgenwechsel");
                     }
                 }
-                else if (pClientIP == spieler2.toString())
+                else if (zClientIP == spieler2.toString())
                 {
                     send(spieler1, spieler1Port, "zugBeginnt: ");
                     send(spieler2, spieler2Port, "nichtAmZug: ");
