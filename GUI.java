@@ -84,7 +84,7 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-    final boolean DEBUG = true;
+    final boolean debug = true;
 
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
@@ -121,7 +121,7 @@ public class GUI extends EBAnwendung
                 }  
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: Es wurden alle Knöpfe erzeugt.");
+        if (debug) System.out.println("GUI: Es wurden alle Knöpfe erzeugt.");
         /**
          * Es werden Knöpfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld für die Ausgabe des Würfelergebnisses.
          */
@@ -177,7 +177,7 @@ public class GUI extends EBAnwendung
                 echo.isConnected(); //Der Client wird gefragt, ob er eine Verbindung hat.
                 if (Verbunden==true)
                 {
-                    if (DEBUG == true) System.out.println("GUI: Es wurde ein Client erzeugt");
+                    if (debug) System.out.println("GUI: Es wurde ein Client("+textfeldAddresse.inhaltAlsText()+","+textfeldPort.inhaltAlsText()+") erzeugt");
                     Verbinden.deaktiviere();
                     textfeldAddresse.deaktiviere();
                     textfeldPort.deaktiviere();
@@ -186,15 +186,12 @@ public class GUI extends EBAnwendung
                 {
                     System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
                 }
-
             }
         }
         catch (Exception pFehler)
         {
             System.err.println("GUI: Fehler beim Erzeugen der Verbindung: " + pFehler);
-        }       
-
-        if ( DEBUG == true) System.out.println("GUI: VerbindenGeklickt: " +"IP "+textfeldAddresse.inhaltAlsText()+ " Port "+textfeldPort.inhaltAlsText() + " ");
+        }      
     }
 
     /**
@@ -203,7 +200,6 @@ public class GUI extends EBAnwendung
     public void WuerfelnGeklickt()
     {
         echo.send("wuerfeln");
-        if (DEBUG == true) System.out.println("GUI: Es wurden die Würfel angefordert! :)");
         Wuerfeln.deaktiviere();
     }
 
@@ -214,7 +210,7 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: Alles wurde deaktiviert.");
+        if (debug) System.out.println("GUI: Alles Knöpfe wurden deaktiviert.");
     }
 
     /**
@@ -232,9 +228,9 @@ public class GUI extends EBAnwendung
                 {
                     ticBox[bigBox][row][column].aktiviere();
                 }
-                if ( DEBUG == true) System.out.println("GUI: aktiviere ticBox " + row + column);
+                
             }
-
+            if (debug) System.out.println("GUI: Hat alle ticBoxen in Reihe " + row +"und Spalte "+ column+" aktiviert.");
         }
 
     }
@@ -255,7 +251,7 @@ public class GUI extends EBAnwendung
                 }
             }
         }
-        if ( DEBUG == true) System.out.println("GUI: Es wurde alles aktiviert. Achtung, dies ist lediglich eine Dummy-Funktion! Wenn das hier steht, ist was verkehrt..");
+        if (debug) System.out.println("GUI: Es wurde alles aktiviert.");
     }
 
     /**
@@ -284,7 +280,7 @@ public class GUI extends EBAnwendung
 
         echo.knopfGedrueckt(geklicktBigbox, geklicktRow, geklicktColumn);
         deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: knopfGeklickt "+" Spalte "+geklicktRow+" Reihe "+geklicktColumn);
+        if (debug) System.out.println("GUI: Der Knopf in Spalte "+geklicktRow+" und in Reihe "+geklicktColumn+" wurde geklickt.");
         duSpielst(false);
     }
 
@@ -303,9 +299,9 @@ public class GUI extends EBAnwendung
                 }
             }            
         }      
-        if (DEBUG)
+        if (debug)
         {
-            System.out.println("GUI: Aktualisiere wurde aufgerufen.");
+            System.out.println("GUI: Das Spielfeld wurde aktualisiert.");
         }
     }
 
@@ -314,11 +310,6 @@ public class GUI extends EBAnwendung
      */
     public void gewuerfelt(int pa, int pb)
     {
-        if (DEBUG) 
-        {
-            aktiviere();
-            uhr.warte(2);
-        } //aktualisieren -> Debug
         deaktiviere(); 
         int e = pa+pb;
         switch (e) {
@@ -344,7 +335,6 @@ public class GUI extends EBAnwendung
         }
         wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         Wuerfeln.deaktiviere();
-        if ( DEBUG == true) System.out.println("GUI: Es wurde eine "+pa+" und eine "+pb+" gewürfelt!");
     }
 
     /**
@@ -370,7 +360,7 @@ public class GUI extends EBAnwendung
             werSpielt.setzeInhalt("am Zug: Du");
             werSpielt.aktiviere();
             Wuerfeln.aktiviere();
-            if ( DEBUG == true) System.out.println("GUI: Würfelknopf aktiviert");
+            if (debug) System.out.println("GUI: Du bist dran mit Würfeln.");
             dran = true;
         }
         else
