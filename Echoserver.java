@@ -174,7 +174,7 @@ public class Echoserver extends Server
     public void processMessage(String pClientIP, int pClientPort, String pMessage) {
         String a = pMessage;
         String b[] = a.split(":");
-        String zClientIP = pClientIP;
+        String zClientIP = pClientIP.substring(1);
         if (b[0].compareTo("wuerfeln")==0)
         {
             int xa = wuerfeln(4);
