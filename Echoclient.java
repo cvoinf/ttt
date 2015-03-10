@@ -128,7 +128,6 @@ public class Echoclient extends Client
                 zGUI.verloren();
             }
         }
-
     }
 
     public void isConnected ()
