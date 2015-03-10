@@ -178,11 +178,18 @@ public class Echoserver extends Server
             int xb = wuerfeln(6);
             switch (xa+xb)
             {
-                case 12: xa=wuerfeln(6);
-                         xb=wuerfeln(6);
+                case 12: while (xa+xb == 12)
+                {
+                    xa=wuerfeln(6);
+                    xb=wuerfeln(6);
+                }
                 break;
-                case 2: xa=wuerfeln(6);
-                        xb=wuerfeln(6);
+                case 2: 
+                while (xa+xb == 2)
+                {
+                    xa=wuerfeln(6);
+                    xb=wuerfeln(6);
+                }
             }
             if (xa+xb ==2 || xa+xb == 12)
             {
