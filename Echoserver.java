@@ -399,7 +399,7 @@ public class Echoserver extends Server
         } 
         if(debug)
         {
-            System.out.println("Server: auf Sieger überprüft  (feldUeberpruefen())");
+            System.out.println("Server: auf Sieger überprüft (feldUeberpruefen())");
         }
     }
 
@@ -413,7 +413,7 @@ public class Echoserver extends Server
      */
     public boolean feldGleich(int pFeld1, int pFeld2, int pFeld3)
     {
-        if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3) &&boxUeberpruefen(pFeld1) != 0)
+        if (boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld2) && boxUeberpruefen(pFeld1) == boxUeberpruefen(pFeld3) && boxUeberpruefen(pFeld1) !=0)
         {
             if(debug)
             {
@@ -446,7 +446,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][1][1];
                 }
             }
-            sieger = spielfeld[pBox][0][0];
+            sieger = spielfeld[pBox][0+1][0+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -461,7 +461,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][1][1+1];
                 }
             }
-            sieger = spielfeld[pBox][0][1];
+            sieger = spielfeld[pBox][0+1][1+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -476,7 +476,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][1][2+1];
                 }
             }
-            sieger = spielfeld[pBox][0][2];
+            sieger = spielfeld[pBox][0+1][2+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -491,7 +491,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][1][1];
                 }
             }
-            sieger = spielfeld[pBox][0][0];
+            sieger = spielfeld[pBox][0+1][0+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -506,7 +506,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][1+1][1];
                 }
             }
-            sieger = spielfeld[pBox][1][0];
+            sieger = spielfeld[pBox][1+1][0+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -521,7 +521,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][2+1][1];
                 }
             }
-            sieger = spielfeld[pBox][2][0];
+            sieger = spielfeld[pBox][2+1][0+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -536,7 +536,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][1][1];
                 }
             }
-            sieger = spielfeld[pBox][0][0];
+            sieger = spielfeld[pBox][0+1][0+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
@@ -551,7 +551,7 @@ public class Echoserver extends Server
                     spielfeld[pBox][i][j] = spielfeld[pBox][0+1][2+1];
                 }
             }
-            sieger = spielfeld[pBox][0][2];
+            sieger = spielfeld[pBox][0+1][2+1];
             if (debug)
             {
                 System.out.println("Boxgewonnen "+ pBox);
