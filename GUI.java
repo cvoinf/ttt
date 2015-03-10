@@ -51,7 +51,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "192.168.178.144";
+    final String tText = "10.68.112.9";
 
     // Hier wird das Textfeld für die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -89,7 +89,6 @@ public class GUI extends EBAnwendung
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
     
-    private Uhr uhr;
 
     // Attribute
     /**
@@ -143,7 +142,6 @@ public class GUI extends EBAnwendung
         Wuerfeln.deaktiviere();
         deaktiviere(); //deaktiviert das Spielfeld zu Beginn.
         
-        uhr = new Uhr();
     }
 
     /**
@@ -159,6 +157,7 @@ public class GUI extends EBAnwendung
                 }
             }
         }
+        echo = null;
         System.out.println("Alles resetet von GUI-Seite her.");
 
     }
