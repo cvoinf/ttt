@@ -343,7 +343,11 @@ public class GUI extends EBAnwendung
      */
     public void gewonnen()
     {
-
+        Wuerfeln.deaktiviere();
+        if (debug)
+        {
+            System.out.println("du hast gewonnen!");
+        }
     }
 
     /**
@@ -351,7 +355,11 @@ public class GUI extends EBAnwendung
      */
     public void verloren()
     {
-
+        Wuerfeln.deaktiviere();
+        if (debug)
+        {
+            System.out.println("du hast verloren!");
+        }
     }
 
     public void duSpielst (boolean pAktiv)
