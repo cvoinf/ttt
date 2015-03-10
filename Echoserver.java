@@ -425,7 +425,11 @@ public class Echoserver extends Server
         {
             if(debug)
             {
-                System.out.println("feldGleich = false");
+                System.out.println("feldGleich = false" + 
+                " boxUeberpruefen("+pFeld1+") = "+boxUeberpruefen(pFeld1) +
+                 " boxUeberpruefen("+pFeld2+") = "+boxUeberpruefen(pFeld2) +
+                  " boxUeberpruefen("+pFeld3+") = "+boxUeberpruefen(pFeld3) 
+                );
             }
             return false;
         }
