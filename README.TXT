@@ -17,15 +17,13 @@ BENUTZERHINWEISE:
 
 TODO:
 
+GUI:
+*Reset-Knopf, zusammen mit Server zum Übergeben und Reset des Feldes. Momentan ist der Reset nur optisch beim Reset-Client!
 
-* Nach dem Würfeln muss der zweite Client wieder aktiviert werden.
-* Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können
-* Kontrolle: Kriegt der Server bei Klick eines Knopfes die richtigen Infos?
-* Kontrolle: Zeigt die Gui das Feld, welches Server sendet, korrekt an?
-* Reset-Knopf funktioniert noch nicht
-* Spielfeld muss differenziert verschickt werden
-* Row und Column sind vertauscht //trivialer Fehler, der nicht wirklich relevant ist.
-* Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
+Server:
+* Gesamt Spiel Sieg wird nicht erkannt(?)
+* Reihenfolgenwechsel!
+* Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
 
-
-
+Herr Schieder:
+* Spielfeld aktualisierung buggy?
