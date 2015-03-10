@@ -88,12 +88,6 @@ public class GUI extends EBAnwendung
 
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
-<<<<<<< HEAD
-    
-=======
-
-    private Uhr uhr;
->>>>>>> 19a4049b7fa18f3f9f5efa7f3c1b78d62a04c37a
 
     // Attribute
     /**
@@ -145,13 +139,6 @@ public class GUI extends EBAnwendung
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
         Wuerfeln.deaktiviere();
-        deaktiviere(); //deaktiviert das Spielfeld zu Beginn.
-<<<<<<< HEAD
-        
-=======
-
-        uhr = new Uhr();
->>>>>>> 19a4049b7fa18f3f9f5efa7f3c1b78d62a04c37a
     }
 
     /**
