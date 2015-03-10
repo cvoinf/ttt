@@ -176,7 +176,8 @@ public class Echoserver extends Server
         {
             int xa = wuerfeln(6);
             int xb = wuerfeln(6);
-            switch (xa+xb)
+            
+            /*switch (xa+xb)
             {
                 case 12: while (xa+xb == 12)
                 {
@@ -190,34 +191,26 @@ public class Echoserver extends Server
                     xa=wuerfeln(6);
                     xb=wuerfeln(6);
                 }
-            }
-            if (xa+xb ==2 || xa+xb == 12)
+            }*/
+            if (xa+xb ==2 || xa+xb ==12)
             {
-                if(zClientIP == spieler1.substring(1))
+                if(spieler1Dran == true)
                 {
-                    send(spieler2, spieler2Port, "zugBeginnt: ");
-                    send(spieler1, spieler1Port, "nichtAmZug: ");
-                    spieler2Dran = true;
                     spieler1Dran = false;
+                    spieler2Dran = true;
                     if(debug)
                     {
-                        System.out.println("Spieler 2 dran durch Reihenfolgenwechsel");
+                        System.out.println("Spieler1 muss aussetzten");
                     }
                 }
-                else if (zClientIP == spieler2.substring(1))
+                if(spieler2Dran == true)
                 {
-                    send(spieler1, spieler1Port, "zugBeginnt: ");
-                    send(spieler2, spieler2Port, "nichtAmZug: ");
                     spieler1Dran = true;
                     spieler2Dran = false;
                     if(debug)
                     {
-                        System.out.println("Spieler 1 dran durch Reihenfolgenwechsel");
+                        System.out.println("Spieler2 muss aussetzten");
                     }
-                }
-                if(debug)
-                {
-                    System.out.println("Server: Reihenfolge gewechselt");
                 }
             }
             else 
