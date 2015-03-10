@@ -51,7 +51,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "192.168.178.144";
+    final String tText = "10.68.112.9";
 
     // Hier wird das Textfeld für die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -88,8 +88,12 @@ public class GUI extends EBAnwendung
 
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
+<<<<<<< HEAD
     
+=======
+
     private Uhr uhr;
+>>>>>>> 19a4049b7fa18f3f9f5efa7f3c1b78d62a04c37a
 
     // Attribute
     /**
@@ -142,8 +146,12 @@ public class GUI extends EBAnwendung
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
         Wuerfeln.deaktiviere();
         deaktiviere(); //deaktiviert das Spielfeld zu Beginn.
+<<<<<<< HEAD
         
+=======
+
         uhr = new Uhr();
+>>>>>>> 19a4049b7fa18f3f9f5efa7f3c1b78d62a04c37a
     }
 
     /**
@@ -159,6 +167,7 @@ public class GUI extends EBAnwendung
                 }
             }
         }
+        echo = null;
         System.out.println("Alles resetet von GUI-Seite her.");
 
     }
@@ -210,6 +219,7 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
+        this.hatBildschirm.repaint();      
         if (debug) System.out.println("GUI: Alles Knöpfe wurden deaktiviert.");
     }
 
@@ -228,8 +238,9 @@ public class GUI extends EBAnwendung
                 {
                     ticBox[bigBox][row][column].aktiviere();
                 }
-                
+
             }
+            this.hatBildschirm.repaint();
             if (debug) System.out.println("GUI: Hat alle ticBoxen in Reihe " + row +"und Spalte "+ column+" aktiviert.");
         }
 
@@ -251,6 +262,7 @@ public class GUI extends EBAnwendung
                 }
             }
         }
+        this.hatBildschirm.repaint();
         if (debug) System.out.println("GUI: Es wurde alles aktiviert.");
     }
 
@@ -280,6 +292,7 @@ public class GUI extends EBAnwendung
 
         echo.knopfGedrueckt(geklicktBigbox, geklicktRow, geklicktColumn);
         deaktiviere();
+        this.hatBildschirm.repaint();
         if (debug) System.out.println("GUI: Der Knopf in Spalte "+geklicktRow+" und in Reihe "+geklicktColumn+" wurde geklickt.");
         duSpielst(false);
     }
@@ -299,6 +312,7 @@ public class GUI extends EBAnwendung
                 }
             }            
         }      
+        this.hatBildschirm.repaint();
         if (debug)
         {
             System.out.println("GUI: Das Spielfeld wurde aktualisiert.");
