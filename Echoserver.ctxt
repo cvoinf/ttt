@@ -20,11 +20,7 @@ comment6.target=void\ feldUeberpruefen()
 comment6.text=\r\n\ \u00DCberpr\u00FCft,\ ob\ das\ Spiel\ vorbei\ ist,\ setzt\ boolean\ spielVorbei\ dementsprechend\ \ \ \ \ \r\n
 comment7.params=pFeld1\ pFeld2\ pFeld3
 comment7.target=boolean\ feldGleich(int,\ int,\ int)
-<<<<<<< HEAD
-comment7.text=\ \ \ \ \ \r\n\ Mehtode,\ die\ \u00FCberpr\u00FCft,\ ob\ 3\ Felder\ den\ gleichen\ Inhalt\ haben;\r\n\ von\ Relevanz\ f\u00FCr\ die\ Siegbedingung\r\n\ @param\ pFeld1\ \ int\ erstes\ Feld\r\n\ @param\ pFeld2\ \ int\ zweites\ Feld\r\n\ @param\ pFeld3\ \ int\ drittes\ Feld\r\n\ @return\ true,\ wenn\ alle\ Felder\ gleich\r\n
-=======
 comment7.text=\ \ \ \ \ \r\n\ Methode,\ die\ \u00FCberpr\u00FCft,\ ob\ 3\ Felder\ den\ gleichen\ Inhalt\ haben;\r\n\ von\ Relevanz\ f\u00FCr\ die\ Siegbedingung\r\n\ @param\ pFeld1\ \ int\ erstes\ Feld\r\n\ @param\ pFeld2\ \ int\ zweites\ Feld\r\n\ @param\ pFeld3\ \ int\ drittes\ Feld\r\n\ @return\ true,\ wenn\ alle\ Felder\ gleich\r\n
->>>>>>> 6f19f7f7c053a4c50d3193dc1a94090a3c2cd63d
 comment8.params=pBox
 comment8.target=int\ boxUeberpruefen(int)
 comment8.text=\r\n\ \u00DCberpfr\u00FCft,\ ob\ eine\ Box\ von\ einem\ Spieler\ gewonnen\ wurde,\ setzt\ \ die\ Felder\ dementsprechend\r\n
