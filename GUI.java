@@ -77,13 +77,11 @@ public class GUI extends EBAnwendung
     final double bBreite = 100;
     final double bHoehe = 30;
     final String bAufschrift = "Wuerfeln";
-<<<<<<< HEAD
+
     
     private Bild wuerfel1;
     private Bild wuerfel2;
     
-=======
->>>>>>> 5f2ef98a57c96899175d0bd05c700f1939ac3d94
 
     private Etikett werSpielt;
     final double fLinks = 130;
