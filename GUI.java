@@ -2,6 +2,7 @@
 import sum.komponenten.*;
 import sum.werkzeuge.*;
 import sum.ereignis.*;
+import sum.multimedia.Bild;
 
 /**
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
@@ -60,12 +61,12 @@ public class GUI extends EBAnwendung
     final String tText2 = "5557";  
 
     // Hier wird das Würfel Ergebnis ausgegeben.
-    private Etikett wuerfelErgebnis;
-    final double cLinks = 130;
-    final double cOben = 130;
-    final double cBreite = 200;
-    final double cHoehe = 30;
-    final String cText = "Würfel 1: "+"Würfel 2:";
+    //private Etikett wuerfelErgebnis;
+    //final double cLinks = 130;
+    //final double cOben = 130;
+    //final double cBreite = 200;
+    //final double cHoehe = 30;
+    //final String cText = "Würfel 1: "+"Würfel 2:";
 
     // Hier wird der Knopf zum Wuerfeln definiert.
     private Knopf Wuerfeln;
@@ -74,7 +75,10 @@ public class GUI extends EBAnwendung
     final double bBreite = 100;
     final double bHoehe = 30;
     final String bAufschrift = "Wuerfeln";
-
+    
+    private Bild wuerfel1;
+    private Bild wuerfel2;
+    
 
     private Etikett werSpielt;
     final double fLinks = 130;
@@ -133,13 +137,19 @@ public class GUI extends EBAnwendung
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
-
-        wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
+       //Bilder müssen sich aktualisieren oder gelöscht und neu erzeugt werden.
+       // wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
+          wuerfel1= new Bild(30,80,20,20,"wR1.jpg");
+         wuerfel2= new Bild(30,160,20,20,"wR2.jpg");
+         // wuerfel3= new Bild(20,20,20,20,"wR3.jpg");
+         // wuerfel4= new Bild(20,20,20,20,"wR4.jpg");
+          //wuerfel5= new Bild(20,20,20,20,"wR5.jpg");
+          //wuerfel6= new Bild(20,20,20,20,"wR6.jpg");
         Wuerfeln.deaktiviere();
     }
-
+  
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient übergeben wird, mit welcher
      * Ip-Adresse und welchem Port man sich verbinden will.
@@ -316,7 +326,7 @@ public class GUI extends EBAnwendung
             break;
 
         }
-        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        //wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         Wuerfeln.deaktiviere();
         if ( DEBUG == true) System.out.println("GUI: Es wurde gewürfelt! Let it roll!");
     }

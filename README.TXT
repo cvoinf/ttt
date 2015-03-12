@@ -18,14 +18,17 @@ BENUTZERHINWEISE:
 TODO:
 
 
-* Nach dem Würfeln muss der zweite Client wieder aktiviert werden.
+* Anzeigen: Verbunden 
+* Anzeigen: Du bist dran / nicht dran       
+* Ausgrauen der Felder funktioniert noch nicht korrekt
 * Server sollte im Debug-Modus Feld selber ausgeben, damit Fehler gefunden werden können
-* Kontrolle: Kriegt der Server bei Klick eines Knopfes die richtigen Infos?
+* Kontrolle: kriegt der Server bei Klick eines Knopfes die richtigen Infos?
 * Kontrolle: Zeigt die Gui das Feld, welches Server sendet, korrekt an?
 * Reset-Knopf funktioniert noch nicht
-* Spielfeld muss differenziert verschickt werden
-* Row und Column sind vertauscht //trivialer Fehler, der nicht wirklich relevant ist.
+* Wer nicht dran ist, sollte nicht würfeln können
+* Spielfeld muss deferenziert verschickt werden
+* Row und Column sind vertauscht
 * Spielfeld wird nicht richtig aktualisiert (Züge von einem Spieler verschwinden)
-
+*
 
 
