@@ -314,7 +314,9 @@ public class Echoserver extends Server
                     send(spieler2, spieler2Port, "gewonnen:spieler2 ");
                 }
             }
-            if (b[0].compareTo("reset")==0)
+            
+        }
+        if (b[0].compareTo("reset")==0)
             {
                 for (int bigBox=1 ; bigBox<=9; bigBox++) //Die Felder des Arrays werden auf den Wert "0" gestellt und das Feld ist spielbereit
                 {
@@ -333,7 +335,6 @@ public class Echoserver extends Server
                     System.out.println("Das Spielfeld wurde resettet.");
                 }
             }
-        }
     }
 
     /**
