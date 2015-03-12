@@ -368,17 +368,17 @@ public class GUI extends EBAnwendung
             break;
         }
         switch (pb) {
-            case 7:   wuerfel2.setzeBild(w1);
+            case 1:   wuerfel2.setzeBild(w1);
             break;
-            case 8:   wuerfel2.setzeBild(w2);
+            case 2:   wuerfel2.setzeBild(w2);
             break;
-            case 9:   wuerfel2.setzeBild(w3);
+            case 3:   wuerfel2.setzeBild(w3);
             break;
-            case 10:   wuerfel2.setzeBild(w4);
+            case 4:   wuerfel2.setzeBild(w4);
             break;
-            case 11:   wuerfel2.setzeBild(w5);
+            case 5:   wuerfel2.setzeBild(w5);
             break;
-            case 12:   wuerfel2.setzeBild(w6);
+            case 6:   wuerfel2.setzeBild(w6);
             break;
         }
        
