@@ -14,15 +14,31 @@ dependency4.type=UsesDependency
 dependency5.from=GUI
 dependency5.to=Echoclient
 dependency5.type=UsesDependency
+<<<<<<< HEAD
+package.editor.height=838
+package.editor.width=696
+package.editor.x=840
+package.editor.y=0
+=======
 package.editor.height=828
 package.editor.width=1152
 package.editor.x=-8
 package.editor.y=-8
+>>>>>>> 5f2ef98a57c96899175d0bd05c700f1939ac3d94
 package.numDependencies=5
 package.numTargets=7
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
+<<<<<<< HEAD
+readme.editor.height=1010
+readme.editor.width=840
+readme.editor.x=20
+readme.editor.y=0
+target1.editor.height=1010
+target1.editor.width=840
+target1.editor.x=0
+=======
 readme.editor.height=1040
 readme.editor.width=1296
 readme.editor.x=-9
@@ -30,6 +46,7 @@ readme.editor.y=-9
 target1.editor.height=984
 target1.editor.width=640
 target1.editor.x=640
+>>>>>>> 5f2ef98a57c96899175d0bd05c700f1939ac3d94
 target1.editor.y=0
 target1.height=50
 target1.name=GUI
@@ -51,10 +68,17 @@ target2.type=ClassTarget
 target2.width=90
 target2.x=80
 target2.y=330
+<<<<<<< HEAD
+target3.editor.height=1000
+target3.editor.width=1296
+target3.editor.x=162
+target3.editor.y=85
+=======
 target3.editor.height=984
 target3.editor.width=640
 target3.editor.x=640
 target3.editor.y=0
+>>>>>>> 5f2ef98a57c96899175d0bd05c700f1939ac3d94
 target3.height=50
 target3.name=Echoclient
 target3.naviview.expanded=false
@@ -87,10 +111,10 @@ target5.type=ClassTarget
 target5.width=90
 target5.x=320
 target5.y=120
-target6.editor.height=1004
-target6.editor.width=1288
-target6.editor.x=-4
-target6.editor.y=-4
+target6.editor.height=1010
+target6.editor.width=840
+target6.editor.x=0
+target6.editor.y=0
 target6.height=50
 target6.name=Client
 target6.naviview.expanded=true
