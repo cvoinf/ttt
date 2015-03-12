@@ -346,7 +346,6 @@ public class Echoserver extends Server
                 }
                 send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
                 send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());  
-                start();
             }
             if(debug)
             {
