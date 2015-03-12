@@ -326,11 +326,19 @@ public class Echoserver extends Server
             {
                 spieler1reset = true;
                 send (spieler2, spieler2Port, "requestReset:");
+                  if(debug)
+            {
+                System.out.println("sPIELER1 HAT RESET GECLICKT");
+            }
             }
             if (pClientIP == spieler2)
             {
                 spieler2reset = true;
                 send (spieler1, spieler1Port, "requestReset:");
+                 if(debug)
+            {
+                System.out.println("sPIELER2 HAT RESET GECLICKT");
+            }
             }
             if (spieler1reset == true && spieler2reset == true)
             {
@@ -346,11 +354,12 @@ public class Echoserver extends Server
                 }
                 send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
                 send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());  
+                if(debug)
+                {
+                    System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
+                }
             }
-            if(debug)
-            {
-                System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
-            }
+
         }
     }
 
