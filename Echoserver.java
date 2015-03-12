@@ -176,21 +176,21 @@ public class Echoserver extends Server
         {
             int xa = wuerfeln(6);
             int xb = wuerfeln(6);
-            
+
             /*switch (xa+xb)
             {
-                case 12: while (xa+xb == 12)
-                {
-                    xa=wuerfeln(6);
-                    xb=wuerfeln(6);
-                }
-                break;
-                case 2: 
-                while (xa+xb == 2)
-                {
-                    xa=wuerfeln(6);
-                    xb=wuerfeln(6);
-                }
+            case 12: while (xa+xb == 12)
+            {
+            xa=wuerfeln(6);
+            xb=wuerfeln(6);
+            }
+            break;
+            case 2: 
+            while (xa+xb == 2)
+            {
+            xa=wuerfeln(6);
+            xb=wuerfeln(6);
+            }
             }*/
             if (xa+xb ==2 || xa+xb ==12)
             {
@@ -310,6 +310,25 @@ public class Echoserver extends Server
                     send(spieler2, spieler2Port, "gewonnen:spieler2 ");
                 }
             }
+            if (b[0].compareTo("reset")==0)
+            {
+                for (int bigBox=1 ; bigBox<=9; bigBox++) //Die Felder des Arrays werden auf den Wert "0" gestellt und das Feld ist spielbereit
+                {
+                    for (int column=1; column <=3; column++)
+                    {
+                        for (int row=1; row <=3; row ++)
+                        {
+                            spielfeld[bigBox][row][column] = 0; 
+                        }
+                    }            
+                }
+                send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
+                send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());  
+                if(debug)
+                {
+                    System.out.println("Das Spielfeld wurde resettet.");
+                }
+            }
         }
     }
 
@@ -419,9 +438,9 @@ public class Echoserver extends Server
             if(debug)
             {
                 System.out.println("feldGleich = false" + 
-                " boxUeberpruefen("+pFeld1+") = "+boxUeberpruefen(pFeld1) +
-                 " boxUeberpruefen("+pFeld2+") = "+boxUeberpruefen(pFeld2) +
-                  " boxUeberpruefen("+pFeld3+") = "+boxUeberpruefen(pFeld3) 
+                    " boxUeberpruefen("+pFeld1+") = "+boxUeberpruefen(pFeld1) +
+                    " boxUeberpruefen("+pFeld2+") = "+boxUeberpruefen(pFeld2) +
+                    " boxUeberpruefen("+pFeld3+") = "+boxUeberpruefen(pFeld3) 
                 );
             }
             return false;

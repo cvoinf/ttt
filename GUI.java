@@ -146,17 +146,12 @@ public class GUI extends EBAnwendung
      */
     public void resetGeklickt()
     {
-        for(int bigBox = 1; bigBox <=9; bigBox++)
-        { for (int column = 1; column<4; column++)
-            { for (int row = 1; row < 4; row++)
-                {
-                    ticBox[bigBox][row][column].setzeInhalt(0);
-                }
-            }
+        echo.send("reset");
+        if(debug)
+        {
+            System.out.println("Alles resetet von GUI-Seite her.");
+            
         }
-        echo = null;
-        System.out.println("Alles resetet von GUI-Seite her.");
-
     }
 
     /**
