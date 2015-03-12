@@ -305,13 +305,13 @@ public class Echoserver extends Server
             {
                 if(spieler1Dran)
                 {           
-                    send(spieler1, spieler1Port, "gewonnen:spieler1 ");
-                    send(spieler2, spieler2Port, "gewonnen:spieler1 ");
+                    send(spieler1, spieler1Port, "gewonnen:spieler1");
+                    send(spieler2, spieler2Port, "gewonnen:spieler1");
                 }
                 else 
                 {
-                    send(spieler1, spieler1Port, "gewonnen:spieler2 ");
-                    send(spieler2, spieler2Port, "gewonnen:spieler2 ");
+                    send(spieler1, spieler1Port, "gewonnen:spieler2");
+                    send(spieler2, spieler2Port, "gewonnen:spieler2");
                 }
             }
         }
