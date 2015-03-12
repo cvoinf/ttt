@@ -63,12 +63,12 @@ public class GUI extends EBAnwendung
     final String tText2 = "5557";  
 
     // Hier wird das Würfel Ergebnis ausgegeben.
-    //private Etikett wuerfelErgebnis;
-    //final double cLinks = 130;
-    //final double cOben = 130;
-    //final double cBreite = 200;
-    //final double cHoehe = 30;
-    //final String cText = "Würfel 1: "+"Würfel 2:";
+    private Etikett wuerfelErgebnis;
+    final double cLinks = 130;
+    final double cOben = 130;
+    final double cBreite = 200;
+   final double cHoehe = 30;
+    
 
     // Hier wird der Knopf zum Wuerfeln definiert.
     private Knopf Wuerfeln;
@@ -82,6 +82,12 @@ public class GUI extends EBAnwendung
     private Bild wuerfel1;
     private Bild wuerfel2;
     
+    private Bild w1;
+    private Bild w2;   
+    private Bild w3;
+    private Bild w4;
+    private Bild w5;
+    private Bild w6;
 
     private Etikett werSpielt;
     final double fLinks = 130;
@@ -141,15 +147,20 @@ public class GUI extends EBAnwendung
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
        //Bilder müssen sich aktualisieren oder gelöscht und neu erzeugt werden.
-       // wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,cText);
+       
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
-          wuerfel1= new Bild(30,80,20,20,"wR1.jpg");
-         wuerfel2= new Bild(30,160,20,20,"wR2.jpg");
-         // wuerfel3= new Bild(20,20,20,20,"wR3.jpg");
-         // wuerfel4= new Bild(20,20,20,20,"wR4.jpg");
-          //wuerfel5= new Bild(20,20,20,20,"wR5.jpg");
-          //wuerfel6= new Bild(20,20,20,20,"wR6.jpg");
+		w1=  new Bild(30,80,20,20,"wR1.jpg");
+	w2=  new Bild(30,80,20,20,"wR2.jpg");
+	w3=  new Bild(30,80,20,20,"wR3.jpg");
+	w4=  new Bild(30,80,20,20,"wR4.jpg");
+	w5=  new Bild(30,80,20,20,"wR5.jpg");
+	w6=  new Bild(30,80,20,20,"wR6.jpg");
+
+
+        wuerfel1= new Bild(30,80,20,20,w1);
+        wuerfel2= new Bild(30,160,20,20,w2);
+        
         Wuerfeln.deaktiviere();
     }
   
@@ -341,7 +352,36 @@ public class GUI extends EBAnwendung
             break;
 
         }
-        //wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        switch (pa) {
+            case 1:  wuerfel1.setzeBild(w1);
+            break;
+            case 2:  wuerfel1.setzeBild(w2);
+            break;
+            case 3:  wuerfel1.setzeBild(w3);
+            break;
+            case 4:  wuerfel1.setzeBild(w4);
+            break;
+            case 5:  wuerfel1.setzeBild(w5);
+            break;
+            case 6:  wuerfel1.setzeBild(w6);
+            break;
+        }
+        switch (pb) {
+            case 7:   wuerfel2.setzeBild(w1);
+            break;
+            case 8:   wuerfel2.setzeBild(w2);
+            break;
+            case 9:   wuerfel2.setzeBild(w3);
+            break;
+            case 10:   wuerfel2.setzeBild(w4);
+            break;
+            case 11:   wuerfel2.setzeBild(w5);
+            break;
+            case 12:   wuerfel2.setzeBild(w6);
+            break;
+        }
+       
         Wuerfeln.deaktiviere();
     }
 
