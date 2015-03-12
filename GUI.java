@@ -352,7 +352,7 @@ public class GUI extends EBAnwendung
             break;
 
         }
-        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        //wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         switch (pa) {
             case 1:  wuerfel1.setzeBild(w1);
             break;
