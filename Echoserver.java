@@ -322,7 +322,7 @@ public class Echoserver extends Server
         }
         else if (b[0].compareTo("reset")==0)
         {
-            if (pClientIP == spieler1)
+            if (zClientIP == spieler1)
             {
                 spieler1reset = true;
                 send (spieler2, spieler2Port, "requestReset:");
@@ -331,7 +331,7 @@ public class Echoserver extends Server
                 System.out.println("sPIELER1 HAT RESET GECLICKT");
             }
             }
-            if (pClientIP == spieler2)
+            if (zClientIP == spieler2)
             {
                 spieler2reset = true;
                 send (spieler1, spieler1Port, "requestReset:");
