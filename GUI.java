@@ -150,6 +150,7 @@ public class GUI extends EBAnwendung
        
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
+
 		w1=  new Bild(30,80,20,20,"wR1.jpg");
 	w2=  new Bild(30,80,20,20,"wR2.jpg");
 	w3=  new Bild(30,80,20,20,"wR3.jpg");
@@ -161,6 +162,10 @@ public class GUI extends EBAnwendung
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
         
+
+
+	wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,"");
+
         Wuerfeln.deaktiviere();
     }
   
@@ -352,7 +357,7 @@ public class GUI extends EBAnwendung
             break;
 
         }
-        //wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
         switch (pa) {
             case 1:  wuerfel1.setzeBild(w1);
             break;
