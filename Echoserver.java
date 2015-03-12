@@ -19,6 +19,8 @@ public class Echoserver extends Server
 
     private boolean spieler1Dran; 
     private boolean spieler2Dran; 
+    private boolean spieler1reset;
+    private boolean spieler2reset;
 
     private boolean spielVorbei;
     private int spielfeld[][][]; // drei-dimensionale Int Array beschriebt Spielfeld: [bigBox] [column] [row]
@@ -34,6 +36,8 @@ public class Echoserver extends Server
         spieler1Dran = false; //Spieler 1 ist nicht dran
         spieler2Dran = false; //Spieler 2 ist nicht dran 
         spielVorbei = false;
+        spieler1reset = false;
+        spieler2reset = false;
 
         symbolSpieler1 = "symbol:Kreuz"; //Spieler1 Symbol "Kreuz" zugeteilt
         symbolSpieler2 = "symbol:Kreis"; //Spieler2 Symbol "Kreis" zugeteilt
@@ -314,9 +318,21 @@ public class Echoserver extends Server
                     send(spieler2, spieler2Port, "gewonnen:spieler2");
                 }
             }
-            
+
         }
-        if (b[0].compareTo("reset")==0)
+        else if (b[0].compareTo("reset")==0)
+        {
+            if (pClientIP == spieler1)
+            {
+                spieler1reset = true;
+                send (spieler2, spieler2Port, "requestReset:");
+            }
+            if (pClientIP == spieler2)
+            {
+                spieler2reset = true;
+                send (spieler1, spieler1Port, "requestReset:");
+            }
+            if (spieler1reset == true && spieler2reset == true)
             {
                 for (int bigBox=1 ; bigBox<=9; bigBox++) //Die Felder des Arrays werden auf den Wert "0" gestellt und das Feld ist spielbereit
                 {
@@ -330,11 +346,13 @@ public class Echoserver extends Server
                 }
                 send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
                 send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());  
-                if(debug)
-                {
-                    System.out.println("Das Spielfeld wurde resettet.");
-                }
+                start();
             }
+            if(debug)
+            {
+                System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
+            }
+        }
     }
 
     /**

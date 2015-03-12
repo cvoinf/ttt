@@ -128,6 +128,10 @@ public class Echoclient extends Client
                 zGUI.verloren();
             }
         }
+        else if (b[0].compareTo("requestReset")==0)
+        {
+            zGUI.requestReset();
+        }
     }
 
     public void isConnected ()

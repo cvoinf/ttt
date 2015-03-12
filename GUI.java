@@ -375,5 +375,10 @@ public class GUI extends EBAnwendung
         }
 
     }
+    
+    public void requestReset()
+    {
+        System.out.println("Der andere Spieler verlangt einen RESET!!!!");
+    }
 }
 
