@@ -198,18 +198,22 @@ public class Echoserver extends Server
                 {
                     spieler1Dran = false;
                     spieler2Dran = true;
+                    send(spieler2, spieler2Port, "zugBeginnt: ");
+                    send(spieler1, spieler1Port, "nichtAmZug: ");
                     if(debug)
                     {
-                        System.out.println("Spieler1 muss aussetzten");
+                        System.out.println("Spieler1 muss aussetzen");
                     }
                 }
-                if(spieler2Dran == true)
+                else if(spieler2Dran == true)
                 {
                     spieler1Dran = true;
                     spieler2Dran = false;
+                    send(spieler2, spieler2Port, "nichtAmZug: ");
+                    send(spieler1, spieler1Port, "zugBeginnt: ");
                     if(debug)
                     {
-                        System.out.println("Spieler2 muss aussetzten");
+                        System.out.println("Spieler2 muss aussetzen");
                     }
                 }
             }

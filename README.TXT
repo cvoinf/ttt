@@ -22,8 +22,5 @@ GUI:
 
 Server:
 * Gesamt Spiel Sieg wird nicht erkannt(?)
-* Reihenfolgenwechsel!
+* Reihenfolgenwechsel bei 2 und 12!
 * Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
-
-Herr Schieder:
-* Spielfeld aktualisierung buggy?
