@@ -3,6 +3,9 @@ import sum.komponenten.*;
 import sum.werkzeuge.*;
 import sum.ereignis.*;
 import sum.multimedia.Bild;
+import javax.swing.JPanel;
+import java.lang.reflect.Method;
+import java.lang.reflect.InvocationTargetException;
 
 /**
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
@@ -18,6 +21,8 @@ public class GUI extends EBAnwendung
 
     // Hier werden die ticBoxen, also die einzelnen Knöpfe in einem Array definiert und die Höhe, Breite etc. festgelegt.
 
+    private Bildschirm meinBildschirm;
+    private JPanel meinPanel;
     private boolean dran;
 
     public boolean Verbunden;
@@ -52,7 +57,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "10.68.112.9";
+    final String tText = "localhost";
 
     // Hier wird das Textfeld für die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -67,8 +72,7 @@ public class GUI extends EBAnwendung
     final double cLinks = 130;
     final double cOben = 130;
     final double cBreite = 200;
-   final double cHoehe = 30;
-    
+    final double cHoehe = 30;
 
     // Hier wird der Knopf zum Wuerfeln definiert.
     private Knopf Wuerfeln;
@@ -78,10 +82,9 @@ public class GUI extends EBAnwendung
     final double bHoehe = 30;
     final String bAufschrift = "Wuerfeln";
 
-    
     private Bild wuerfel1;
     private Bild wuerfel2;
-    
+
     private Bild w1;
     private Bild w2;   
     private Bild w3;
@@ -98,8 +101,12 @@ public class GUI extends EBAnwendung
 
     final boolean debug = true;
 
+    private static int guiNr=0;
+
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
+    private static Ereignisanwendung meineSuMPrivateAnwendung1;
+    private static Ereignisanwendung meineSuMPrivateAnwendung2;
 
     // Attribute
     /**
@@ -109,8 +116,17 @@ public class GUI extends EBAnwendung
     {
         //Initialisierung der Oberklasse
         super(700, 750); 
+        
+        guiNr++;
+        if (guiNr==1)
+            meineSuMPrivateAnwendung1 = hatSuMPrivateAnwendung;
+        if (guiNr==2)
+            meineSuMPrivateAnwendung2 = hatSuMPrivateAnwendung;
+        meinBildschirm = this.hatBildschirm;
+        meinPanel = meinBildschirm.privatPanel();
+        meinBildschirm.setTitle("Spieler "+guiNr);
         int i=0;
-
+        
         /**
          * Hier werden die einzelnen ticBoxen aufwendig erzeugt. Dazu wird erst einmal das Array definiert,
          * es umfasst [12](-3) BigBoxen für die einzelnen Würfelergebnisse, und je [4] für Breite und Höhe.
@@ -127,11 +143,11 @@ public class GUI extends EBAnwendung
                     int x=startx+((bigBox+2)%3)*3*(ticBoxWidth+abstandBoxen)+row*(ticBoxWidth);
                     int y= starty+(((int)((bigBox+2)/3.0))*(ticBoxHeight+abstandBoxen))*3+column*(ticBoxHeight);
 
-                    ticBox[bigBox][row][column] = new Knopf(x,y, ticBoxWidth, ticBoxHeight, ""+i, "knopfGeklickt");
+                    ticBox[bigBox][row][column] = new Knopf(x,y, ticBoxWidth, ticBoxHeight, ""+i, "knopfGeklickt"+guiNr);
                 }  
             }
         }
-        if (debug) System.out.println("GUI: Es wurden alle Knöpfe erzeugt.");
+        if (debug) System.out.println("GUI"+guiNr+": Es wurden alle Knöpfe erzeugt.");
         /**
          * Es werden Knöpfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld für die Ausgabe des Würfelergebnisses.
          */
@@ -146,29 +162,25 @@ public class GUI extends EBAnwendung
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
-       //Bilder müssen sich aktualisieren oder gelöscht und neu erzeugt werden.
-       
+        //Bilder müssen sich aktualisieren oder gelöscht und neu erzeugt werden.
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
-
-		w1=  new Bild(30,80,20,20,"wR1.jpg");
-	w2=  new Bild(30,80,20,20,"wR2.jpg");
-	w3=  new Bild(30,80,20,20,"wR3.jpg");
-	w4=  new Bild(30,80,20,20,"wR4.jpg");
-	w5=  new Bild(30,80,20,20,"wR5.jpg");
-	w6=  new Bild(30,80,20,20,"wR6.jpg");
-
+        w1=  new Bild(-30,-80,20,20,"wR1.jpg");
+        w2=  new Bild(-30,-80,20,20,"wR2.jpg");
+        w3=  new Bild(-30,-80,20,20,"wR3.jpg");
+        w4=  new Bild(-30,-80,20,20,"wR4.jpg");
+        w5=  new Bild(-30,-80,20,20,"wR5.jpg");
+        w6=  new Bild(-30,-80,20,20,"wR6.jpg");
 
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
-        
 
 
-	wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,"");
+        wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,"");
 
         Wuerfeln.deaktiviere();
     }
-  
+
     /**
      * Der Reset Knopf wurde gedrückt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
      */
@@ -178,7 +190,7 @@ public class GUI extends EBAnwendung
         if(debug)
         {
             System.out.println("Alles resetet von GUI-Seite her.");
-            
+
         }
     }
 
@@ -196,20 +208,20 @@ public class GUI extends EBAnwendung
                 echo.isConnected(); //Der Client wird gefragt, ob er eine Verbindung hat.
                 if (Verbunden==true)
                 {
-                    if (debug) System.out.println("GUI: Es wurde ein Client("+textfeldAddresse.inhaltAlsText()+","+textfeldPort.inhaltAlsText()+") erzeugt");
+                    if (debug) System.out.println("GUI"+guiNr+": Es wurde ein Client("+textfeldAddresse.inhaltAlsText()+","+textfeldPort.inhaltAlsText()+") erzeugt");
                     Verbinden.deaktiviere();
                     textfeldAddresse.deaktiviere();
                     textfeldPort.deaktiviere();
                 }
                 else
                 {
-                    System.out.println("GUI: Fehler beim Erzeugen der Verbindung!");
+                    System.out.println("GUI"+guiNr+": Fehler beim Erzeugen der Verbindung!");
                 }
             }
         }
         catch (Exception pFehler)
         {
-            System.err.println("GUI: Fehler beim Erzeugen der Verbindung: " + pFehler);
+            System.err.println("GUI"+guiNr+": Fehler beim Erzeugen der Verbindung: " + pFehler);
         }      
     }
 
@@ -218,8 +230,11 @@ public class GUI extends EBAnwendung
      */
     public void WuerfelnGeklickt()
     {
+
         echo.send("wuerfeln");
         Wuerfeln.deaktiviere();
+
+
     }
 
     public void deaktiviere()
@@ -229,8 +244,8 @@ public class GUI extends EBAnwendung
                     ticBox[bigBox][row][column].deaktiviere();
             }
         }
-        this.hatBildschirm.repaint();      
-        if (debug) System.out.println("GUI: Alles Knöpfe wurden deaktiviert.");
+        meinBildschirm.repaint();      
+        if (debug) System.out.println("GUI"+guiNr+": Alles Knöpfe wurden deaktiviert.");
     }
 
     /**
@@ -250,8 +265,8 @@ public class GUI extends EBAnwendung
                 }
 
             }
-            this.hatBildschirm.repaint();
-            if (debug) System.out.println("GUI: Hat alle ticBoxen in Reihe " + row +"und Spalte "+ column+" aktiviert.");
+            meinBildschirm.repaint();
+            if (debug) System.out.println("GUI"+guiNr+": Hat alle ticBoxen in Reihe " + row +"und Spalte "+ column+" aktiviert.");
         }
 
     }
@@ -272,10 +287,43 @@ public class GUI extends EBAnwendung
                 }
             }
         }
-        this.hatBildschirm.repaint();
-        if (debug) System.out.println("GUI: Es wurde alles aktiviert.");
+        meinBildschirm.repaint();
+        if (debug) System.out.println("GUI"+guiNr+": Es wurde alles aktiviert.");
     }
 
+    public void knopfGeklickt1()
+    {
+        if (debug) System.out.println("GUI"+guiNr+".knopfGeklickt1: Es wurde ein Knopf geklickt.");
+        
+            Method methode;
+            Class sumEreignis = meineSuMPrivateAnwendung1.getClass();
+            try {
+                methode = sumEreignis.getMethod("knopfGeklickt");
+                methode.invoke(meineSuMPrivateAnwendung1);
+            } catch (NoSuchMethodException e1) {
+                System.out.println("Fehler: Methode \"" + "knopfGeklickt1"+ "\"  nicht gefunden.");
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
+                System.out.println("Fehler: Methode \"" + "knopfGeklickt1" + "\": " + e2.getMessage());
+            }
+    }
+     
+    public void knopfGeklickt2()
+    {
+        if (debug) System.out.println("GUI"+guiNr+".knopfGeklickt2: Es wurde ein Knopf geklickt.");
+        
+            Method methode;
+            Class sumEreignis = meineSuMPrivateAnwendung2.getClass();
+            try {
+                methode = sumEreignis.getMethod("knopfGeklickt");
+                methode.invoke(meineSuMPrivateAnwendung2);
+            } catch (NoSuchMethodException e1) {
+                System.out.println("Fehler: Methode \"" + "knopfGeklickt2"+ "\"  nicht gefunden.");
+            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
+                System.out.println("Fehler: Methode \"" + "knopfGeklickt2" + "\": " + e2.getMessage());
+            }
+       
+    }
+    
     /**
      * Hier wird eine ticBox geklickt. Dabei wird erkannt, in welcher bigBox, Reihe und Spalte diese liegt,
      * was wiederum dem Client übergeben wird. Im Nachhinein werden alle ticBoxen deaktiviert.
@@ -286,6 +334,7 @@ public class GUI extends EBAnwendung
         int geklicktRow=0;
         int geklicktColumn=0;
 
+        //meinBildschirm.nachVorn();
         for(int bigBox = 1; bigBox <= 9; bigBox++)
         { for (int column = 1; column<4; column++)
             { for (int row = 1; row < 4; row++)
@@ -302,9 +351,10 @@ public class GUI extends EBAnwendung
 
         echo.knopfGedrueckt(geklicktBigbox, geklicktRow, geklicktColumn);
         deaktiviere();
-        this.hatBildschirm.repaint();
-        if (debug) System.out.println("GUI: Der Knopf in Spalte "+geklicktRow+" und in Reihe "+geklicktColumn+" wurde geklickt.");
+        meinBildschirm.repaint();
+        if (debug) System.out.println("GUI"+guiNr+": Der Knopf in Spalte "+geklicktRow+" und in Reihe "+geklicktColumn+" wurde geklickt.");
         duSpielst(false);
+        //meinBildschirm.nachHinten();
     }
 
     /**
@@ -322,10 +372,10 @@ public class GUI extends EBAnwendung
                 }
             }            
         }      
-        this.hatBildschirm.repaint();
+        meinBildschirm.repaint();
         if (debug)
         {
-            System.out.println("GUI: Das Spielfeld wurde aktualisiert.");
+            System.out.println("GUI"+guiNr+": Das Spielfeld wurde aktualisiert.");
         }
     }
 
@@ -334,60 +384,71 @@ public class GUI extends EBAnwendung
      */
     public void gewuerfelt(int pa, int pb)
     {
-        deaktiviere(); 
-        int e = pa+pb;
-        switch (e) {
-            case 3:  aktiviere(1,1);
-            break;
-            case 4: aktiviere(2,1);
-            break;
-            case 5: aktiviere(3,1);
-            break;
-            case 6:  aktiviere(1,2);
-            break;
-            case 7:  aktiviere(2,2);
-            break;
-            case 8:  aktiviere(3,2);
-            break;
-            case 9:  aktiviere(1,3);
-            break;
-            case 10:  aktiviere(2,3);
-            break;
-            case 11: aktiviere(3,3);
-            break;
+        //if(dran == true)
+        {
+            deaktiviere(); 
+            int e = pa+pb;
+            switch (e) {
+                case 3:  aktiviere(1,1);
+                break;
+                case 4: aktiviere(2,1);
+                break;
+                case 5: aktiviere(3,1);
+                break;
+                case 6:  aktiviere(1,2);
+                break;
+                case 7:  aktiviere(2,2);
+                break;
+                case 8:  aktiviere(3,2);
+                break;
+                case 9:  aktiviere(1,3);
+                break;
+                case 10:  aktiviere(2,3);
+                break;
+                case 11: aktiviere(3,3);
+                break;
 
+            }
+            wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+            switch (pa) {
+                case 1:  wuerfel1.setzeBild(w1);
+                break;
+                case 2:  wuerfel1.setzeBild(w2);
+                break;
+                case 3:  wuerfel1.setzeBild(w3);
+                break;
+                case 4:  wuerfel1.setzeBild(w4);
+                break;
+                case 5:  wuerfel1.setzeBild(w5);
+                break;
+                case 6:  wuerfel1.setzeBild(w6);
+                break;
+            }
+            switch (pb) {
+                case 1:   wuerfel2.setzeBild(w1);
+                break;
+                case 2:   wuerfel2.setzeBild(w2);
+                break;
+                case 3:   wuerfel2.setzeBild(w3);
+                break;
+                case 4:   wuerfel2.setzeBild(w4);
+                break;
+                case 5:   wuerfel2.setzeBild(w5);
+                break;
+                case 6:   wuerfel2.setzeBild(w6);
+                break;
+            }
+
+            Wuerfeln.deaktiviere();
+            if(dran==true)
+            {
+                        meinBildschirm.nachVorn();
+            }
+            else
+            {
+                //meinBildschirm.nachHinten();
+            }
         }
-        wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
-        switch (pa) {
-            case 1:  wuerfel1.setzeBild(w1);
-            break;
-            case 2:  wuerfel1.setzeBild(w2);
-            break;
-            case 3:  wuerfel1.setzeBild(w3);
-            break;
-            case 4:  wuerfel1.setzeBild(w4);
-            break;
-            case 5:  wuerfel1.setzeBild(w5);
-            break;
-            case 6:  wuerfel1.setzeBild(w6);
-            break;
-        }
-        switch (pb) {
-            case 1:   wuerfel2.setzeBild(w1);
-            break;
-            case 2:   wuerfel2.setzeBild(w2);
-            break;
-            case 3:   wuerfel2.setzeBild(w3);
-            break;
-            case 4:   wuerfel2.setzeBild(w4);
-            break;
-            case 5:   wuerfel2.setzeBild(w5);
-            break;
-            case 6:   wuerfel2.setzeBild(w6);
-            break;
-        }
-       
-        Wuerfeln.deaktiviere();
     }
 
     /**
@@ -418,21 +479,27 @@ public class GUI extends EBAnwendung
     {
         if (pAktiv == true)
         {
+            //meinBildschirm.nachVorn();
             werSpielt.setzeInhalt("am Zug: Du");
             werSpielt.aktiviere();
             Wuerfeln.aktiviere();
-            if (debug) System.out.println("GUI: Du bist dran mit Würfeln.");
+            if (debug) System.out.println("GUI"+guiNr+": Du bist dran mit Würfeln.");
             dran = true;
+            meinBildschirm.nachVorn();
+            //meinBildschirm.privatPanel().requestFocus();
         }
-        else
+        else if (pAktiv == false)
         {
+            //meinBildschirm.nachHinten();
             werSpielt.setzeInhalt("am Zug: Gegner");
             Wuerfeln.deaktiviere();
             dran = false;
+            //meinBildschirm.nachHinten();
+
         }
 
     }
-    
+
     public void requestReset()
     {
         System.out.println("Der andere Spieler verlangt einen RESET!!!!");
