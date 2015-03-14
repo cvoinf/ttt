@@ -19,7 +19,7 @@ public class GUI extends EBAnwendung
     // Objekte
     //private Etikett hatEtikett1;
 
-    // Hier werden die ticBoxen, also die einzelnen Knöpfe in einem Array definiert und die Höhe, Breite etc. festgelegt.
+    // Hier werden die ticBoxen, also die einzelnen Knoepfe in einem Array definiert und die Hoehe, Breite etc. festgelegt.
 
     private Bildschirm meinBildschirm;
     private JPanel meinPanel;
@@ -51,7 +51,7 @@ public class GUI extends EBAnwendung
     final double aHoehe = 30;
     final String aAufschrift = "Verbinden";
 
-    // Hier wird das Textfeld für die Ip-Eingabe definiert.
+    // Hier wird das Textfeld fuer die Ip-Eingabe definiert.
     private Textfeld textfeldAddresse;
     final double tLinks = 130;
     final double tOben = 50;
@@ -59,7 +59,7 @@ public class GUI extends EBAnwendung
     final double tHoehe = 30;
     final String tText = "localhost";
 
-    // Hier wird das Textfeld für die Port-Eingabe definiert.
+    // Hier wird das Textfeld fuer die Port-Eingabe definiert.
     private Textfeld textfeldPort;
     final double tLinks2 = 130;
     final double tOben2 = 10;
@@ -67,7 +67,7 @@ public class GUI extends EBAnwendung
     final double tHoehe2 = 30;
     final String tText2 = "5557";  
 
-    // Hier wird das Würfel Ergebnis ausgegeben.
+    // Hier wird das Wuerfel Ergebnis ausgegeben.
     private Etikett wuerfelErgebnis;
     final double cLinks = 130;
     final double cOben = 130;
@@ -99,14 +99,17 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-    final boolean debug = true;
+    final boolean debug = false;
 
     private static int guiNr=0;
 
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
-    private static Ereignisanwendung meineSuMPrivateAnwendung1;
-    private static Ereignisanwendung meineSuMPrivateAnwendung2;
+    //private static Ereignisanwendung meineSuMPrivateAnwendung1;
+    //private static Ereignisanwendung meineSuMPrivateAnwendung2;
+
+    private static GUI spieler1;
+    private static GUI spieler2;
 
     // Attribute
     /**
@@ -116,23 +119,29 @@ public class GUI extends EBAnwendung
     {
         //Initialisierung der Oberklasse
         super(700, 750); 
-        
+
         guiNr++;
         if (guiNr==1)
-            meineSuMPrivateAnwendung1 = hatSuMPrivateAnwendung;
+        {
+            //meineSuMPrivateAnwendung1 = hatSuMPrivateAnwendung;
+            spieler1=this;
+        }
         if (guiNr==2)
-            meineSuMPrivateAnwendung2 = hatSuMPrivateAnwendung;
+        {
+            //meineSuMPrivateAnwendung2 = hatSuMPrivateAnwendung;
+            spieler2=this;
+        }
         meinBildschirm = this.hatBildschirm;
         meinPanel = meinBildschirm.privatPanel();
         meinBildschirm.setTitle("Spieler "+guiNr);
         int i=0;
-        
+
         /**
          * Hier werden die einzelnen ticBoxen aufwendig erzeugt. Dazu wird erst einmal das Array definiert,
-         * es umfasst [12](-3) BigBoxen für die einzelnen Würfelergebnisse, und je [4] für Breite und Höhe.
-         * Dann werden erst die bigBoxen durchgezählt, dann die Spalten, dann die Reihen.
-         * Nach und nach wird nun mittels i hochgezählt, es werden ticBoxen erzeugt, wobei der Abstand, die Breite und die Höhe miteingerechnet wird.
-         * Zusätzlich bekommen die ticBoxen Knöpfe, welche auch den wert "knopfGeklickt" haben.
+         * es umfasst [12](-3) BigBoxen fuer die einzelnen Wuerfelergebnisse, und je [4] fuer Breite und Hoehe.
+         * Dann werden erst die bigBoxen durchgezaehlt, dann die Spalten, dann die Reihen.
+         * Nach und nach wird nun mittels i hochgezaehlt, es werden ticBoxen erzeugt, wobei der Abstand, die Breite und die Hoehe miteingerechnet wird.
+         * Zusaetzlich bekommen die ticBoxen Knoepfe, welche auch den wert "knopfGeklickt" haben.
          */
         ticBox = new Knopf [12][4][4];
         for(int bigBox = 1; bigBox <=9; bigBox++)
@@ -147,9 +156,9 @@ public class GUI extends EBAnwendung
                 }  
             }
         }
-        if (debug) System.out.println("GUI"+guiNr+": Es wurden alle Knöpfe erzeugt.");
+        if (debug) System.out.println("GUI"+guiNr+": Es wurden alle Knoepfe erzeugt.");
         /**
-         * Es werden Knöpfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld für die Ausgabe des Würfelergebnisses.
+         * Es werden Knoepfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld fuer die Ausgabe des Wuerfelergebnisses.
          */
         reset = new Knopf(pLinks, pOben, pBreite, pHoehe, pAufschrift);
         reset.setzeBearbeiterGeklickt("resetGeklickt");
@@ -162,7 +171,7 @@ public class GUI extends EBAnwendung
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
-        //Bilder müssen sich aktualisieren oder gelöscht und neu erzeugt werden.
+        //Bilder muessen sich aktualisieren oder geloescht und neu erzeugt werden.
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
         w1=  new Bild(-30,-80,20,20,"wR1.jpg");
@@ -175,14 +184,12 @@ public class GUI extends EBAnwendung
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
 
-
         wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,"");
-
         Wuerfeln.deaktiviere();
     }
 
     /**
-     * Der Reset Knopf wurde gedrückt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
+     * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
      */
     public void resetGeklickt()
     {
@@ -195,7 +202,7 @@ public class GUI extends EBAnwendung
     }
 
     /**
-     * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient übergeben wird, mit welcher
+     * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
      * Ip-Adresse und welchem Port man sich verbinden will.
      */
     public void VerbindenGeklickt()
@@ -226,14 +233,13 @@ public class GUI extends EBAnwendung
     }
 
     /**
-     * Hier können alle ticBoxen deaktiviert werden. Dies sollte nach jedem Spielzug geschehen.
+     * Hier koennen alle ticBoxen deaktiviert werden. Dies sollte nach jedem Spielzug geschehen.
      */
     public void WuerfelnGeklickt()
     {
 
         echo.send("wuerfeln");
         Wuerfeln.deaktiviere();
-
 
     }
 
@@ -245,11 +251,11 @@ public class GUI extends EBAnwendung
             }
         }
         meinBildschirm.repaint();      
-        if (debug) System.out.println("GUI"+guiNr+": Alles Knöpfe wurden deaktiviert.");
+        if (debug) System.out.println("GUI"+guiNr+": Alles Knoepfe wurden deaktiviert.");
     }
 
     /**
-     * Hier können spezifische ticBoxen in bigBoxen angesteuert werden. Dazu werden lediglich Zeile und Spalte übergeben.
+     * Hier koennen spezifische ticBoxen in bigBoxen angesteuert werden. Dazu werden lediglich Zeile und Spalte uebergeben.
      */
     public void aktiviere(int row,int column)
     {
@@ -294,39 +300,59 @@ public class GUI extends EBAnwendung
     public void knopfGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".knopfGeklickt1: Es wurde ein Knopf geklickt.");
-        
-            Method methode;
-            Class sumEreignis = meineSuMPrivateAnwendung1.getClass();
-            try {
-                methode = sumEreignis.getMethod("knopfGeklickt");
-                methode.invoke(meineSuMPrivateAnwendung1);
-            } catch (NoSuchMethodException e1) {
-                System.out.println("Fehler: Methode \"" + "knopfGeklickt1"+ "\"  nicht gefunden.");
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
-                System.out.println("Fehler: Methode \"" + "knopfGeklickt1" + "\": " + e2.getMessage());
-            }
+
+        if(spieler1 != null)
+        {
+            spieler1.knopfGeklickt();
+            if(spieler2 != null)
+                {
+                    spieler2.nachVorne();
+                }
+        }
+        else 
+            System.out.println("Fehler in knopfGeklickt1()");
+        //         Method methode;
+        //         Class sumEreignis = meineSuMPrivateAnwendung1.getClass();
+        //         try {
+        //             methode = sumEreignis.getMethod("knopfGeklickt");
+        //             methode.invoke(meineSuMPrivateAnwendung1);
+        //         } catch (NoSuchMethodException e1) {
+        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt1"+ "\"  nicht gefunden.");
+        //         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
+        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt1" + "\": " + e2.getMessage());
+        //         }
     }
-     
+
     public void knopfGeklickt2()
     {
         if (debug) System.out.println("GUI"+guiNr+".knopfGeklickt2: Es wurde ein Knopf geklickt.");
+
+        if(spieler2 != null)
+        {
+            spieler2.knopfGeklickt();
+            if(spieler1 != null)
+                {
+                    spieler1.nachVorne();
+                }
+        }
+        else 
+            System.out.println("Fehler in knopfGeklickt2()");
+        //         Method methode;
+        //         Class sumEreignis = meineSuMPrivateAnwendung2.getClass();
+        //         try {
+        //             methode = sumEreignis.getMethod("knopfGeklickt");
+        //             methode.invoke(meineSuMPrivateAnwendung2);
+        //         } catch (NoSuchMethodException e1) {
+        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt2"+ "\"  nicht gefunden.");
+        //         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
+        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt2" + "\": " + e2.getMessage());
+        //         }
         
-            Method methode;
-            Class sumEreignis = meineSuMPrivateAnwendung2.getClass();
-            try {
-                methode = sumEreignis.getMethod("knopfGeklickt");
-                methode.invoke(meineSuMPrivateAnwendung2);
-            } catch (NoSuchMethodException e1) {
-                System.out.println("Fehler: Methode \"" + "knopfGeklickt2"+ "\"  nicht gefunden.");
-            } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
-                System.out.println("Fehler: Methode \"" + "knopfGeklickt2" + "\": " + e2.getMessage());
-            }
-       
     }
-    
+
     /**
      * Hier wird eine ticBox geklickt. Dabei wird erkannt, in welcher bigBox, Reihe und Spalte diese liegt,
-     * was wiederum dem Client übergeben wird. Im Nachhinein werden alle ticBoxen deaktiviert.
+     * was wiederum dem Client uebergeben wird. Im Nachhinein werden alle ticBoxen deaktiviert.
      */
     public void knopfGeklickt()
     {
@@ -380,7 +406,7 @@ public class GUI extends EBAnwendung
     }
 
     /**
-     * Yay, wir haben das Würfelergebnis bekommen. Ab damit ins Etikett und aktiviert die ticBoxen!
+     * Yay, wir haben das Wuerfelergebnis bekommen. Ab damit ins Etikett und aktiviert die ticBoxen!
      */
     public void gewuerfelt(int pa, int pb)
     {
@@ -409,7 +435,7 @@ public class GUI extends EBAnwendung
                 break;
 
             }
-            wuerfelErgebnis.setzeInhalt("Würfel 1:"+pa+" Würfel 2:"+pb);
+            wuerfelErgebnis.setzeInhalt("Wuerfel 1:"+pa+" Wuerfel 2:"+pb);
             switch (pa) {
                 case 1:  wuerfel1.setzeBild(w1);
                 break;
@@ -442,7 +468,7 @@ public class GUI extends EBAnwendung
             Wuerfeln.deaktiviere();
             if(dran==true)
             {
-                        meinBildschirm.nachVorn();
+                meinBildschirm.nachVorn();
             }
             else
             {
@@ -464,7 +490,7 @@ public class GUI extends EBAnwendung
     }
 
     /**
-     * Sei jetzt bloß kein schlechter Verlierer.
+     * Sei jetzt bloss kein schlechter Verlierer.
      */
     public void verloren()
     {
@@ -479,13 +505,13 @@ public class GUI extends EBAnwendung
     {
         if (pAktiv == true)
         {
-            //meinBildschirm.nachVorn();
+            
             werSpielt.setzeInhalt("am Zug: Du");
             werSpielt.aktiviere();
             Wuerfeln.aktiviere();
-            if (debug) System.out.println("GUI"+guiNr+": Du bist dran mit Würfeln.");
+            if (debug) System.out.println("GUI"+guiNr+": Du bist dran mit Wuerfeln.");
             dran = true;
-            meinBildschirm.nachVorn();
+            //meinBildschirm.nachVorn();
             //meinBildschirm.privatPanel().requestFocus();
         }
         else if (pAktiv == false)
@@ -503,6 +529,11 @@ public class GUI extends EBAnwendung
     public void requestReset()
     {
         System.out.println("Der andere Spieler verlangt einen RESET!!!!");
+    }
+    
+    public void nachVorne()
+    {
+        meinBildschirm.nachVorn();
     }
 }
 

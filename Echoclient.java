@@ -19,7 +19,7 @@ public class Echoclient extends Client
 
     private boolean zugAktiv = false;
 
-    private boolean debug = true;
+    private boolean debug = false;
 
     // Attribute
     // Konstruktor
@@ -60,25 +60,25 @@ public class Echoclient extends Client
         }
         else if (b[0].compareTo("zugBeginnt")==0)
         {
-            System.out.println("Client "+spielerNummer+": zugBeginnt");
+            if (debug) System.out.println("EchoClient "+spielerNummer+": zugBeginnt");
             zugAktiv = true;
             aktualisiere();
         }
         else if (b[0].compareTo("nichtAmZug")==0)
         {
-            System.out.println("Client "+spielerNummer+": nicht am Zug");
+            if (debug) System.out.println("EchoClient "+spielerNummer+": nicht am Zug");
             zugAktiv = false;
             aktualisiere();
         }
         else if (b[0].compareTo("wuerfel")==0)
         {
-            System.out.println("Client: compareToWürfel");
+            if (debug) System.out.println("EchoClient: compareToWürfel");
             String c[] = b[1].split(",");
             zGUI.gewuerfelt(Integer.parseInt(c[0]),Integer.parseInt(c[1]));
         }        
         else if (b[0].compareTo("aktualisiere")==0)
         {
-            if (debug) System.out.println("Client: compareToAktualisiereAnfang");
+            if (debug) System.out.println("EchoClient: compareToAktualisiereAnfang");
             int zaehler=1;
             for (int bigBox=1 ; bigBox<=9; bigBox++) 
             {
@@ -115,7 +115,7 @@ public class Echoclient extends Client
             }
             zGUI.aktualisiere(ArrayTicBox);
             aktualisiere();
-            System.out.println("Client: compareToAktualisiereEnde");
+            if (debug) System.out.println("EchoClient: compareToAktualisiereEnde");
         }
         else if (b[0].compareTo("gewonnen")==0)
         {

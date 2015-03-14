@@ -24,8 +24,8 @@ public class Echoserver extends Server
 
     private boolean spielVorbei;
     private int spielfeld[][][]; // drei-dimensionale Int Array beschriebt Spielfeld: [bigBox] [column] [row]
-    private boolean debug;
-    private final boolean DEBUG = true;
+    private boolean debug = false;
+    private final boolean DEBUG = false;
 
     private Random ra;
 
@@ -58,7 +58,7 @@ public class Echoserver extends Server
             }            
         }
 
-        debug = true;
+        
     }
 
     // Dienste
