@@ -1,11 +1,11 @@
 
 import sum.komponenten.*;
-import sum.werkzeuge.*;
+// import sum.werkzeuge.*;
 import sum.ereignis.*;
 import sum.multimedia.Bild;
-import javax.swing.JPanel;
-import java.lang.reflect.Method;
-import java.lang.reflect.InvocationTargetException;
+// import javax.swing.JPanel;
+// import java.lang.reflect.Method;
+// import java.lang.reflect.InvocationTargetException;
 
 /**
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
@@ -22,7 +22,7 @@ public class GUI extends EBAnwendung
     // Hier werden die ticBoxen, also die einzelnen Knoepfe in einem Array definiert und die Hoehe, Breite etc. festgelegt.
 
     private Bildschirm meinBildschirm;
-    private JPanel meinPanel;
+//     private JPanel meinPanel;
     private boolean dran;
 
     public boolean Verbunden;
@@ -132,7 +132,7 @@ public class GUI extends EBAnwendung
             spieler2=this;
         }
         meinBildschirm = this.hatBildschirm;
-        meinPanel = meinBildschirm.privatPanel();
+//         meinPanel = meinBildschirm.privatPanel();
         meinBildschirm.setTitle("Spieler "+guiNr);
         int i=0;
 

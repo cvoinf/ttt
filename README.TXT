@@ -20,7 +20,6 @@ TODO:
 GUI:
 *Reset-Knopf, zusammen mit Server zum Übergeben und Reset des Feldes. Momentan ist der Reset nur optisch beim Reset-Client!
 
-<<<<<<< HEAD
 * Anzeigen: Verbunden 
 * Anzeigen: Du bist dran / nicht dran       
 * Ausgrauen der Felder funktioniert noch nicht korrekt
@@ -40,4 +39,10 @@ Server:
 * Gesamt Spiel Sieg wird nicht erkannt(?)
 * Reihenfolgenwechsel bei 2 und 12!
 * Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
->>>>>>> 5f2ef98a57c96899175d0bd05c700f1939ac3d94
+
+
+
+
+
+Gui: Server starten-Knopf, IP wird bei Server abgefragt und in das Textfeld übernommen, automatisch verbinden.
+Gui: das vom Gegener zuletzt eingegebene Feld wird markiert
