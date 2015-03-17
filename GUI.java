@@ -51,13 +51,20 @@ public class GUI extends EBAnwendung
     final double aHoehe = 30;
     final String aAufschrift = "Verbinden";
 
+    // Hier wird der Lokales Spiel-Knopf definiert.
+    private Knopf lokalHosten;
+    final double vLinks=230 ;
+    final double vOben = 140;
+    final double vBreite =100;
+    final double vHoehe = 30;
+    final String vAufschrift = "lokal Hosten";
+
     // Hier wird das Textfeld fuer die Ip-Eingabe definiert.
     private Textfeld textfeldAddresse;
     final double tLinks = 130;
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
- 
     final String tText = "10.68.112.9";
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
@@ -67,13 +74,6 @@ public class GUI extends EBAnwendung
     final double tBreite2 =500;
     final double tHoehe2 = 30;
     final String tText2 = "5557";  
-
-    // Hier wird das Wuerfel Ergebnis ausgegeben.
-    private Etikett wuerfelErgebnis;
-    final double cLinks = 130;
-    final double cOben = 130;
-    final double cBreite = 200;
-    final double cHoehe = 30;
 
     // Hier wird der Knopf zum Wuerfeln definiert.
     private Knopf Wuerfeln;
@@ -111,6 +111,8 @@ public class GUI extends EBAnwendung
 
     private static GUI spieler1;
     private static GUI spieler2;
+
+    private Echoserver echoserver;
 
     // Attribute
     /**
@@ -161,7 +163,7 @@ public class GUI extends EBAnwendung
         /**
          * Es werden Knoepfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld fuer die Ausgabe des Wuerfelergebnisses.
          */
-        reset = new Knopf(pLinks, pOben, pBreite, pHoehe, pAufschrift);
+        reset = new Knopf(pLinks, pOben, pBreite, pHoehe, pAufschrift);        
         reset.setzeBearbeiterGeklickt("resetGeklickt"+guiNr);
         //Aufgeben = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
         Verbinden = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
@@ -169,6 +171,9 @@ public class GUI extends EBAnwendung
 
         textfeldAddresse = new Textfeld( tLinks, tOben, tBreite, tHoehe, tText);
         textfeldPort = new Textfeld (tLinks2, tOben2, tBreite2, tHoehe2, tText2);
+
+        lokalHosten = new Knopf(vLinks, vOben, vBreite, vHoehe, vAufschrift);
+        lokalHosten.setzeBearbeiterGeklickt("lokalHostenGeklickt");
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
@@ -185,61 +190,66 @@ public class GUI extends EBAnwendung
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
 
-        wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,"");
         Wuerfeln.deaktiviere();
     }
 
-    
-    
-    
-        public void resetGeklickt1()
+    public void resetGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt1: Es wurde ein Knopf geklickt.");
 
         if(spieler1 != null)
         {
-           // spieler1.resetGeklickt();
+            // spieler1.resetGeklickt();
             echo.send("reset1");
         }
         else 
             System.out.println("Fehler in knopfGeklickt1()");
     }
-    
-            public void resetGeklickt2()
+
+    public void resetGeklickt2()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt2: Es wurde ein Knopf geklickt.");
 
         if(spieler2 != null)
         {
             //spieler2.resetGeklickt();
-             echo.send("reset2");
+            echo.send("reset2");
         }
         else 
             System.out.println("Fehler in knopfGeklickt2()");
     }
-    
-    
-//     
-//     /**
-//      * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
-//      */
-//     public void resetGeklickt()
-//     {
-//         if (guiNr==1)
-//         {
-//             echo.send("reset1");
-//         }
-//         if (guiNr==2)
-//         {
-//             echo.send("reset2");
-//         }
-// 
-//         if(debug)
-//         {
-//             System.out.println("Alles resetet von GUI-Seite her.");
-// 
-//         }
-//     }
+
+    //     
+    //     /**
+    //      * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
+    //      */
+    //     public void resetGeklickt()
+    //     {
+    //         if (guiNr==1)
+    //         {
+    //             echo.send("reset1");
+    //         }
+    //         if (guiNr==2)
+    //         {
+    //             echo.send("reset2");
+    //         }
+    // 
+    //         if(debug)
+    //         {
+    //             System.out.println("Alles resetet von GUI-Seite her.");
+    // 
+    //         }
+    //     }
+
+
+    public void lokalHostenGeklickt()
+    {
+        echoserver = new Echoserver();
+        textfeldAddresse.setzeInhalt("localhost");
+        VerbindenGeklickt();
+    }
+
+
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
@@ -277,10 +287,8 @@ public class GUI extends EBAnwendung
      */
     public void WuerfelnGeklickt()
     {
-
         echo.send("wuerfeln");
         Wuerfeln.deaktiviere();
-
     }
 
     public void deaktiviere()
@@ -438,15 +446,15 @@ public class GUI extends EBAnwendung
                     //wenn inhalt 1 oder 2 ist bei ticbox setze inhalt x oder O 
                     switch (pFeld[bigBox][row][column])
                     {
-                     case 0: ticBox[bigBox][row][column].setzeInhalt(" "); 
-                     break;
-                     case 1: ticBox[bigBox][row][column].setzeInhalt("X");
-                     break;
-                     case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
-                     break; 
-                        
+                        case 0: ticBox[bigBox][row][column].setzeInhalt(" "); 
+                        break;
+                        case 1: ticBox[bigBox][row][column].setzeInhalt("X");
+                        break;
+                        case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
+                        break; 
+
                     }
-                  
+
                 }
             }            
         }      
@@ -487,7 +495,6 @@ public class GUI extends EBAnwendung
                 break;
 
             }
-            wuerfelErgebnis.setzeInhalt("Wuerfel 1:"+pa+" Wuerfel 2:"+pb);
             switch (pa) {
                 case 1:  wuerfel1.setzeBild(w1);
                 break;
