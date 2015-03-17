@@ -57,7 +57,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
- 
+
     final String tText = "10.68.112.9";
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
@@ -190,56 +190,53 @@ public class GUI extends EBAnwendung
     }
 
     
-    
-    
-        public void resetGeklickt1()
+    public void resetGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt1: Es wurde ein Knopf geklickt.");
 
         if(spieler1 != null)
         {
-           // spieler1.resetGeklickt();
+            // spieler1.resetGeklickt();
             echo.send("reset1");
         }
         else 
             System.out.println("Fehler in knopfGeklickt1()");
     }
-    
-            public void resetGeklickt2()
+
+    public void resetGeklickt2()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt2: Es wurde ein Knopf geklickt.");
 
         if(spieler2 != null)
         {
             //spieler2.resetGeklickt();
-             echo.send("reset2");
+            echo.send("reset2");
         }
         else 
             System.out.println("Fehler in knopfGeklickt2()");
     }
-    
-    
-//     
-//     /**
-//      * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
-//      */
-//     public void resetGeklickt()
-//     {
-//         if (guiNr==1)
-//         {
-//             echo.send("reset1");
-//         }
-//         if (guiNr==2)
-//         {
-//             echo.send("reset2");
-//         }
-// 
-//         if(debug)
-//         {
-//             System.out.println("Alles resetet von GUI-Seite her.");
-// 
-//         }
-//     }
+
+    //     
+    //     /**
+    //      * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
+    //      */
+    //     public void resetGeklickt()
+    //     {
+    //         if (guiNr==1)
+    //         {
+    //             echo.send("reset1");
+    //         }
+    //         if (guiNr==2)
+    //         {
+    //             echo.send("reset2");
+    //         }
+    // 
+    //         if(debug)
+    //         {
+    //             System.out.println("Alles resetet von GUI-Seite her.");
+    // 
+    //         }
+    //     }
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
@@ -438,15 +435,15 @@ public class GUI extends EBAnwendung
                     //wenn inhalt 1 oder 2 ist bei ticbox setze inhalt x oder O 
                     switch (pFeld[bigBox][row][column])
                     {
-                     case 0: ticBox[bigBox][row][column].setzeInhalt(" "); 
-                     break;
-                     case 1: ticBox[bigBox][row][column].setzeInhalt("X");
-                     break;
-                     case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
-                     break; 
-                        
+                        case 0: ticBox[bigBox][row][column].setzeInhalt(" "); 
+                        break;
+                        case 1: ticBox[bigBox][row][column].setzeInhalt("X");
+                        break;
+                        case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
+                        break; 
+
                     }
-                  
+
                 }
             }            
         }      
