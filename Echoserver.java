@@ -24,8 +24,7 @@ public class Echoserver extends Server
 
     private boolean spielVorbei;
     private int spielfeld[][][]; // drei-dimensionale Int Array beschriebt Spielfeld: [bigBox] [column] [row]
-    private boolean debug = false;
-    private final boolean DEBUG = false;
+    private final boolean debug = true;
 
     private Random ra;
 
@@ -65,22 +64,22 @@ public class Echoserver extends Server
     public void processNewConnection(String pClientIP, int pClientPort) {
         if(spieler1 == null )
         {
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client1 verbunden");
             spieler1 = pClientIP;
             spieler1Port = pClientPort;
             send(spieler1, spieler1Port, symbolSpieler1);
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client1 verbunden fertig");
         }
         else if(spieler2 == null)
         {
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client 2 verbunden");
             spieler2 = pClientIP;
             spieler2Port = pClientPort;
             send(spieler2, spieler2Port, symbolSpieler2  );
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client2 verbunden fertig");
             start();            
         }

@@ -22,7 +22,7 @@ public class GUI extends EBAnwendung
     // Hier werden die ticBoxen, also die einzelnen Knoepfe in einem Array definiert und die Hoehe, Breite etc. festgelegt.
 
     private Bildschirm meinBildschirm;
-//     private JPanel meinPanel;
+    //     private JPanel meinPanel;
     private boolean dran;
 
     public boolean Verbunden;
@@ -57,7 +57,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "localhost";
+    final String tText = "10.68.112.8";
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -99,7 +99,7 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-    final boolean debug = false;
+    final boolean debug = true;
 
     private static int guiNr=0;
 
@@ -132,7 +132,7 @@ public class GUI extends EBAnwendung
             spieler2=this;
         }
         meinBildschirm = this.hatBildschirm;
-//         meinPanel = meinBildschirm.privatPanel();
+        //         meinPanel = meinBildschirm.privatPanel();
         meinBildschirm.setTitle("Spieler "+guiNr);
         int i=0;
 
@@ -305,9 +305,9 @@ public class GUI extends EBAnwendung
         {
             spieler1.knopfGeklickt();
             if(spieler2 != null)
-                {
-                    spieler2.nachVorne();
-                }
+            {
+                spieler2.nachVorne();
+            }
         }
         else 
             System.out.println("Fehler in knopfGeklickt1()");
@@ -331,9 +331,9 @@ public class GUI extends EBAnwendung
         {
             spieler2.knopfGeklickt();
             if(spieler1 != null)
-                {
-                    spieler1.nachVorne();
-                }
+            {
+                spieler1.nachVorne();
+            }
         }
         else 
             System.out.println("Fehler in knopfGeklickt2()");
@@ -347,7 +347,7 @@ public class GUI extends EBAnwendung
         //         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
         //             System.out.println("Fehler: Methode \"" + "knopfGeklickt2" + "\": " + e2.getMessage());
         //         }
-        
+
     }
 
     /**
@@ -505,7 +505,7 @@ public class GUI extends EBAnwendung
     {
         if (pAktiv == true)
         {
-            
+
             werSpielt.setzeInhalt("am Zug: Du");
             werSpielt.aktiviere();
             Wuerfeln.aktiviere();
@@ -530,7 +530,7 @@ public class GUI extends EBAnwendung
     {
         System.out.println("Der andere Spieler verlangt einen RESET!!!!");
     }
-    
+
     public void nachVorne()
     {
         meinBildschirm.nachVorn();
