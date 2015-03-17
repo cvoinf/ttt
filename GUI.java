@@ -193,7 +193,6 @@ public class GUI extends EBAnwendung
         Wuerfeln.deaktiviere();
     }
 
-    
     public void resetGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt1: Es wurde ein Knopf geklickt.");
@@ -242,12 +241,15 @@ public class GUI extends EBAnwendung
     //         }
     //     }
 
+
     public void lokalHostenGeklickt()
     {
         echoserver = new Echoserver();
         textfeldAddresse.setzeInhalt("localhost");
         VerbindenGeklickt();
     }
+
+
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
