@@ -57,7 +57,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "10.68.112.8";
+    final String tText = "10.68.112.9";
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -99,7 +99,7 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-    final boolean debug = true;
+    final boolean debug = false;
 
     private static int guiNr=0;
 

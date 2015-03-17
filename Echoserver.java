@@ -327,7 +327,7 @@ public class Echoserver extends Server
                 send (spieler2, spieler2Port, "requestReset:");
                   if(debug)
             {
-                System.out.println("sPIELER1 HAT RESET GECLICKT");
+                System.out.println("Spieler 1 hat Reset geklickt.");
             }
             }
             if (zClientIP == spieler2)
@@ -336,7 +336,7 @@ public class Echoserver extends Server
                 send (spieler1, spieler1Port, "requestReset:");
                  if(debug)
             {
-                System.out.println("sPIELER2 HAT RESET GECLICKT");
+                System.out.println("Spieler 2 hat Reset geklickt.");
             }
             }
             if (spieler1reset == true && spieler2reset == true)
@@ -528,7 +528,7 @@ public class Echoserver extends Server
                 System.out.println("Boxgewonnen "+ pBox);
             }
         }
-        else if (spielfeld[pBox][1][1] == spielfeld[pBox][1][1+1] && spielfeld[pBox][1][1] == spielfeld[pBox][1+1][2+1] && spielfeld[pBox][1+1][2+1] !=0)
+        else if (spielfeld[pBox][1][1] == spielfeld[pBox][1][2] && spielfeld[pBox][1][1] == spielfeld[pBox][1][3] && spielfeld[pBox][1][2+1] !=0) // bei mletzten vor !=0 spielfeld[pBox][1+1][2+1]
         {
             for (int i =1; i<=2+1;i++)
             {
