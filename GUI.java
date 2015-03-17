@@ -175,12 +175,12 @@ public class GUI extends EBAnwendung
         //Bilder muessen sich aktualisieren oder geloescht und neu erzeugt werden.
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
-        w1=  new Bild(-30,-80,20,20,"wR1.jpg");
-        w2=  new Bild(-30,-80,20,20,"wR2.jpg");
-        w3=  new Bild(-30,-80,20,20,"wR3.jpg");
-        w4=  new Bild(-30,-80,20,20,"wR4.jpg");
-        w5=  new Bild(-30,-80,20,20,"wR5.jpg");
-        w6=  new Bild(-30,-80,20,20,"wR6.jpg");
+        w1=  new Bild(-130,-180,20,20,"WW1.png");
+        w2=  new Bild(-130,-180,20,20,"WW2.png");
+        w3=  new Bild(-130,-180,20,20,"WW3.png");
+        w4=  new Bild(-130,-180,20,20,"WW4.png");
+        w5=  new Bild(-130,-180,20,20,"WW5.png");
+        w6=  new Bild(-130,-180,20,20,"WW6.png");
 
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
