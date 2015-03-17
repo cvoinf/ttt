@@ -162,7 +162,7 @@ public class GUI extends EBAnwendung
          * Es werden Knoepfe erzeugt: Reset, Verbinden, Adress- und Portfeld, sowie Wuerfeln und das Textfeld fuer die Ausgabe des Wuerfelergebnisses.
          */
         reset = new Knopf(pLinks, pOben, pBreite, pHoehe, pAufschrift);
-        reset.setzeBearbeiterGeklickt("resetGeklickt");
+        reset.setzeBearbeiterGeklickt("resetGeklickt"+guiNr);
         //Aufgeben = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
         Verbinden = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
         Verbinden.setzeBearbeiterGeklickt("VerbindenGeklickt");     
@@ -189,18 +189,57 @@ public class GUI extends EBAnwendung
         Wuerfeln.deaktiviere();
     }
 
-    /**
-     * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
-     */
-    public void resetGeklickt()
+    
+    
+    
+        public void resetGeklickt1()
     {
-        echo.send("reset");
-        if(debug)
-        {
-            System.out.println("Alles resetet von GUI-Seite her.");
+        if (debug) System.out.println("GUI"+guiNr+".resetGeklickt1: Es wurde ein Knopf geklickt.");
 
+        if(spieler1 != null)
+        {
+           // spieler1.resetGeklickt();
+            echo.send("reset1");
         }
+        else 
+            System.out.println("Fehler in knopfGeklickt1()");
     }
+    
+            public void resetGeklickt2()
+    {
+        if (debug) System.out.println("GUI"+guiNr+".resetGeklickt2: Es wurde ein Knopf geklickt.");
+
+        if(spieler2 != null)
+        {
+            //spieler2.resetGeklickt();
+             echo.send("reset2");
+        }
+        else 
+            System.out.println("Fehler in knopfGeklickt2()");
+    }
+    
+    
+//     
+//     /**
+//      * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
+//      */
+//     public void resetGeklickt()
+//     {
+//         if (guiNr==1)
+//         {
+//             echo.send("reset1");
+//         }
+//         if (guiNr==2)
+//         {
+//             echo.send("reset2");
+//         }
+// 
+//         if(debug)
+//         {
+//             System.out.println("Alles resetet von GUI-Seite her.");
+// 
+//         }
+//     }
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher

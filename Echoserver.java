@@ -319,25 +319,14 @@ public class Echoserver extends Server
             }
 
         }
-        else if (b[0].compareTo("reset")==0)
+        
+        else if (b[0].compareTo("reset1")==0)
         {
-            if (zClientIP == spieler1)
-            {
-                spieler1reset = true;
+             spieler1reset = true;
                 send (spieler2, spieler2Port, "requestReset:");
                   if(debug)
             {
                 System.out.println("Spieler 1 hat Reset geklickt.");
-            }
-            }
-            if (zClientIP == spieler2)
-            {
-                spieler2reset = true;
-                send (spieler1, spieler1Port, "requestReset:");
-                 if(debug)
-            {
-                System.out.println("Spieler 2 hat Reset geklickt.");
-            }
             }
             if (spieler1reset == true && spieler2reset == true)
             {
@@ -358,7 +347,34 @@ public class Echoserver extends Server
                     System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
                 }
             }
-
+        }
+        else if (b[0].compareTo("reset2")==0)
+        {
+             spieler2reset = true;
+                send (spieler1, spieler1Port, "requestReset:");
+                  if(debug)
+            {
+                System.out.println("Spieler 2 hat Reset geklickt.");
+            }
+            if (spieler1reset == true && spieler2reset == true)
+            {
+                for (int bigBox=1 ; bigBox<=9; bigBox++) //Die Felder des Arrays werden auf den Wert "0" gestellt und das Feld ist spielbereit
+                {
+                    for (int column=1; column <=3; column++)
+                    {
+                        for (int row=1; row <=3; row ++)
+                        {
+                            spielfeld[bigBox][row][column] = 0; 
+                        }
+                    }            
+                }
+                send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
+                send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());  
+                if(debug)
+                {
+                    System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
+                }
+            }
         }
     }
 
