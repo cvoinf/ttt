@@ -57,11 +57,8 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-<<<<<<< HEAD
+ 
     final String tText = "10.68.112.9";
-=======
-    final String tText = "localhost";
->>>>>>> 491f2d4a2942a9246cdcd95362789f3321f3c167
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -269,14 +266,14 @@ public class GUI extends EBAnwendung
 
             for (int bigBox = 1; bigBox <= 9; bigBox++)
             {
-                if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
+                if((ticBox[bigBox][row][column].inhaltAlsText())==" ")
                 {
                     ticBox[bigBox][row][column].aktiviere();
                 }
 
             }
             meinBildschirm.repaint();
-            if (debug) System.out.println("GUI"+guiNr+": Hat alle ticBoxen in Reihe " + row +"und Spalte "+ column+" aktiviert.");
+            if (debug) System.out.println("GUI"+guiNr+": Hat alle ticBoxen in Reihe " + row +" und Spalte "+ column+" aktiviert.");
         }
 
     }
@@ -290,7 +287,7 @@ public class GUI extends EBAnwendung
         {  for (int column = 1; column<4; column++)
             {  for (int row = 1; row < 4; row++)
 
-                { if(Integer.parseInt(ticBox[bigBox][row][column].inhaltAlsText())==0)
+                { if((ticBox[bigBox][row][column].inhaltAlsText())==" ")
                     {
                         ticBox[bigBox][row][column].aktiviere();
                     }
