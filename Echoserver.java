@@ -24,8 +24,7 @@ public class Echoserver extends Server
 
     private boolean spielVorbei;
     private int spielfeld[][][]; // drei-dimensionale Int Array beschriebt Spielfeld: [bigBox] [column] [row]
-    private boolean debug = false;
-    private final boolean DEBUG = false;
+    private final boolean debug = true;
 
     private Random ra;
 
@@ -65,22 +64,22 @@ public class Echoserver extends Server
     public void processNewConnection(String pClientIP, int pClientPort) {
         if(spieler1 == null )
         {
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client1 verbunden");
             spieler1 = pClientIP;
             spieler1Port = pClientPort;
             send(spieler1, spieler1Port, symbolSpieler1);
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client1 verbunden fertig");
         }
         else if(spieler2 == null)
         {
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client 2 verbunden");
             spieler2 = pClientIP;
             spieler2Port = pClientPort;
             send(spieler2, spieler2Port, symbolSpieler2  );
-            if (DEBUG == true)
+            if (debug == true)
                 System.out.println("Server: Client2 verbunden fertig");
             start();            
         }
@@ -320,25 +319,14 @@ public class Echoserver extends Server
             }
 
         }
-        else if (b[0].compareTo("reset")==0)
+        
+        else if (b[0].compareTo("reset1")==0)
         {
-            if (zClientIP == spieler1)
-            {
-                spieler1reset = true;
+             spieler1reset = true;
                 send (spieler2, spieler2Port, "requestReset:");
                   if(debug)
             {
                 System.out.println("sPIELER1 HAT RESET GECLICKT");
-            }
-            }
-            if (zClientIP == spieler2)
-            {
-                spieler2reset = true;
-                send (spieler1, spieler1Port, "requestReset:");
-                 if(debug)
-            {
-                System.out.println("sPIELER2 HAT RESET GECLICKT");
-            }
             }
             if (spieler1reset == true && spieler2reset == true)
             {
@@ -359,7 +347,34 @@ public class Echoserver extends Server
                     System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
                 }
             }
-
+        }
+        else if (b[0].compareTo("reset2")==0)
+        {
+             spieler2reset = true;
+                send (spieler1, spieler1Port, "requestReset:");
+                  if(debug)
+            {
+                System.out.println("sPIELER2 HAT RESET GECLICKT");
+            }
+            if (spieler1reset == true && spieler2reset == true)
+            {
+                for (int bigBox=1 ; bigBox<=9; bigBox++) //Die Felder des Arrays werden auf den Wert "0" gestellt und das Feld ist spielbereit
+                {
+                    for (int column=1; column <=3; column++)
+                    {
+                        for (int row=1; row <=3; row ++)
+                        {
+                            spielfeld[bigBox][row][column] = 0; 
+                        }
+                    }            
+                }
+                send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
+                send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());  
+                if(debug)
+                {
+                    System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
+                }
+            }
         }
     }
 
