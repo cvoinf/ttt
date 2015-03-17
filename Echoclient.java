@@ -19,7 +19,7 @@ public class Echoclient extends Client
 
     private boolean zugAktiv = false;
 
-    private boolean debug = true;
+    private boolean debug = false;
 
     // Attribute
     // Konstruktor
