@@ -4,5 +4,4 @@ public class SuMProgramm
     {
         GUI hatGUI = new GUI();
     }
-
 }

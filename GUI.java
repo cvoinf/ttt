@@ -1,12 +1,6 @@
-
 import sum.komponenten.*;
-// import sum.werkzeuge.*;
 import sum.ereignis.*;
 import sum.multimedia.Bild;
-// import javax.swing.JPanel;
-// import java.lang.reflect.Method;
-// import java.lang.reflect.InvocationTargetException;
-
 /**
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
  * 
@@ -106,8 +100,6 @@ public class GUI extends EBAnwendung
 
     // Es wird der Echoclient vorausgesetzt.
     private Echoclient echo;
-    //private static Ereignisanwendung meineSuMPrivateAnwendung1;
-    //private static Ereignisanwendung meineSuMPrivateAnwendung2;
 
     private static GUI spieler1;
     private static GUI spieler2;
@@ -177,6 +169,8 @@ public class GUI extends EBAnwendung
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
+        
+        
         //Bilder muessen sich aktualisieren oder geloescht und neu erzeugt werden.
 
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
@@ -196,7 +190,6 @@ public class GUI extends EBAnwendung
     public void resetGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt1: Es wurde ein Knopf geklickt.");
-
         if(spieler1 != null)
         {
             // spieler1.resetGeklickt();
@@ -219,37 +212,12 @@ public class GUI extends EBAnwendung
             System.out.println("Fehler in knopfGeklickt2()");
     }
 
-    //     
-    //     /**
-    //      * Der Reset Knopf wurde gedrueckt, das Spiel soll sich von neuem starten, das wird dem Server mitgeteilt.
-    //      */
-    //     public void resetGeklickt()
-    //     {
-    //         if (guiNr==1)
-    //         {
-    //             echo.send("reset1");
-    //         }
-    //         if (guiNr==2)
-    //         {
-    //             echo.send("reset2");
-    //         }
-    // 
-    //         if(debug)
-    //         {
-    //             System.out.println("Alles resetet von GUI-Seite her.");
-    // 
-    //         }
-    //     }
-
-
     public void lokalHostenGeklickt()
     {
         echoserver = new Echoserver();
         textfeldAddresse.setzeInhalt("localhost");
         VerbindenGeklickt();
     }
-
-
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
@@ -292,7 +260,8 @@ public class GUI extends EBAnwendung
     }
 
     public void deaktiviere()
-    { for (int bigBox = 1; bigBox <=9; bigBox++)
+    { 
+        for (int bigBox = 1; bigBox <=9; bigBox++)
         { for (int column = 1; column<4; column++)
             { for (int row = 1; row < 4; row++)
                     ticBox[bigBox][row][column].deaktiviere();
@@ -307,10 +276,8 @@ public class GUI extends EBAnwendung
      */
     public void aktiviere(int row,int column)
     {
-
         if (dran == true)
         {
-
             for (int bigBox = 1; bigBox <= 9; bigBox++)
             {
                 if((ticBox[bigBox][row][column].inhaltAlsText())==" ")
@@ -348,7 +315,6 @@ public class GUI extends EBAnwendung
     public void knopfGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".knopfGeklickt1: Es wurde ein Knopf geklickt.");
-
         if(spieler1 != null)
         {
             spieler1.knopfGeklickt();
@@ -359,22 +325,11 @@ public class GUI extends EBAnwendung
         }
         else 
             System.out.println("Fehler in knopfGeklickt1()");
-        //         Method methode;
-        //         Class sumEreignis = meineSuMPrivateAnwendung1.getClass();
-        //         try {
-        //             methode = sumEreignis.getMethod("knopfGeklickt");
-        //             methode.invoke(meineSuMPrivateAnwendung1);
-        //         } catch (NoSuchMethodException e1) {
-        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt1"+ "\"  nicht gefunden.");
-        //         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
-        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt1" + "\": " + e2.getMessage());
-        //         }
     }
 
     public void knopfGeklickt2()
     {
         if (debug) System.out.println("GUI"+guiNr+".knopfGeklickt2: Es wurde ein Knopf geklickt.");
-
         if(spieler2 != null)
         {
             spieler2.knopfGeklickt();
@@ -385,17 +340,6 @@ public class GUI extends EBAnwendung
         }
         else 
             System.out.println("Fehler in knopfGeklickt2()");
-        //         Method methode;
-        //         Class sumEreignis = meineSuMPrivateAnwendung2.getClass();
-        //         try {
-        //             methode = sumEreignis.getMethod("knopfGeklickt");
-        //             methode.invoke(meineSuMPrivateAnwendung2);
-        //         } catch (NoSuchMethodException e1) {
-        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt2"+ "\"  nicht gefunden.");
-        //         } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | SecurityException e2) {
-        //             System.out.println("Fehler: Methode \"" + "knopfGeklickt2" + "\": " + e2.getMessage());
-        //         }
-
     }
 
     /**
@@ -407,7 +351,6 @@ public class GUI extends EBAnwendung
         int geklicktBigbox=0;
         int geklicktRow=0;
         int geklicktColumn=0;
-
         //meinBildschirm.nachVorn();
         for(int bigBox = 1; bigBox <= 9; bigBox++)
         { for (int column = 1; column<4; column++)
@@ -422,13 +365,11 @@ public class GUI extends EBAnwendung
                 }  
             }
         }
-
         echo.knopfGedrueckt(geklicktBigbox, geklicktRow, geklicktColumn);
         deaktiviere();
         meinBildschirm.repaint();
         if (debug) System.out.println("GUI"+guiNr+": Der Knopf in Spalte "+geklicktRow+" und in Reihe "+geklicktColumn+" wurde geklickt.");
         duSpielst(false);
-        //meinBildschirm.nachHinten();
     }
 
     /**
@@ -442,8 +383,6 @@ public class GUI extends EBAnwendung
             {
                 for (int row=1; row <=3; row ++)
                 {
-                    //ticBox[bigBox][row][column].setzeInhalt(pFeld[bigBox][row][column]);
-                    //wenn inhalt 1 oder 2 ist bei ticbox setze inhalt x oder O 
                     switch (pFeld[bigBox][row][column])
                     {
                         case 0: ticBox[bigBox][row][column].setzeInhalt(" "); 
@@ -452,9 +391,7 @@ public class GUI extends EBAnwendung
                         break;
                         case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
                         break; 
-
                     }
-
                 }
             }            
         }      
@@ -470,7 +407,6 @@ public class GUI extends EBAnwendung
      */
     public void gewuerfelt(int pa, int pb)
     {
-        //if(dran == true)
         {
             deaktiviere(); 
             int e = pa+pb;
@@ -493,7 +429,6 @@ public class GUI extends EBAnwendung
                 break;
                 case 11: aktiviere(3,3);
                 break;
-
             }
             switch (pa) {
                 case 1:  wuerfel1.setzeBild(w1);
@@ -523,7 +458,6 @@ public class GUI extends EBAnwendung
                 case 6:   wuerfel2.setzeBild(w6);
                 break;
             }
-
             Wuerfeln.deaktiviere();
             if(dran==true)
             {
@@ -564,25 +498,18 @@ public class GUI extends EBAnwendung
     {
         if (pAktiv == true)
         {
-
             werSpielt.setzeInhalt("am Zug: Du");
             werSpielt.aktiviere();
             Wuerfeln.aktiviere();
             if (debug) System.out.println("GUI"+guiNr+": Du bist dran mit Wuerfeln.");
             dran = true;
-            //meinBildschirm.nachVorn();
-            //meinBildschirm.privatPanel().requestFocus();
         }
         else if (pAktiv == false)
         {
-            //meinBildschirm.nachHinten();
             werSpielt.setzeInhalt("am Zug: Gegner");
             Wuerfeln.deaktiviere();
             dran = false;
-            //meinBildschirm.nachHinten();
-
         }
-
     }
 
     public void requestReset()

@@ -1,4 +1,3 @@
-// import sum.werkzeuge.*;
 import java.util.Random;
 /**
  * @author Finn Klessascheck, Jannick Mohr & Angelina Horn
@@ -27,7 +26,7 @@ public class Echoserver extends Server
     private final boolean debug = true;
 
     private Random ra;
-
+    
     public Echoserver()
     {
         super(5557); //Hiermit wird der Port "5557" und der Konstruktor von der Klasse "Server" übernommen
@@ -55,9 +54,7 @@ public class Echoserver extends Server
                     spielfeld[bigBox][row][column] = 0; 
                 }
             }            
-        }
-
-        
+        }        
     }
 
     // Dienste
@@ -117,7 +114,6 @@ public class Echoserver extends Server
         }
         if (wuerfeln(2)== 1)
         {
-
             send(spieler1, spieler1Port, "aktualisiere:"+spielfeldAusgeben());
             send(spieler2, spieler2Port, "aktualisiere:"+spielfeldAusgeben());
             send(spieler2, spieler2Port, "nichtAmZug: ");
@@ -130,7 +126,6 @@ public class Echoserver extends Server
         }
         else 
         {
-
             send(spieler2, spieler2Port, "aktualisiere:"+spielfeldAusgeben());
             send(spieler1, spieler1Port, "aktualisiere:"+spielfeldAusgeben());
             send(spieler1, spieler1Port, "nichtAmZug: ");
@@ -179,22 +174,6 @@ public class Echoserver extends Server
         {
             int xa = wuerfeln(6);
             int xb = wuerfeln(6);
-
-            /*switch (xa+xb)
-            {
-            case 12: while (xa+xb == 12)
-            {
-            xa=wuerfeln(6);
-            xb=wuerfeln(6);
-            }
-            break;
-            case 2: 
-            while (xa+xb == 2)
-            {
-            xa=wuerfeln(6);
-            xb=wuerfeln(6);
-            }
-            }*/
             if (xa+xb ==2 || xa+xb ==12)
             {
                 if(spieler1Dran == true)
@@ -257,7 +236,6 @@ public class Echoserver extends Server
                 }
             }
             feldUeberpruefen();
-
             send(spieler1, spieler1Port, "aktualisiere:" +spielfeldAusgeben());
             send(spieler2, spieler2Port, "aktualisiere:" +spielfeldAusgeben());           
             if (debug)
@@ -279,7 +257,6 @@ public class Echoserver extends Server
 
                     ausgabe +="\n";
                 }
-
                 System.out.println(ausgabe);
             }
             if (spieler1Dran && spielVorbei == false)
@@ -317,13 +294,12 @@ public class Echoserver extends Server
                     send(spieler2, spieler2Port, "gewonnen:spieler2");
                 }
             }
-
         }
         
         else if (b[0].compareTo("reset1")==0)
         {
-             spieler1reset = true;
-                send (spieler2, spieler2Port, "requestReset:");
+            spieler1reset = true;
+            send (spieler2, spieler2Port, "requestReset:");
                   if(debug)
             {
                 System.out.println("Spieler 1 hat Reset geklickt.");
@@ -350,8 +326,8 @@ public class Echoserver extends Server
         }
         else if (b[0].compareTo("reset2")==0)
         {
-             spieler2reset = true;
-                send (spieler1, spieler1Port, "requestReset:");
+            spieler2reset = true;
+            send (spieler1, spieler1Port, "requestReset:");
                   if(debug)
             {
                 System.out.println("Spieler 2 hat Reset geklickt.");

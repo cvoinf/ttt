@@ -1,4 +1,3 @@
-
 /**
  * @author 
  * @version 
@@ -93,7 +92,6 @@ public class Echoclient extends Client
                     }
                 }            
             }
-
             if (debug)
             {
                 System.out.print("EchoClient.processMessage() : ");
