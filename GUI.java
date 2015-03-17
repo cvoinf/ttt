@@ -138,7 +138,7 @@ public class GUI extends EBAnwendung
         int i=0;
 
         /**
-         * Hier werden die einzelnen ticBoxen aufwendig erzeugt. Dazu wird erst einmal das Array definiert,
+         * Hier werden die einzelnen ticBoxen AUFWEDNIGST erzeugt. Dazu wird erst einmal das Array definiert,
          * es umfasst [12](-3) BigBoxen fuer die einzelnen Wuerfelergebnisse, und je [4] fuer Breite und Hoehe.
          * Dann werden erst die bigBoxen durchgezaehlt, dann die Spalten, dann die Reihen.
          * Nach und nach wird nun mittels i hochgezaehlt, es werden ticBoxen erzeugt, wobei der Abstand, die Breite und die Hoehe miteingerechnet wird.
@@ -395,7 +395,19 @@ public class GUI extends EBAnwendung
             {
                 for (int row=1; row <=3; row ++)
                 {
-                    ticBox[bigBox][row][column].setzeInhalt(pFeld[bigBox][row][column]);
+                    //ticBox[bigBox][row][column].setzeInhalt(pFeld[bigBox][row][column]);
+                    //wenn inhalt 1 oder 2 ist bei ticbox setze inhalt x oder O 
+                    switch (pFeld[bigBox][row][column])
+                    {
+                     case 0: ticBox[bigBox][row][column].setzeInhalt(" "); 
+                     break;
+                     case 1: ticBox[bigBox][row][column].setzeInhalt("X");
+                     break;
+                     case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
+                     break; 
+                        
+                    }
+                  
                 }
             }            
         }      
