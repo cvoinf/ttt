@@ -50,6 +50,14 @@ public class GUI extends EBAnwendung
     final double aBreite =100;
     final double aHoehe = 30;
     final String aAufschrift = "Verbinden";
+    
+     // Hier wird der Lokales Spiel-Knopf definiert.
+    private Knopf lokalHosten;
+    final double vLinks=230 ;
+    final double vOben = 140;
+    final double vBreite =100;
+    final double vHoehe = 30;
+    final String vAufschrift = "lokal Hosten";
 
     // Hier wird das Textfeld fuer die Ip-Eingabe definiert.
     private Textfeld textfeldAddresse;
@@ -57,7 +65,6 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
- 
     final String tText = "10.68.112.9";
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
@@ -67,13 +74,6 @@ public class GUI extends EBAnwendung
     final double tBreite2 =500;
     final double tHoehe2 = 30;
     final String tText2 = "5557";  
-
-    // Hier wird das Wuerfel Ergebnis ausgegeben.
-    private Etikett wuerfelErgebnis;
-    final double cLinks = 130;
-    final double cOben = 130;
-    final double cBreite = 200;
-    final double cHoehe = 30;
 
     // Hier wird der Knopf zum Wuerfeln definiert.
     private Knopf Wuerfeln;
@@ -111,6 +111,8 @@ public class GUI extends EBAnwendung
 
     private static GUI spieler1;
     private static GUI spieler2;
+    
+    private Echoserver echoserver;
 
     // Attribute
     /**
@@ -163,12 +165,15 @@ public class GUI extends EBAnwendung
          */
         reset = new Knopf(pLinks, pOben, pBreite, pHoehe, pAufschrift);
         reset.setzeBearbeiterGeklickt("resetGeklickt");
-        //Aufgeben = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
+        
         Verbinden = new Knopf(aLinks, aOben, aBreite, aHoehe, aAufschrift);
         Verbinden.setzeBearbeiterGeklickt("VerbindenGeklickt");     
 
         textfeldAddresse = new Textfeld( tLinks, tOben, tBreite, tHoehe, tText);
         textfeldPort = new Textfeld (tLinks2, tOben2, tBreite2, tHoehe2, tText2);
+        
+        lokalHosten = new Knopf(vLinks, vOben, vBreite, vHoehe, vAufschrift);
+        lokalHosten.setzeBearbeiterGeklickt("lokalHostenGeklickt");
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
@@ -185,7 +190,7 @@ public class GUI extends EBAnwendung
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
 
-        wuerfelErgebnis = new Etikett(cLinks,cOben,cBreite,cHoehe,"");
+ 
         Wuerfeln.deaktiviere();
     }
 
@@ -202,6 +207,13 @@ public class GUI extends EBAnwendung
         }
     }
 
+    public void lokalHostenGeklickt()
+    {
+        echoserver = new Echoserver();
+        textfeldAddresse.setzeInhalt("localhost");
+        VerbindenGeklickt();
+    }
+    
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
      * Ip-Adresse und welchem Port man sich verbinden will.
@@ -238,10 +250,8 @@ public class GUI extends EBAnwendung
      */
     public void WuerfelnGeklickt()
     {
-
         echo.send("wuerfeln");
         Wuerfeln.deaktiviere();
-
     }
 
     public void deaktiviere()
@@ -448,7 +458,6 @@ public class GUI extends EBAnwendung
                 break;
 
             }
-            wuerfelErgebnis.setzeInhalt("Wuerfel 1:"+pa+" Wuerfel 2:"+pb);
             switch (pa) {
                 case 1:  wuerfel1.setzeBild(w1);
                 break;
