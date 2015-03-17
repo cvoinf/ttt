@@ -111,7 +111,7 @@ public class GUI extends EBAnwendung
     private static GUI spieler2;
 
     private Echoserver echoserver;
-    
+
     private Color hellgrau;
     private Color weiss;
 
@@ -178,10 +178,8 @@ public class GUI extends EBAnwendung
 
         Wuerfeln = new Knopf(bLinks, bOben, bBreite, bHoehe, bAufschrift);
         Wuerfeln.setzeBearbeiterGeklickt("WuerfelnGeklickt");
-        
-        
-        //Bilder muessen sich aktualisieren oder geloescht und neu erzeugt werden.
 
+        //Bilder muessen sich aktualisieren oder geloescht und neu erzeugt werden.
         werSpielt = new Etikett(fLinks,fOben,fBreite,fHoehe,fText);
         w1=  new Bild(-130,-180,20,20,"WW1.png");
         w2=  new Bild(-130,-180,20,20,"WW2.png");
@@ -194,7 +192,7 @@ public class GUI extends EBAnwendung
         wuerfel2= new Bild(30,160,20,20,w2);
 
         Wuerfeln.deaktiviere();
-        
+
         hellgrau = new Color(235,235,235);
         weiss = Color.WHITE;
     }
@@ -231,29 +229,30 @@ public class GUI extends EBAnwendung
         VerbindenGeklickt();
         textfeldAddresse.setzeInhalt(getLocalAddress());
     }
-    
-    
 
     private  String getLocalAddress(){
+        String adr = "localhost";
         try {
             Enumeration<NetworkInterface> b = NetworkInterface.getNetworkInterfaces();
             while( b.hasMoreElements()){
                 for ( InterfaceAddress f : b.nextElement().getInterfaceAddresses())
+                {                       
+                    String adresse = f.getAddress().toString();
+                    adresse = adresse.replace("/", "");
+                    if (debug) System.out.println("GUI"+guiNr+": gefundene Adresse:"+adresse);
                     if ( f.getAddress().isSiteLocalAddress())
                     {
-                        String adresse = f.getAddress().toString();
-                        adresse = adresse.replace("/", "");
-                        return adresse;
+
+                        adr= adresse;
                     }
+                }
             }
         } catch (SocketException e) {
             e.printStackTrace();
         }
-        return "localhost";
+        return adr;
     }
 
-
-    
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
@@ -353,10 +352,10 @@ public class GUI extends EBAnwendung
                         ticBox[bigBox][row][column].aktiviere();
                         ticBox[bigBox][row][column].setzeFarbe(hellgrau);
                     }
-                  else
-                  {
-                    ticBox[bigBox][row][column].setzeFarbe(weiss);
-                  }
+                    else
+                    {
+                        ticBox[bigBox][row][column].setzeFarbe(weiss);
+                    }
                 }
             }
         }
