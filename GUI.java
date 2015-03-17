@@ -1,6 +1,12 @@
 import sum.komponenten.*;
 import sum.ereignis.*;
+import java.awt.Color;
 import sum.multimedia.Bild;
+import java.net.InetAddress;
+import java.util.Enumeration;
+import java.net.NetworkInterface;
+import java.net.InterfaceAddress;
+import java.net.SocketException;
 /**
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
  * 
@@ -59,7 +65,7 @@ public class GUI extends EBAnwendung
     final double tOben = 50;
     final double tBreite =500;
     final double tHoehe = 30;
-    final String tText = "10.68.112.9";
+    final String tText = "localhost";
 
     // Hier wird das Textfeld fuer die Port-Eingabe definiert.
     private Textfeld textfeldPort;
@@ -105,6 +111,9 @@ public class GUI extends EBAnwendung
     private static GUI spieler2;
 
     private Echoserver echoserver;
+    
+    private Color hellgrau;
+    private Color weiss;
 
     // Attribute
     /**
@@ -185,6 +194,9 @@ public class GUI extends EBAnwendung
         wuerfel2= new Bild(30,160,20,20,w2);
 
         Wuerfeln.deaktiviere();
+        
+        hellgrau = new Color(235,235,235);
+        weiss = Color.WHITE;
     }
 
     public void resetGeklickt1()
@@ -217,7 +229,31 @@ public class GUI extends EBAnwendung
         echoserver = new Echoserver();
         textfeldAddresse.setzeInhalt("localhost");
         VerbindenGeklickt();
+        textfeldAddresse.setzeInhalt(getLocalAddress());
     }
+    
+    
+
+    private  String getLocalAddress(){
+        try {
+            Enumeration<NetworkInterface> b = NetworkInterface.getNetworkInterfaces();
+            while( b.hasMoreElements()){
+                for ( InterfaceAddress f : b.nextElement().getInterfaceAddresses())
+                    if ( f.getAddress().isSiteLocalAddress())
+                    {
+                        String adresse = f.getAddress().toString();
+                        adresse = adresse.replace("/", "");
+                        return adresse;
+                    }
+            }
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return "localhost";
+    }
+
+
+    
 
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
@@ -262,9 +298,14 @@ public class GUI extends EBAnwendung
     public void deaktiviere()
     { 
         for (int bigBox = 1; bigBox <=9; bigBox++)
-        { for (int column = 1; column<4; column++)
-            { for (int row = 1; row < 4; row++)
+        { 
+            for (int column = 1; column<4; column++)
+            { 
+                for (int row = 1; row < 4; row++)
+                {
                     ticBox[bigBox][row][column].deaktiviere();
+                    ticBox[bigBox][row][column].setzeFarbe(weiss);
+                }
             }
         }
         meinBildschirm.repaint();      
@@ -283,6 +324,12 @@ public class GUI extends EBAnwendung
                 if((ticBox[bigBox][row][column].inhaltAlsText())==" ")
                 {
                     ticBox[bigBox][row][column].aktiviere();
+                    ticBox[bigBox][row][column].setzeFarbe(hellgrau);
+                }
+                else
+                {
+                    ticBox[bigBox][row][column].deaktiviere();
+                    ticBox[bigBox][row][column].setzeFarbe(weiss);
                 }
 
             }
@@ -304,7 +351,12 @@ public class GUI extends EBAnwendung
                 { if((ticBox[bigBox][row][column].inhaltAlsText())==" ")
                     {
                         ticBox[bigBox][row][column].aktiviere();
+                        ticBox[bigBox][row][column].setzeFarbe(hellgrau);
                     }
+                  else
+                  {
+                    ticBox[bigBox][row][column].setzeFarbe(weiss);
+                  }
                 }
             }
         }
