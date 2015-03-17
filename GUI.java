@@ -100,7 +100,7 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-    final boolean debug = false;
+    final boolean debug = true;
 
     private static int guiNr=0;
 
