@@ -23,7 +23,7 @@ GUI:
 *Das vom Gegener zuletzt eingegebene Feld wird markiert
 
 Server:
-* Gesamt Spiel Sieg wird nicht erkannt(?)
+* Gesamt Spiel Sieg wird nicht in GUI ausgegeben
 * Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
 
 
