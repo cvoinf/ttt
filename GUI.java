@@ -228,6 +228,8 @@ public class GUI extends EBAnwendung
         textfeldAddresse.setzeInhalt("localhost");
         VerbindenGeklickt();
         textfeldAddresse.setzeInhalt(getLocalAddress());
+        Verbinden.deaktiviere();
+        lokalHosten.deaktiviere();
     }
 
     private  String getLocalAddress(){
@@ -308,7 +310,7 @@ public class GUI extends EBAnwendung
             }
         }
         meinBildschirm.repaint();      
-        if (debug) System.out.println("GUI"+guiNr+": Alles Knoepfe wurden deaktiviert.");
+        if (debug) System.out.println("GUI"+guiNr+": Alle Knoepfe wurden deaktiviert.");
     }
 
     /**
