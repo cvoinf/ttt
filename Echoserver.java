@@ -180,6 +180,8 @@ public class Echoserver extends Server
                 {
                     spieler1Dran = false;
                     spieler2Dran = true;
+                    send(spieler1, spieler1Port, "wuerfel:" + xa+","+xb);
+                    send(spieler2, spieler2Port, "wuerfel:" + xa+","+xb);
                     send(spieler2, spieler2Port, "zugBeginnt: ");
                     send(spieler1, spieler1Port, "nichtAmZug: ");
                     if(debug)
@@ -191,6 +193,8 @@ public class Echoserver extends Server
                 {
                     spieler1Dran = true;
                     spieler2Dran = false;
+                    send(spieler1, spieler1Port, "wuerfel:" + xa+","+xb);
+                    send(spieler2, spieler2Port, "wuerfel:" + xa+","+xb);
                     send(spieler2, spieler2Port, "nichtAmZug: ");
                     send(spieler1, spieler1Port, "zugBeginnt: ");
                     if(debug)
