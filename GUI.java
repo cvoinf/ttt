@@ -11,7 +11,7 @@ import java.net.SocketException;
  * Die Klasse SuMAnwendung wurde nicht automatisch erstellt: 
  * 
  * @author Jesko
- * @version 7.03.2014
+ * @version 19.03.2014
  */
 
 public class GUI extends EBAnwendung
@@ -225,14 +225,11 @@ public class GUI extends EBAnwendung
     public void lokalHostenGeklickt()
     {
         echoserver = new Echoserver();
-        textfeldAddresse.setzeInhalt("localhost");
-        VerbindenGeklickt();
         textfeldAddresse.setzeInhalt(getLocalAddress());
-        Verbinden.deaktiviere();
-        lokalHosten.deaktiviere();
+        VerbindenGeklickt();
     }
 
-    private  String getLocalAddress(){
+    private String getLocalAddress(){
         String adr = "localhost";
         try {
             Enumeration<NetworkInterface> b = NetworkInterface.getNetworkInterfaces();
@@ -255,13 +252,16 @@ public class GUI extends EBAnwendung
         return adr;
     }
 
-
     /**
      * Hier wurde der Knopf "Verbinden" geklickt, wodurch dem Echoclient uebergeben wird, mit welcher
      * Ip-Adresse und welchem Port man sich verbinden will.
      */
     public void VerbindenGeklickt()
     {
+        if (textfeldAddresse.inhaltAlsText()=="localhost" || textfeldAddresse.inhaltAlsText()=="localhost " || textfeldAddresse.inhaltAlsText()=="lokalHost")
+        {
+            textfeldAddresse.setzeInhalt(getLocalAddress());
+        }
         try
         {
             echo = new Echoclient(textfeldAddresse.inhaltAlsText(), Integer.parseInt(textfeldPort.inhaltAlsText()), this);
@@ -274,6 +274,7 @@ public class GUI extends EBAnwendung
                     Verbinden.deaktiviere();
                     textfeldAddresse.deaktiviere();
                     textfeldPort.deaktiviere();
+                    lokalHosten.deaktiviere();
                 }
                 else
                 {
