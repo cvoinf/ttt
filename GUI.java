@@ -92,6 +92,10 @@ public class GUI extends EBAnwendung
     private Bild w4;
     private Bild w5;
     private Bild w6;
+    private Bild victory;
+    private Bild siegesBild;
+    private Bild lose;
+    private Bild loseBild;
 
     private Etikett werSpielt;
     final double fLinks = 130;
@@ -187,10 +191,12 @@ public class GUI extends EBAnwendung
         w4=  new Bild(-130,-180,20,20,"WW4.png");
         w5=  new Bild(-130,-180,20,20,"WW5.png");
         w6=  new Bild(-130,-180,20,20,"WW6.png");
-
+        victory= new Bild (625, 200, 200, 270);
+        siegesBild= new Bild (-200, 200, 200,270,"victorySkaliert.jpg");
+        lose= new Bild (625, 200, 200, 270);
+        loseBild= new Bild (-200, 200, 200,270,"loseSkaliert.jpg");
         wuerfel1= new Bild(30,80,20,20,w1);
         wuerfel2= new Bild(30,160,20,20,w2);
-
         Wuerfeln.deaktiviere();
 
         hellgrau = new Color(235,235,235);
@@ -533,6 +539,7 @@ public class GUI extends EBAnwendung
         {
             System.out.println("Du hast gewonnen!");
         }
+        victory.setzeBild(siegesBild);
     }
 
     /**
@@ -545,6 +552,7 @@ public class GUI extends EBAnwendung
         {
             System.out.println("Du hast verloren!");
         }
+        lose.setzeBild(loseBild);
     }
 
     public void duSpielst (boolean pAktiv)
