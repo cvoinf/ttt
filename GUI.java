@@ -118,6 +118,7 @@ public class GUI extends EBAnwendung
 
     private Color hellgrau;
     private Color weiss;
+    private String spielerNr;;
 
     // Attribute
     /**
@@ -209,7 +210,11 @@ public class GUI extends EBAnwendung
         if(spieler1 != null)
         {
             // spieler1.resetGeklickt();
-            echo.send("reset1");
+            
+            if (spielerNr.compareTo("spieler1")==0)
+                echo.send("reset1");
+            else 
+                echo.send("reset2");
         }
         else 
             System.out.println("Fehler in knopfGeklickt1()");
@@ -222,7 +227,10 @@ public class GUI extends EBAnwendung
         if(spieler2 != null)
         {
             //spieler2.resetGeklickt();
-            echo.send("reset2");
+            if (spielerNr.compareTo("spieler1")==0)
+                echo.send("reset1");
+            else 
+                echo.send("reset2");
         }
         else 
             System.out.println("Fehler in knopfGeklickt2()");
@@ -581,6 +589,11 @@ public class GUI extends EBAnwendung
     public void nachVorne()
     {
         meinBildschirm.nachVorn();
+    }
+    
+    public void duBistSpieler(String pSpielerNr)
+    {
+        pSpielerNr = spielerNr;
     }
 }
 
