@@ -46,11 +46,14 @@ public class Echoclient extends Client
             {
                 symbol = 1;
                 spielerNummer = "spieler1";
+                zGUI.duBistSpieler(spielerNummer);
+                
             }
             else if(b[1].compareTo("Kreis")==0)
             {
                 symbol = 2;
                 spielerNummer = "spieler2";
+                zGUI.duBistSpieler(spielerNummer);
             }
             else
             {
