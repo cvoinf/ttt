@@ -26,7 +26,17 @@ public class Echoserver extends Server
     private final boolean debug = true;
 
     private Random ra;
-    
+
+    private int feld1;
+    private int feld2;
+    private int feld3;
+    private int feld4;
+    private int feld5;
+    private int feld6;
+    private int feld7;
+    private int feld8;
+    private int feld9;
+
     public Echoserver()
     {
         super(5557); //Hiermit wird der Port "5557" und der Konstruktor von der Klasse "Server" übernommen
@@ -54,7 +64,17 @@ public class Echoserver extends Server
                     spielfeld[bigBox][row][column] = 0; 
                 }
             }            
-        }        
+        }
+
+        int feld1 =0;
+        int feld2=0;
+        int feld3=0;
+        int feld4=0;
+        int feld5=0;
+        int feld6=0;
+        int feld7=0;
+        int feld8=0;
+        int feld9=0;
     }
 
     // Dienste
@@ -174,7 +194,8 @@ public class Echoserver extends Server
         {
             int xa = wuerfeln(6);
             int xb = wuerfeln(6);
-            if (xa+xb ==2 || xa+xb ==12)
+
+            if (xa+xb ==2 || xa+xb ==12 || wuerfelUeberpruefen(xa,xb) == false)
             {
                 if(spieler1Dran == true)
                 {
@@ -230,7 +251,7 @@ public class Echoserver extends Server
                 int z1 = Integer.parseInt(c[1]);
                 int z2 = Integer.parseInt(c[2]);
                 spielfeld[z0][z1][z2] = 2;
-                if(debug)
+
                 {
                     System.out.println("Server: Spielfeld von Spieler 2 bekommen");
                 }
@@ -295,12 +316,12 @@ public class Echoserver extends Server
                 }
             }
         }
-        
+
         else if (b[0].compareTo("reset1")==0)
         {
             spieler1reset = true;
             send (spieler2, spieler2Port, "requestReset:");
-                  if(debug)
+            if(debug)
             {
                 System.out.println("Spieler 1 hat Reset geklickt.");
             }
@@ -328,7 +349,7 @@ public class Echoserver extends Server
         {
             spieler2reset = true;
             send (spieler1, spieler1Port, "requestReset:");
-                  if(debug)
+            if(debug)
             {
                 System.out.println("Spieler 2 hat Reset geklickt.");
             }
@@ -457,14 +478,14 @@ public class Echoserver extends Server
         }
         else
         {
-            if(debug)
-            {
-                System.out.println("feldGleich = false" + 
-                    " boxUeberpruefen("+pFeld1+") = "+boxUeberpruefen(pFeld1) +
-                    " boxUeberpruefen("+pFeld2+") = "+boxUeberpruefen(pFeld2) +
-                    " boxUeberpruefen("+pFeld3+") = "+boxUeberpruefen(pFeld3) 
-                );
-            }
+            //             if(debug)
+            //             {
+            //                 System.out.println("feldGleich = false" + 
+            //                     " boxUeberpruefen("+pFeld1+") = "+boxUeberpruefen(pFeld1) +
+            //                     " boxUeberpruefen("+pFeld2+") = "+boxUeberpruefen(pFeld2) +
+            //                     " boxUeberpruefen("+pFeld3+") = "+boxUeberpruefen(pFeld3) 
+            //                 );
+            //             }
             return false;
         }
     }
@@ -604,6 +625,80 @@ public class Echoserver extends Server
             System.out.println("Server: box überprüft");
         }
         return sieger;
+    }
+
+    private boolean wuerfelUeberpruefen(int pa, int pb)
+    {
+        int e = pa+pb;        
+        boolean ergebnis = false;
+        switch (e) {
+            case 3:  
+            if (feld1 < 9)
+            {
+                feld1++;
+                ergebnis = true;
+            }
+            break;
+
+            case 4: 
+            if (feld2 < 9)
+            {
+                feld2++;
+                ergebnis = true;
+            }
+            break;
+
+            case 5:             
+            if (feld3 < 9)
+            {
+                feld3++;
+                ergebnis = true;
+            }
+            break;
+
+            case 6:              
+            if (feld4 < 9){
+                feld4++;
+                ergebnis = true;
+            }
+            break;
+
+            case 7:              
+            if (feld5 < 9){
+                feld5++;
+                ergebnis = true;
+            }
+            break;
+
+            case 8:              
+            if (feld6 < 9){
+                feld6++;
+                ergebnis = true;
+            }
+            break;
+
+            case 9:              
+            if (feld7 < 9){
+                feld7++;
+                ergebnis = true;
+            }
+            break;
+
+            case 10:              
+            if (feld8 < 9){
+                feld8++;
+                ergebnis = true;
+            }
+            break;
+
+            case 11:             
+            if (feld9 < 9){
+                feld9++;
+                ergebnis = true;
+            }
+            break;
+        }
+        return ergebnis;
     }
 
     public void processClosedConnection(String pClientIP, int pClientPort) 
