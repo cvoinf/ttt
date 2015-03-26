@@ -207,11 +207,11 @@ public class GUI extends EBAnwendung
     public void resetGeklickt1()
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt1: Es wurde ein Knopf geklickt.");
-        if(spieler1 != null)
+        if(spielerNr != null)
         {
             // spieler1.resetGeklickt();
             
-            if (spielerNr.compareTo("spieler1")==0)
+            if ("spieler1".compareTo(spielerNr)==0)
                 echo.send("reset1");
             else 
                 echo.send("reset2");
@@ -224,7 +224,7 @@ public class GUI extends EBAnwendung
     {
         if (debug) System.out.println("GUI"+guiNr+".resetGeklickt2: Es wurde ein Knopf geklickt.");
 
-        if(spieler2 != null)
+        if(spielerNr != null)
         {
             //spieler2.resetGeklickt();
             if (spielerNr.compareTo("spieler1")==0)
@@ -594,6 +594,7 @@ public class GUI extends EBAnwendung
     public void duBistSpieler(String pSpielerNr)
     {
         pSpielerNr = spielerNr;
+         if (debug) System.out.println("GUI"+guiNr+".duBistSpieler:"+spielerNr);
     }
 }
 
