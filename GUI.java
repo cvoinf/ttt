@@ -593,7 +593,7 @@ public class GUI extends EBAnwendung
     
     public void duBistSpieler(String pSpielerNr)
     {
-        pSpielerNr = spielerNr;
+        spielerNr = pSpielerNr;
          if (debug) System.out.println("GUI"+guiNr+".duBistSpieler:"+spielerNr);
     }
 }
