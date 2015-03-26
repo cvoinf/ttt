@@ -18,7 +18,7 @@ public class Echoclient extends Client
 
     private boolean zugAktiv = false;
 
-    private boolean debug = false;
+    private boolean debug = true;
 
     // Attribute
     // Konstruktor
@@ -40,6 +40,7 @@ public class Echoclient extends Client
     {
         nachricht = text;
         String b[] = text.split(":");
+        if (debug) System.out.println(text);
         if (b[0].compareTo("symbol")==0) //Spieler1 hat Kreuz, 2 hat Kreis
         {
             if(b[1].compareTo("Kreuz")==0)

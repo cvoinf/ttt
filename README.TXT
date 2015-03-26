@@ -22,11 +22,6 @@ GUI:
 *Server starten-Knopf, IP wird bei Server abgefragt und in das Textfeld übernommen, automatisch verbinden.
 *Das vom Gegener zuletzt eingegebene Feld wird markiert
 
-Server:
-* Gesamt Spiel Sieg wird nicht in GUI ausgegeben
-* Wenn alle von einer Zeilen- und Spaltenzahl belegt sind, ist es zu Ende.
-
-
 
 
 
