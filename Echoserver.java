@@ -638,7 +638,7 @@ public class Echoserver extends Server
             {
                 feld1++;
                 ergebnis = true;
-                System.out.println("Feld1: "+feld1);
+                if (debug) System.out.println("Feld1: "+feld1);
             }
             break;
 
@@ -647,7 +647,7 @@ public class Echoserver extends Server
             {
                 feld2++;
                 ergebnis = true;
-                System.out.println("Feld2: "+feld2);
+                if (debug) System.out.println("Feld2: "+feld2);
             }
             break;
 
@@ -656,7 +656,7 @@ public class Echoserver extends Server
             {
                 feld3++;
                 ergebnis = true;
-                System.out.println("Feld3: "+feld3);
+                if (debug) System.out.println("Feld3: "+feld3);
             }
             break;
 
@@ -664,7 +664,7 @@ public class Echoserver extends Server
             if (feld4 < 8){
                 feld4++;
                 ergebnis = true;
-                System.out.println("Feld4: "+feld4);
+                if (debug) System.out.println("Feld4: "+feld4);
             }
             break;
 
@@ -672,7 +672,7 @@ public class Echoserver extends Server
             if (feld5 < 8){
                 feld5++;
                 ergebnis = true;
-                System.out.println("Feld5: "+feld5);
+                if (debug) System.out.println("Feld5: "+feld5);
             }
             break;
 
@@ -680,7 +680,7 @@ public class Echoserver extends Server
             if (feld6 < 8){
                 feld6++;
                 ergebnis = true;
-                System.out.println("Feld6: "+feld6);
+                if (debug) System.out.println("Feld6: "+feld6);
             }
             break;
 
@@ -688,7 +688,7 @@ public class Echoserver extends Server
             if (feld7 < 8){
                 feld7++;
                 ergebnis = true;
-                System.out.println("Feld7: "+feld7);
+                if (debug) System.out.println("Feld7: "+feld7);
             }
             break;
 
@@ -696,7 +696,7 @@ public class Echoserver extends Server
             if (feld8 < 8){
                 feld8++;
                 ergebnis = true;
-                System.out.println("Feld8: "+feld8);
+                if (debug) System.out.println("Feld8: "+feld8);
             }
             break;
 
@@ -704,7 +704,7 @@ public class Echoserver extends Server
             if (feld9 < 8){
                 feld9++;
                 ergebnis = true;
-                System.out.println("Feld9: "+feld9);
+                if (debug) System.out.println("Feld9: "+feld9);
             }
             break;
         }
