@@ -458,7 +458,8 @@ public class GUI extends EBAnwendung
                         break;
                         case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
                         break; 
-                    }
+                    } 
+                    ticBox[bigBox][row][column].setzeSchriftgroesse(22);
                 }
             }            
         }      
