@@ -156,6 +156,8 @@ public class Echoserver extends Server
                 System.out.println("Server: Spieler 2 dran");
             }
         }
+        spieler1reset = false;
+        spieler2reset = false;
 
     }
 
