@@ -17,10 +17,8 @@ BENUTZERHINWEISE:
 
 TODO:
 
-GUI:
-*Reset-Knopf, zusammen mit Server zum Übergeben und Reset des Feldes. Momentan ist der Reset nur optisch beim Reset-Client!
-*Server starten-Knopf, IP wird bei Server abgefragt und in das Textfeld übernommen, automatisch verbinden.
-*Das vom Gegener zuletzt eingegebene Feld wird markiert
+Server:
+*IP bezieht sich auf die interne IP..
 
 
 

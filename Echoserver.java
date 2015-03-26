@@ -66,15 +66,6 @@ public class Echoserver extends Server
             }            
         }
 
-        int feld1 =0;
-        int feld2=0;
-        int feld3=0;
-        int feld4=0;
-        int feld5=0;
-        int feld6=0;
-        int feld7=0;
-        int feld8=0;
-        int feld9=0;
     }
 
     // Dienste
@@ -257,7 +248,7 @@ public class Echoserver extends Server
                 int z1 = Integer.parseInt(c[1]);
                 int z2 = Integer.parseInt(c[2]);
                 spielfeld[z0][z1][z2] = 2;
-
+                if (debug)
                 {
                     System.out.println("Server: Spielfeld von Spieler 2 bekommen");
                 }
@@ -643,68 +634,77 @@ public class Echoserver extends Server
         boolean ergebnis = false;
         switch (e) {
             case 3:  
-            if (feld1 < 9)
+            if (feld1 < 8)
             {
                 feld1++;
                 ergebnis = true;
+                System.out.println("Feld1: "+feld1);
             }
             break;
 
             case 4: 
-            if (feld2 < 9)
+            if (feld2 < 8)
             {
                 feld2++;
                 ergebnis = true;
+                System.out.println("Feld2: "+feld2);
             }
             break;
 
             case 5:             
-            if (feld3 < 9)
+            if (feld3 < 8)
             {
                 feld3++;
                 ergebnis = true;
+                System.out.println("Feld3: "+feld3);
             }
             break;
 
             case 6:              
-            if (feld4 < 9){
+            if (feld4 < 8){
                 feld4++;
                 ergebnis = true;
+                System.out.println("Feld4: "+feld4);
             }
             break;
 
             case 7:              
-            if (feld5 < 9){
+            if (feld5 < 8){
                 feld5++;
                 ergebnis = true;
+                System.out.println("Feld5: "+feld5);
             }
             break;
 
             case 8:              
-            if (feld6 < 9){
+            if (feld6 < 8){
                 feld6++;
                 ergebnis = true;
+                System.out.println("Feld6: "+feld6);
             }
             break;
 
             case 9:              
-            if (feld7 < 9){
+            if (feld7 < 8){
                 feld7++;
                 ergebnis = true;
+                System.out.println("Feld7: "+feld7);
             }
             break;
 
             case 10:              
-            if (feld8 < 9){
+            if (feld8 < 8){
                 feld8++;
                 ergebnis = true;
+                System.out.println("Feld8: "+feld8);
             }
             break;
 
             case 11:             
-            if (feld9 < 9){
+            if (feld9 < 8){
                 feld9++;
                 ergebnis = true;
+                System.out.println("Feld9: "+feld9);
             }
             break;
         }

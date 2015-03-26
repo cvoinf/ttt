@@ -104,7 +104,7 @@ public class GUI extends EBAnwendung
     final double fHoehe = 30;
     final String fText = "am Zug:";
 
-    final boolean debug = true;
+    final boolean debug = false;
 
     private static int guiNr=0;
 
@@ -459,8 +459,8 @@ public class GUI extends EBAnwendung
                         case 2: ticBox[bigBox][row][column].setzeInhalt("O"); 
                         break; 
                     } 
-                    ticBox[bigBox][row][column].setzeSchriftgroesse(22);
-                }
+                    ticBox[bigBox][row][column].setzeSchriftgroesse(22); 
+                } 
             }            
         }      
         meinBildschirm.repaint();
