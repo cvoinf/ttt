@@ -349,6 +349,8 @@ public class Echoserver extends Server
                 {
                     System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
                 }
+                spieler1reset = false;
+                spieler2reset = false;
             }
         }
         else if (b[0].compareTo("reset2")==0)
@@ -377,6 +379,8 @@ public class Echoserver extends Server
                 {
                     System.out.println("Das Spielfeld wurde resettet und Start() aufgerufen.");
                 }
+                spieler1reset = false;
+                spieler2reset = false;
             }
         }
     }
