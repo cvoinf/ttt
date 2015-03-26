@@ -288,6 +288,7 @@ public class GUI extends EBAnwendung
                     Verbinden.deaktiviere();
                     textfeldAddresse.deaktiviere();
                     textfeldPort.deaktiviere();
+                    lokalHosten.deaktiviere();
                 }
                 else
                 {

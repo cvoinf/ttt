@@ -200,7 +200,7 @@ public class Echoserver extends Server
                     send(spieler1, spieler1Port, "nichtAmZug: ");
                     if(debug)
                     {
-                        System.out.println("Spieler1 muss aussetzen");
+                        System.out.println("Spieler1 muss wegen 12 oder 2 aussetzen");
                     }
                 }
                 else if(spieler2Dran == true)
@@ -213,7 +213,7 @@ public class Echoserver extends Server
                     send(spieler1, spieler1Port, "zugBeginnt: ");
                     if(debug)
                     {
-                        System.out.println("Spieler2 muss aussetzen");
+                        System.out.println("Spieler2 muss wegen 12 oder 2 aussetzen");
                     }
                 }
             }

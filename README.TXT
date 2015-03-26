@@ -19,8 +19,7 @@ TODO:
 
 Server:
 *IP bezieht sich auf die interne IP..
-
-
+*Bei BigBoxen muss sich die Server int feld1-9 +9, wenn diese noch nicht addiert wurden.
 
 
 
